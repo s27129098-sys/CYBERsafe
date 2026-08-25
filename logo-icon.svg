@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0F1D"/>
+      <stop offset="100%" stop-color="#111A2E"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3E7BFA"/>
+      <stop offset="100%" stop-color="#8C7CF0"/>
+    </linearGradient>
+    <linearGradient id="shieldFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E355E"/>
+      <stop offset="100%" stop-color="#16213A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+  <!-- signal rings -->
+  <circle cx="256" cy="256" r="168" fill="none" stroke="#3E7BFA" stroke-width="2" opacity="0.18"/>
+  <circle cx="256" cy="256" r="196" fill="none" stroke="#3E7BFA" stroke-width="1.5" opacity="0.10"/>
+
+  <!-- shield -->
+  <path d="M256 96L368 136V232C368 312 320 368 256 396C192 368 144 312 144 232V136L256 96Z"
+        fill="url(#shieldFill)" stroke="url(#shieldGrad)" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- checkmark -->
+  <path d="M204 254L240 292L316 208" stroke="url(#shieldGrad)" stroke-width="20"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
