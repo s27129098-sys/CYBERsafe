@@ -292,5 +292,235 @@ function checkUrl(){
     + '<p style="font-size:12px;color:var(--text-dim);margin-top:14px;">'+t('url_disclaimer')+'</p>';
 }
 
+/* ---------- COUNTRY ENTRY ---------- */
+/* ready:true = the site is already translated into that language.
+   ready:false = volunteers are still translating; the option is shown but not selectable yet. */
+var COUNTRIES=[
+ {id:'860', code:'UZ', name:'Uzbekistan', native:'Oʻzbekiston',
+  langs:[{name:'Oʻzbekcha', tag:'UZ', lang:'uz', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'398', code:'KZ', name:'Kazakhstan', native:'Қазақстан',
+  langs:[{name:'Қазақша', tag:'KK', lang:'kk', ready:false},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'586', code:'PK', name:'Pakistan', native:'پاکستان',
+  langs:[{name:'اردو', tag:'UR', lang:'ur', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'360', code:'ID', name:'Indonesia', native:'Indonesia',
+  langs:[{name:'Bahasa Indonesia', tag:'ID', lang:'id', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'036', code:'AU', name:'Australia', native:'Australia',
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'724', code:'ES', name:'Spain', native:'España',
+  langs:[{name:'Español', tag:'ES', lang:'es', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'288', code:'GH', name:'Ghana', native:'Ghana',
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]}
+];
+var COUNTRY_BY_ID={}; COUNTRIES.forEach(function(c){ COUNTRY_BY_ID[c.id]=c; });
+
+var entryEl=document.getElementById('entry');
+var entryStage=document.getElementById('entryStage');
+var entryPanel=document.getElementById('entryPanel');
+var countryBadge=document.getElementById('countryBadge');
+var savedCountry=null;
+try{ savedCountry=window.localStorage.getItem('csuz_country'); }catch(e){}
+
+var globe={ready:false, selected:null, spinning:true, flight:null, size:0, base:0};
+
+function openEntry(){ entryEl.classList.add('open'); entryEl.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; if(globe.ready) globeLayout(); }
+function closeEntry(){ entryEl.classList.remove('open'); entryEl.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+
+document.getElementById('entryMenu').innerHTML = COUNTRIES.map(function(c){
+  return '<button class="c-chip" data-id="'+c.id+'" aria-pressed="false"><span class="dot"></span>'+c.name+'<span class="cc">'+c.code+'</span></button>';
+}).join('');
+document.getElementById('entryMenu').addEventListener('click', function(e){
+  var btn=e.target.closest('.c-chip');
+  if(btn) selectCountry(btn.dataset.id);
+});
+
+function selectCountry(id){
+  var c=COUNTRY_BY_ID[id];
+  globe.selected=id;
+  document.getElementById('globeHint').style.opacity=0;
+  document.getElementById('globeBack').classList.add('on');
+  Array.prototype.forEach.call(document.querySelectorAll('.c-chip'), function(b){
+    b.setAttribute('aria-pressed', String(b.dataset.id===id));
+  });
+  var pending=c.langs.filter(function(l){ return !l.ready; });
+  entryPanel.hidden=false;
+  entryStage.classList.add('selected');
+  entryPanel.innerHTML =
+    '<span class="eyebrow-mini">Step 2 — choose a language</span>'
+    + '<h2 style="margin-top:12px;">'+c.name+'</h2>'
+    + '<p>Lessons, quizzes and the phishing lab, in the languages students in '+c.native+' actually use.</p>'
+    + '<div class="lang-list">'+c.langs.map(function(l){
+        return '<button class="lang-opt" data-lang="'+l.lang+'"'+(l.ready?'':' disabled')+'>'
+          + '<span class="name">'+l.name+'</span><span class="tag">'+(l.ready?l.tag:'SOON')+'</span></button>';
+      }).join('')+'</div>'
+    + (pending.length ? '<p class="lang-note">'+pending.map(function(l){return l.name;}).join(' and ')
+        +' '+(pending.length>1?'are':'is')+' being translated by the '+c.code+' team. Pick another language for now.</p>' : '')
+    + '<button class="entry-back" id="entryBackBtn">← All countries</button>';
+  if(globe.ready){ globeLayout(); globeFlyTo(id); }
+}
+
+function resetCountry(){
+  globe.selected=null;
+  document.getElementById('globeBack').classList.remove('on');
+  Array.prototype.forEach.call(document.querySelectorAll('.c-chip'), function(b){ b.setAttribute('aria-pressed','false'); });
+  entryPanel.hidden=true;
+  entryStage.classList.remove('selected');
+  if(globe.ready){ globeLayout(); globeFlyTo(null); }
+}
+
+entryPanel.addEventListener('click', function(e){
+  if(e.target.closest('#entryBackBtn')) return resetCountry();
+  var opt=e.target.closest('.lang-opt');
+  if(!opt || opt.disabled) return;
+  var c=COUNTRY_BY_ID[globe.selected];
+  currentLang=opt.dataset.lang;
+  try{
+    window.localStorage.setItem('csuz_lang', currentLang);
+    window.localStorage.setItem('csuz_country', c.id);
+  }catch(err){}
+  countryBadge.textContent=c.code;
+  applyLanguage();
+  closeEntry();
+});
+
+document.getElementById('globeBack').addEventListener('click', resetCountry);
+countryBadge.addEventListener('click', function(){
+  openEntry();
+  if(globe.selected) resetCountry();
+});
+
+if(savedCountry && COUNTRY_BY_ID[savedCountry]) countryBadge.textContent=COUNTRY_BY_ID[savedCountry].code;
+else openEntry();
+
+/* ---------- globe ---------- */
+(function(){
+  if(typeof d3==='undefined' || typeof topojson==='undefined') return;
+  var canvas=document.getElementById('globe'), wrap=document.getElementById('globeWrap');
+  var ctx=canvas.getContext('2d');
+  var projection=d3.geoOrthographic().clipAngle(90).precision(0.4).rotate([-66,-44,0]);
+  var path=d3.geoPath(projection, ctx);
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var land=[], borders=null, graticule=d3.geoGraticule10(), featureOf={};
+
+  fetch('world-110m.json').then(function(r){ return r.json(); }).then(function(world){
+    land=topojson.feature(world, world.objects.countries).features;
+    borders=topojson.mesh(world, world.objects.countries, function(a,b){ return a!==b; });
+    land.forEach(function(f){ if(COUNTRY_BY_ID[f.id]) featureOf[f.id]=f; });
+    globe.ready=true; globe.spinning=!reduced;
+    globeLayout();
+    if(globe.selected) globeFlyTo(globe.selected);
+  }).catch(function(){});
+
+  window.globeLayout=function(){
+    var rect=wrap.getBoundingClientRect();
+    globe.size=Math.max(240, Math.min(rect.width||360, 520));
+    var dpr=Math.min(window.devicePixelRatio||1, 2);
+    canvas.width=globe.size*dpr; canvas.height=globe.size*dpr;
+    canvas.style.width=globe.size+'px'; canvas.style.height=globe.size+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    globe.base=globe.size/2-6;
+    projection.translate([globe.size/2, globe.size/2]);
+    if(!globe.selected) projection.scale(globe.base);
+    draw();
+  };
+
+  function fillFeature(f, fill, stroke, glow, lw){
+    ctx.beginPath(); path(f);
+    if(glow){ ctx.shadowColor=glow; ctx.shadowBlur=22; }
+    ctx.fillStyle=fill; ctx.fill(); ctx.shadowBlur=0;
+    if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw||0.7; ctx.stroke(); }
+  }
+
+  function draw(){
+    var s=globe.size, r=s/2;
+    ctx.clearRect(0,0,s,s);
+    var g=ctx.createRadialGradient(r*0.72, r*0.62, r*0.15, r, r, r);
+    g.addColorStop(0,'#132043'); g.addColorStop(0.62,'#0E1730'); g.addColorStop(1,'#080D1A');
+    ctx.beginPath(); path({type:'Sphere'}); ctx.fillStyle=g; ctx.fill();
+    ctx.beginPath(); path(graticule); ctx.strokeStyle='rgba(62,123,250,0.10)'; ctx.lineWidth=0.5; ctx.stroke();
+    ctx.beginPath();
+    land.forEach(function(f){ if(!COUNTRY_BY_ID[f.id]) path(f); });
+    ctx.fillStyle='#16213A'; ctx.fill();
+    if(borders){ ctx.beginPath(); path(borders); ctx.strokeStyle='rgba(35,49,80,0.9)'; ctx.lineWidth=0.5; ctx.stroke(); }
+    COUNTRIES.forEach(function(c){
+      if(c.id===globe.selected || !featureOf[c.id]) return;
+      fillFeature(featureOf[c.id], 'rgba(62,123,250,0.72)', 'rgba(140,180,255,0.85)', 'rgba(62,123,250,0.75)');
+    });
+    if(globe.selected && featureOf[globe.selected]){
+      fillFeature(featureOf[globe.selected], '#3E7BFA', '#CBDCFF', 'rgba(62,123,250,0.95)', 1.1);
+      var cen=d3.geoCentroid(featureOf[globe.selected]), rot=projection.rotate();
+      if(d3.geoDistance(cen, [-rot[0], -rot[1]]) < Math.PI/2){
+        var pt=projection(cen);
+        ctx.font="600 11px 'JetBrains Mono', monospace"; ctx.fillStyle='#E9EEFA'; ctx.textAlign='center';
+        ctx.fillText(COUNTRY_BY_ID[globe.selected].code, pt[0], pt[1]-12);
+      }
+    }
+    ctx.beginPath(); path({type:'Sphere'}); ctx.strokeStyle='rgba(62,123,250,0.38)'; ctx.lineWidth=1; ctx.stroke();
+  }
+
+  function zoomScaleFor(f){
+    var cen=d3.geoCentroid(f);
+    var probe=d3.geoOrthographic().clipAngle(90).translate([globe.size/2, globe.size/2]).rotate([-cen[0],-cen[1],0]).scale(globe.base);
+    var b=d3.geoPath(probe).bounds(f);
+    var w=Math.max(b[1][0]-b[0][0],1), h=Math.max(b[1][1]-b[0][1],1);
+    var k=Math.min((globe.size*0.44)/w, (globe.size*0.44)/h);
+    return Math.max(globe.base, Math.min(globe.base*k, globe.base*3.6));
+  }
+
+  window.globeFlyTo=function(id){
+    if(!globe.ready) return;
+    var f=id ? featureOf[id] : null;
+    var cen=f ? d3.geoCentroid(f) : null;
+    globe.spinning=false;
+    var ri=d3.interpolate(projection.rotate(), cen ? [-cen[0],-cen[1],0] : [-66,-44,0]);
+    var si=d3.interpolate(projection.scale(), f ? zoomScaleFor(f) : globe.base);
+    var dur=reduced?1:1150;
+    if(globe.flight) globe.flight.stop();
+    globe.flight=d3.timer(function(elapsed){
+      var t=Math.min(1, elapsed/dur), e=d3.easeCubicInOut(t);
+      projection.rotate(ri(e)).scale(si(e));
+      draw();
+      if(t===1){ globe.flight.stop(); globe.flight=null; if(!id) globe.spinning=!reduced; }
+    });
+  };
+
+  d3.timer(function(){
+    if(!globe.ready || !globe.spinning || globe.flight || !entryEl.classList.contains('open')) return;
+    var rot=projection.rotate();
+    projection.rotate([rot[0]+0.14, rot[1], rot[2]]);
+    draw();
+  });
+
+  var drag=null;
+  canvas.addEventListener('pointerdown', function(e){
+    canvas.setPointerCapture(e.pointerId);
+    drag={x:e.clientX, y:e.clientY, rot:projection.rotate(), moved:0};
+    globe.spinning=false;
+    if(globe.flight){ globe.flight.stop(); globe.flight=null; }
+  });
+  canvas.addEventListener('pointermove', function(e){
+    if(!drag) return;
+    var k=65/projection.scale();
+    var dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+    drag.moved=Math.max(drag.moved, Math.abs(dx)+Math.abs(dy));
+    projection.rotate([drag.rot[0]+dx*k, Math.max(-88, Math.min(88, drag.rot[1]-dy*k)), drag.rot[2]]);
+    draw();
+    document.getElementById('globeHint').style.opacity=0;
+  });
+  canvas.addEventListener('pointerup', function(e){
+    var wasDrag = drag && drag.moved>4;
+    drag=null;
+    if(wasDrag || !globe.ready) return;
+    var rect=canvas.getBoundingClientRect();
+    var pt=projection.invert([e.clientX-rect.left, e.clientY-rect.top]);
+    if(!pt) return;
+    for(var i=0;i<COUNTRIES.length;i++){
+      var f=featureOf[COUNTRIES[i].id];
+      if(f && d3.geoContains(f, pt)){ selectCountry(COUNTRIES[i].id); return; }
+    }
+  });
+  canvas.addEventListener('pointercancel', function(){ drag=null; });
+  window.addEventListener('resize', function(){ if(globe.ready) globeLayout(); });
+})();
+
 /* ---------- INIT ---------- */
 applyLanguage();

@@ -230,16 +230,99 @@ footer p{font-size:13px; color:var(--text-dim);}
 .mobile-menu a{padding:15px 4px; border-bottom:1px solid var(--border); font-size:16px; font-weight:500;}
 
 .badge{display:inline-block; font-family:var(--font-mono); font-size:11px; padding:3px 8px; border-radius:6px; background:var(--surface-2); color:var(--text-dim); margin-left:8px;}
+
+/* ---------- country entry screen ---------- */
+.entry{position:fixed; inset:0; z-index:300; background:var(--bg); overflow-y:auto; display:none;}
+.entry.open{display:block;}
+.entry-inner{max-width:1120px; margin:0 auto; padding:26px 24px 48px;}
+.entry-top{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+.entry-stat{font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim); letter-spacing:.04em;}
+.entry-head{padding:34px 0 22px; max-width:600px;}
+.entry-head h1{font-size:clamp(26px,4vw,38px); line-height:1.15; margin-bottom:12px;}
+.entry-head p{color:var(--text-muted); font-size:15.5px; max-width:56ch;}
+.entry-label{font-family:var(--font-mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-dim); margin-bottom:10px;}
+.entry-menu{display:flex; flex-wrap:wrap; gap:8px; padding-bottom:26px; border-bottom:1px solid var(--border);}
+.c-chip{display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; border:1px solid var(--border);
+  background:var(--surface); color:var(--text-muted); font-size:13.5px; font-weight:500; transition:.18s;}
+.c-chip:hover{border-color:rgba(62,123,250,.5); color:var(--text);}
+.c-chip .dot{width:7px; height:7px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 3px rgba(62,123,250,.18); flex:none;}
+.c-chip[aria-pressed="true"]{background:var(--blue-dim); border-color:var(--blue); color:var(--text);}
+.c-chip .cc{font-family:var(--font-mono); font-size:11px; color:var(--text-dim);}
+.entry-stage{display:grid; grid-template-columns:1fr; gap:34px; align-items:center; justify-items:center; padding:34px 0;}
+.entry-stage.selected{grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); justify-items:stretch;}
+.globe-wrap{position:relative; width:100%; aspect-ratio:1/1; max-width:520px; margin:0 auto;}
+.globe-wrap canvas{width:100%; height:100%; display:block; cursor:grab; touch-action:none; border-radius:50%;}
+.globe-wrap canvas:active{cursor:grabbing;}
+.globe-hint{position:absolute; left:50%; transform:translateX(-50%); bottom:-6px; font-family:var(--font-mono);
+  font-size:10.5px; letter-spacing:.08em; color:var(--text-dim); background:var(--bg); padding:0 10px; transition:opacity .3s;}
+.globe-back{position:absolute; bottom:-4px; left:0; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em;
+  color:var(--text-muted); border:1px solid var(--border); background:var(--surface); border-radius:8px; padding:6px 11px;
+  opacity:0; pointer-events:none; transition:.25s;}
+.globe-back.on{opacity:1; pointer-events:auto;}
+.globe-back:hover{color:var(--text); border-color:rgba(62,123,250,.5);}
+.entry-panel{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:26px;}
+.entry-panel h2{font-size:22px; margin-bottom:8px;}
+.entry-panel p{color:var(--text-muted); font-size:14px;}
+.lang-list{display:flex; flex-direction:column; gap:8px; margin-top:20px;}
+.lang-opt{display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; text-align:left;
+  padding:13px 16px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); transition:.18s;}
+.lang-opt:hover:not(:disabled){border-color:var(--blue); background:var(--blue-dim); transform:translateX(2px);}
+.lang-opt .name{font-size:15px; font-weight:500;}
+.lang-opt .tag{font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim);}
+.lang-opt:hover:not(:disabled) .tag{color:var(--blue);}
+.lang-opt:disabled{background:transparent; border-style:dashed; color:var(--text-dim); cursor:not-allowed;}
+.lang-note{font-size:12.5px; color:var(--text-dim); margin-top:14px;}
+.entry-back{display:inline-flex; align-items:center; gap:7px; margin-top:20px; font-size:13px; color:var(--text-dim); background:none; border:none;}
+.entry-back:hover{color:var(--text);}
+.country-badge{font-family:var(--font-mono); font-size:11px; padding:3px 7px; border-radius:6px; background:var(--blue-dim);
+  border:1px solid rgba(62,123,250,.35); color:var(--blue); margin-left:8px;}
+.country-badge:hover{border-color:var(--blue);}
+@media (max-width:860px){
+  .entry-stage{grid-template-columns:1fr; gap:26px; padding:26px 0;}
+  .entry-stage.selected{grid-template-columns:1fr;}
+  .globe-wrap{max-width:400px;}
+}
 </style>
 </head>
 <body data-theme="dark">
+
+<div class="entry" id="entry" aria-hidden="true">
+  <div class="entry-inner">
+    <div class="entry-top">
+      <div class="logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none"><path d="M16 3L27 7V15C27 22 22 27 16 29C10 27 5 22 5 15V7L16 3Z" fill="var(--blue-dim)" stroke="var(--blue)" stroke-width="1.5"/><path d="M11 16L14.5 19.5L21 12" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        CyberSafe
+      </div>
+      <div class="entry-stat">7 COUNTRIES · 7 LANGUAGES</div>
+    </div>
+
+    <div class="entry-head">
+      <span class="eyebrow-mini">Country select</span>
+      <h1>Where are you joining from?</h1>
+      <p>CyberSafe runs free cybersecurity lessons for school students, built and taught by student volunteers. Pick your country to get the lessons in your language.</p>
+    </div>
+
+    <p class="entry-label">Countries</p>
+    <nav class="entry-menu" id="entryMenu" aria-label="Choose a country"></nav>
+
+    <div class="entry-stage" id="entryStage">
+      <div class="globe-wrap" id="globeWrap">
+        <canvas id="globe" aria-label="Globe of countries where CyberSafe runs"></canvas>
+        <button class="globe-back" id="globeBack">← VIEW ALL</button>
+        <span class="globe-hint" id="globeHint">DRAG TO SPIN · CLICK A COUNTRY</span>
+      </div>
+      <aside class="entry-panel" id="entryPanel" hidden></aside>
+    </div>
+  </div>
+</div>
 
 <header>
   <div class="nav-inner">
     <a href="#home" class="logo">
       <svg class="logo-mark" viewBox="0 0 32 32" fill="none"><path d="M16 3L27 7V15C27 22 22 27 16 29C10 27 5 22 5 15V7L16 3Z" fill="var(--blue-dim)" stroke="var(--blue)" stroke-width="1.5"/><path d="M11 16L14.5 19.5L21 12" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      CyberSafe <span style="color:var(--blue)">UZ</span>
+      CyberSafe
     </a>
+    <button class="country-badge" id="countryBadge" title="Change country and language">UZ</button>
     <nav class="nav-links" id="navLinks">
       <a href="#home" data-nav="home" data-i18n="nav_home">Home</a>
       <a href="#learn" data-nav="learn" data-i18n="nav_learn">Learn</a>
@@ -440,6 +523,8 @@ footer p{font-size:13px; color:var(--text-dim);}
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script src="app-data.js"></script>
 <script src="app.js"></script>
 </body>
