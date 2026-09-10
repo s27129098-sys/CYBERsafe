@@ -231,6 +231,21 @@ footer p{font-size:13px; color:var(--text-dim);}
 
 .badge{display:inline-block; font-family:var(--font-mono); font-size:11px; padding:3px 8px; border-radius:6px; background:var(--surface-2); color:var(--text-dim); margin-left:8px;}
 
+/* ---------- RTL (Urdu) ---------- */
+body.lang-ur{ font-family:'Noto Nastaliq Urdu','Inter',sans-serif; }
+body.lang-ur h1,body.lang-ur h2,body.lang-ur h3,body.lang-ur h4{ font-family:'Noto Nastaliq Urdu','Space Grotesk',sans-serif; line-height:1.9; }
+body.lang-ur .lang-btn,body.lang-ur .country-badge{ font-family:var(--font-mono); }
+body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urdu','Inter',sans-serif; letter-spacing:0; text-transform:none; }
+[dir="rtl"] .opt,[dir="rtl"] .lang-opt{ text-align:right; }
+[dir="rtl"] .topic{ border-left:none; border-right:2px solid transparent; }
+[dir="rtl"] .finding{ border-left:none; border-right:3px solid var(--blue); border-radius:10px 0 0 10px; }
+[dir="rtl"] .timeline{ padding-left:0; padding-right:28px; border-left:none; border-right:2px solid var(--border); }
+[dir="rtl"] .tl-item::before{ left:auto; right:-34px; }
+[dir="rtl"] .tl-item ul{ margin-left:0; margin-right:18px; }
+[dir="rtl"] .badge,[dir="rtl"] .country-badge{ margin-left:0; margin-right:8px; }
+[dir="rtl"] .globe-back{ left:auto; right:0; }
+[dir="rtl"] .stat .num{ direction:ltr; unicode-bidi:isolate; }
+
 /* ---------- country entry screen ---------- */
 .entry{position:fixed; inset:0; z-index:300; background:var(--bg); overflow-y:auto; display:none;}
 .entry.open{display:block;}

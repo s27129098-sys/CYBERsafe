@@ -5,8 +5,21 @@ function t(key){
   return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key;
 }
 
+var URDU_FONT_LOADED=false;
+function ensureUrduFont(){
+  if(URDU_FONT_LOADED) return;
+  URDU_FONT_LOADED=true;
+  var l=document.createElement('link');
+  l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap';
+  document.head.appendChild(l);
+}
 function applyLanguage(){
   document.documentElement.lang = currentLang;
+  var rtl = !!RTL_LANGS[currentLang];
+  document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+  document.body.classList.toggle('lang-ur', currentLang==='ur');
+  if(currentLang==='ur') ensureUrduFont();
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     el.textContent = t(key);
@@ -32,7 +45,8 @@ function applyLanguage(){
 }
 
 /* Languages shipped as separate packs, fetched the first time they are picked. */
-var LANG_PACKS={kk:1};
+var LANG_PACKS={kk:1, ur:1};
+var RTL_LANGS={ur:1};
 function ensureLang(code, cb){
   if(!LANG_PACKS[code] || I18N[code]) return cb();
   var s=document.createElement('script');
@@ -315,7 +329,7 @@ var COUNTRIES=[
  {id:'398', code:'KZ', name:'Kazakhstan', native:'Қазақстан',
   langs:[{name:'Қазақша', tag:'KK', lang:'kk', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'586', code:'PK', name:'Pakistan', native:'پاکستان',
-  langs:[{name:'اردو', tag:'UR', lang:'ur', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
+  langs:[{name:'اردو', tag:'UR', lang:'ur', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'360', code:'ID', name:'Indonesia', native:'Indonesia',
   langs:[{name:'Bahasa Indonesia', tag:'ID', lang:'id', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'036', code:'AU', name:'Australia', native:'Australia',
