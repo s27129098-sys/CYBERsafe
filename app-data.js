@@ -77,7 +77,7 @@ en: {
   footer_tagline:"Free cybersecurity education for students. Built in Uzbekistan."
 },
 uz: {
-  nav_home:"Bosh sahifa", nav_learn:"Oʻrganish", nav_articles:"Maqolalar", nav_phishing:"Fishing laboratoriyasi", nav_quiz:"Test",
+  nav_home:"Bosh sahifa", nav_learn:"Oʻrganish", nav_articles:"Maqolalar", nav_phishing:"Fishing", nav_quiz:"Test",
   nav_urlcheck:"URL tekshiruv", nav_research:"Tadqiqot", nav_about:"Biz haqimizda",
   nav_resources:"Manbalar", nav_impact:"Natijalar",
   hero_eyebrow:"● Bepul · Oʻquvchilar uchun", hero_line1:"Kiberxavfsizlikni oʻrganing.", hero_line2pre:"Onlaynda",
@@ -154,7 +154,7 @@ uz: {
   footer_tagline:"Oʻquvchilar uchun bepul kiberxavfsizlik taʼlimi. Oʻzbekistonda yaratilgan."
 },
 ru: {
-  nav_home:"Главная", nav_learn:"Учиться", nav_articles:"Статьи", nav_phishing:"Лаборатория фишинга", nav_quiz:"Тест",
+  nav_home:"Главная", nav_learn:"Учиться", nav_articles:"Статьи", nav_phishing:"Фишинг", nav_quiz:"Тест",
   nav_urlcheck:"Проверка URL", nav_research:"Исследование", nav_about:"О нас",
   nav_resources:"Ресурсы", nav_impact:"Итоги",
   hero_eyebrow:"● Бесплатно · Для студентов", hero_line1:"Изучайте кибербезопасность.", hero_line2pre:"Оставайтесь",
