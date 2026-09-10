@@ -197,16 +197,8 @@ footer p{font-size:13px; color:var(--text-dim);}
 .opt:disabled{cursor:default;}
 
 .tool-panel{max-width:560px; margin:0 auto; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px;}
-.pw-input-wrap{position:relative; margin-bottom:20px;}
-input[type=text].pw-input, input[type=password].pw-input{width:100%; padding:14px 46px 14px 16px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text); font-family:var(--font-mono); font-size:15px;}
-input.pw-input:focus{outline:none; border-color:var(--blue);}
-.eye-btn{position:absolute; right:10px; top:50%; transform:translateY(-50%); background:transparent; border:none; color:var(--text-dim); font-size:16px; padding:6px;}
-.meter{height:8px; border-radius:100px; background:var(--surface-2); overflow:hidden; margin-bottom:10px;}
-.meter-fill{height:100%; width:0%; transition:.25s;}
-.strength-label{font-weight:600; font-size:14px; margin-bottom:18px;}
 .crit-list{display:flex; flex-direction:column; gap:8px; font-size:13.5px; margin-bottom:6px;}
 .crit-list .c{display:flex; align-items:center; gap:8px;}
-.note{font-size:12.5px; color:var(--text-dim); margin-top:16px; padding-top:16px; border-top:1px solid var(--border);}
 
 .url-row{display:flex; gap:10px; margin-bottom:20px;}
 .url-row input{flex:1; padding:14px 16px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text); font-family:var(--font-mono); font-size:14px;}
@@ -332,7 +324,6 @@ input.pw-input:focus{outline:none; border-color:var(--blue);}
     <div class="grid-3">
       <div class="tool-card" data-nav="phishing"><div class="icon-box">🎣</div><h4 data-i18n="tool1_t">Phishing simulator</h4><p data-i18n="tool1_d">Can you spot the scam in real inbox scenarios?</p><span class="go" data-i18n="tool1_cta">Start simulation →</span></div>
       <div class="tool-card" data-nav="quiz"><div class="icon-box">🧠</div><h4 data-i18n="tool2_t">Cyber quiz</h4><p data-i18n="tool2_d">Test your cybersecurity knowledge, three levels deep.</p><span class="go" data-i18n="tool2_cta">Take the quiz →</span></div>
-      <div class="tool-card" data-nav="password"><div class="icon-box">🔑</div><h4 data-i18n="tool3_t">Password security</h4><p data-i18n="tool3_d">Check how secure your password really is.</p><span class="go" data-i18n="tool3_cta">Check password →</span></div>
     </div>
   </div>
 </section>
@@ -362,22 +353,6 @@ input.pw-input:focus{outline:none; border-color:var(--blue);}
 <section class="page" id="page-quiz">
   <div class="page-hero"><span class="eyebrow-mini" data-i18n="quiz_eyebrow">Interactive · Cyber Quiz</span><h1 data-i18n="quiz_title">Test your knowledge</h1><p data-i18n="quiz_desc">Pick a difficulty level and answer questions on passwords, phishing, malware, and more.</p></div>
   <div class="section" id="quizWrap"></div>
-</section>
-
-<section class="page" id="page-password">
-  <div class="page-hero"><span class="eyebrow-mini" data-i18n="pw_eyebrow">Tool · Password Security</span><h1 data-i18n="pw_title">How secure is your password?</h1><p data-i18n="pw_desc">Everything runs locally in your browser. Your password is never sent anywhere.</p></div>
-  <div class="section">
-    <div class="tool-panel">
-      <div class="pw-input-wrap">
-        <input type="password" class="pw-input" id="pwInput" data-i18n-ph="pw_placeholder" placeholder="Type a password to test">
-        <button class="eye-btn" id="pwEye">👁</button>
-      </div>
-      <div class="meter"><div class="meter-fill" id="pwMeterFill"></div></div>
-      <div class="strength-label" id="pwStrengthLabel" data-i18n="pw_enter_prompt">Enter a password above</div>
-      <div class="crit-list" id="pwCrit"></div>
-      <div class="note" data-i18n="pw_note">🔒 This checker runs entirely in your browser — nothing is sent to a server.</div>
-    </div>
-  </div>
 </section>
 
 <section class="page" id="page-urlcheck">

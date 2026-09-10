@@ -28,12 +28,6 @@ function applyLanguage(){
   renderRoadmap();
   labIndex=0; labScore=0; renderLab();
   quizState=null; renderQuiz();
-  var pwInput=document.getElementById('pwInput');
-  if(pwInput && pwInput.value){ pwInput.dispatchEvent(new Event('input')); }
-  else{
-    var lbl=document.getElementById('pwStrengthLabel');
-    if(lbl){ lbl.textContent=t('pw_enter_prompt'); lbl.style.color='var(--text-muted)'; }
-  }
   document.getElementById('urlResult').innerHTML='';
 }
 
@@ -253,62 +247,6 @@ function answerQuiz(idx){
   if(idx===q.a) quizState.score++;
   setTimeout(function(){ quizState.i++; renderQuiz(); }, 900);
 }
-
-/* ---------- PASSWORD CHECKER ---------- */
-var pwInput=document.getElementById('pwInput');
-var pwEye=document.getElementById('pwEye');
-pwEye.addEventListener('click', function(){
-  pwInput.type = pwInput.type==='password' ? 'text' : 'password';
-  pwEye.textContent = pwInput.type==='password' ? '\uD83D\uDC41' : '\uD83D\uDE48';
-});
-var commonPatterns=['password','123456','qwerty','admin','letmein','welcome','iloveyou','111111','abc123'];
-pwInput.addEventListener('input', function(){
-  var v=pwInput.value;
-  var fill=document.getElementById('pwMeterFill');
-  var label=document.getElementById('pwStrengthLabel');
-  var crit=document.getElementById('pwCrit');
-  if(!v){ fill.style.width='0%'; label.textContent=t('pw_enter_prompt'); label.style.color='var(--text-muted)'; crit.innerHTML=''; return; }
-  var checks={
-    length: v.length>=12,
-    lengthLoose: v.length>=8,
-    upper: /[A-Z]/.test(v),
-    lower: /[a-z]/.test(v),
-    number: /[0-9]/.test(v),
-    symbol: /[^A-Za-z0-9]/.test(v),
-    common: !commonPatterns.some(function(p){ return v.toLowerCase().indexOf(p)!==-1; }),
-    sequential: !/(0123|1234|2345|3456|abcd|qwer)/i.test(v)
-  };
-  var score=0;
-  if(checks.lengthLoose) score++;
-  if(checks.length) score++;
-  if(checks.upper) score++;
-  if(checks.lower) score++;
-  if(checks.number) score++;
-  if(checks.symbol) score++;
-  if(checks.common) score++;
-  if(checks.sequential) score++;
-  var pct=Math.round((score/8)*100);
-  fill.style.width=pct+'%';
-  var strength=t('pw_weak'), color='var(--danger)';
-  if(pct>=85){strength=t('pw_verystrong'); color='var(--safe)';}
-  else if(pct>=65){strength=t('pw_strong'); color='var(--safe)';}
-  else if(pct>=40){strength=t('pw_moderate'); color='var(--warn)';}
-  fill.style.background=color;
-  label.textContent=t('pw_strength_prefix')+' '+strength;
-  label.style.color=color;
-  var items=[
-    [checks.length,t('crit_length')],
-    [checks.upper && checks.lower,t('crit_case')],
-    [checks.number,t('crit_number')],
-    [checks.symbol,t('crit_symbol')],
-    [checks.common,t('crit_common')],
-    [checks.sequential,t('crit_sequential')]
-  ];
-  crit.innerHTML=items.map(function(pair){
-    var ok=pair[0], lbl=pair[1];
-    return '<div class="c" style="color:'+(ok?'var(--safe)':'var(--danger)')+'">'+(ok?'\u2705':'\u274c')+' <span style="color:var(--text)">'+lbl+'</span></div>';
-  }).join('');
-});
 
 /* ---------- URL CHECKER ---------- */
 var shorteners=['bit.ly','tinyurl.com','t.co','goo.gl','ow.ly','is.gd','buff.ly'];
