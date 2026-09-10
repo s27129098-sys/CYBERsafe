@@ -45,7 +45,7 @@ function applyLanguage(){
 }
 
 /* Languages shipped as separate packs, fetched the first time they are picked. */
-var LANG_PACKS={kk:1, ur:1, es:1};
+var LANG_PACKS={kk:1, ur:1, es:1, id:1};
 var RTL_LANGS={ur:1};
 function ensureLang(code, cb){
   if(!LANG_PACKS[code] || I18N[code]) return cb();
@@ -331,7 +331,7 @@ var COUNTRIES=[
  {id:'586', code:'PK', name:'Pakistan', native:'پاکستان',
   langs:[{name:'اردو', tag:'UR', lang:'ur', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'360', code:'ID', name:'Indonesia', native:'Indonesia',
-  langs:[{name:'Bahasa Indonesia', tag:'ID', lang:'id', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
+  langs:[{name:'Bahasa Indonesia', tag:'ID', lang:'id', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'036', code:'AU', name:'Australia', native:'Australia',
   langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'724', code:'ES', name:'Spain', native:'España',
