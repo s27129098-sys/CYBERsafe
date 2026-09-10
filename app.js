@@ -31,12 +31,26 @@ function applyLanguage(){
   document.getElementById('urlResult').innerHTML='';
 }
 
+/* Languages shipped as separate packs, fetched the first time they are picked. */
+var LANG_PACKS={kk:1};
+function ensureLang(code, cb){
+  if(!LANG_PACKS[code] || I18N[code]) return cb();
+  var s=document.createElement('script');
+  s.src='lang-'+code+'.js';
+  s.onload=cb;
+  s.onerror=cb;
+  document.head.appendChild(s);
+}
+function setLang(code){
+  ensureLang(code, function(){
+    currentLang = I18N[code] ? code : 'en';
+    try{ window.localStorage.setItem('csuz_lang', currentLang); }catch(err){}
+    applyLanguage();
+  });
+}
 document.getElementById('langSwitch').addEventListener('click', function(e){
   var btn=e.target.closest('.lang-btn');
-  if(!btn) return;
-  currentLang=btn.dataset.lang;
-  try{ window.localStorage.setItem('csuz_lang', currentLang); }catch(err){}
-  applyLanguage();
+  if(btn) setLang(btn.dataset.lang);
 });
 
 /* ---------- ROUTER ---------- */
@@ -299,7 +313,7 @@ var COUNTRIES=[
  {id:'860', code:'UZ', name:'Uzbekistan', native:'Oʻzbekiston',
   langs:[{name:'Oʻzbekcha', tag:'UZ', lang:'uz', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'398', code:'KZ', name:'Kazakhstan', native:'Қазақстан',
-  langs:[{name:'Қазақша', tag:'KK', lang:'kk', ready:false},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
+  langs:[{name:'Қазақша', tag:'KK', lang:'kk', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'586', code:'PK', name:'Pakistan', native:'پاکستان',
   langs:[{name:'اردو', tag:'UR', lang:'ur', ready:false},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'360', code:'ID', name:'Indonesia', native:'Indonesia',
@@ -367,18 +381,25 @@ function resetCountry(){
   if(globe.ready){ globeLayout(); globeFlyTo(null); }
 }
 
+/* The header switcher offers the languages of the chosen country. */
+function renderLangSwitch(countryId){
+  var c=COUNTRY_BY_ID[countryId];
+  var langs = c ? c.langs.filter(function(l){ return l.ready; })
+                : [{tag:'EN', lang:'en'},{tag:'UZ', lang:'uz'},{tag:'RU', lang:'ru'}];
+  document.getElementById('langSwitch').innerHTML = langs.map(function(l){
+    return '<button class="lang-btn" data-lang="'+l.lang+'">'+l.tag+'</button>';
+  }).join('');
+}
+
 entryPanel.addEventListener('click', function(e){
   if(e.target.closest('#entryBackBtn')) return resetCountry();
   var opt=e.target.closest('.lang-opt');
   if(!opt || opt.disabled) return;
   var c=COUNTRY_BY_ID[globe.selected];
-  currentLang=opt.dataset.lang;
-  try{
-    window.localStorage.setItem('csuz_lang', currentLang);
-    window.localStorage.setItem('csuz_country', c.id);
-  }catch(err){}
+  try{ window.localStorage.setItem('csuz_country', c.id); }catch(err){}
   countryBadge.textContent=c.code;
-  applyLanguage();
+  renderLangSwitch(c.id);
+  setLang(opt.dataset.lang);
   closeEntry();
 });
 
@@ -388,8 +409,13 @@ countryBadge.addEventListener('click', function(){
   if(globe.selected) resetCountry();
 });
 
-if(savedCountry && COUNTRY_BY_ID[savedCountry]) countryBadge.textContent=COUNTRY_BY_ID[savedCountry].code;
-else openEntry();
+if(savedCountry && COUNTRY_BY_ID[savedCountry]){
+  countryBadge.textContent=COUNTRY_BY_ID[savedCountry].code;
+  renderLangSwitch(savedCountry);
+} else {
+  renderLangSwitch(null);
+  openEntry();
+}
 
 /* ---------- globe ---------- */
 (function(){
@@ -523,4 +549,4 @@ else openEntry();
 })();
 
 /* ---------- INIT ---------- */
-applyLanguage();
+setLang(currentLang);
