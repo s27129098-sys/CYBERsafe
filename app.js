@@ -76,11 +76,26 @@ function navigate(route){
   window.scrollTo({top:0, behavior:'instant'});
   document.getElementById('mobileMenu').classList.remove('open');
   history.replaceState(null,'','#'+target);
+  observeReveals();
 }
 document.querySelectorAll('[data-nav]').forEach(function(el){
   el.addEventListener('click', function(e){ e.preventDefault(); navigate(el.dataset.nav); });
 });
 window.addEventListener('load', function(){ navigate(location.hash.replace('#','')||'home'); });
+
+/* ---------- SCROLL REVEAL ---------- */
+var revealIO = ('IntersectionObserver' in window) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ? new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); revealIO.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'})
+  : null;
+function observeReveals(){
+  if(!revealIO) return;
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ revealIO.observe(el); });
+}
+observeReveals();
 
 /* ---------- THEME ---------- */
 var themeBtn=document.getElementById('themeToggle');
