@@ -77,6 +77,7 @@ function navigate(route){
   document.getElementById('mobileMenu').classList.remove('open');
   history.replaceState(null,'','#'+target);
   observeReveals();
+  hideHackOverlay();
 }
 document.querySelectorAll('[data-nav]').forEach(function(el){
   el.addEventListener('click', function(e){ e.preventDefault(); navigate(el.dataset.nav); });
@@ -234,7 +235,28 @@ function judge(choice){
     + '<ul>'+s.flags.map(function(f){ return '<li>'+f+'</li>'; }).join('')+'</ul>'
     + '<button class="btn btn-primary" onclick="labIndex++;renderLab();">'+(labIndex<scenarios.length-1? t('next_scenario_btn') : t('see_results_btn'))+'</button>'
     + '</div>';
+  if(!correct && s.answer==='phish' && choice==='safe') showHackOverlay();
 }
+
+/* ---------- HACKED OVERLAY (fell for a phishing message) ---------- */
+var hackOverlayEl=document.getElementById('hackOverlay');
+function showHackOverlay(){
+  document.getElementById('hackTitle').textContent = t('hacked_title');
+  document.getElementById('hackSub').textContent = t('hacked_sub');
+  document.getElementById('hackDismiss').textContent = t('hacked_cta');
+  hackOverlayEl.classList.add('show');
+  hackOverlayEl.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  document.getElementById('hackDismiss').focus();
+}
+function hideHackOverlay(){
+  hackOverlayEl.classList.remove('show');
+  hackOverlayEl.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.getElementById('hackDismiss').addEventListener('click', hideHackOverlay);
+hackOverlayEl.addEventListener('click', function(e){ if(e.target===hackOverlayEl) hideHackOverlay(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && hackOverlayEl.classList.contains('show')) hideHackOverlay(); });
 
 /* ---------- QUIZ ---------- */
 var quizState=null;

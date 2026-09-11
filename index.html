@@ -313,8 +313,34 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   .globe-wrap{max-width:400px;}
 }
 
+/* ---------- hacked overlay ---------- */
+.hack-overlay{position:fixed; inset:0; z-index:500; background:#1a0000; display:none; align-items:center; justify-content:center; text-align:center; padding:24px; overflow:hidden;}
+.hack-overlay.show{display:flex;}
+.hack-overlay::before{content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 38%, rgba(239,68,68,.4), transparent 62%); pointer-events:none;}
+.hack-noise{position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 3px); pointer-events:none; mix-blend-mode:overlay;}
+.hack-content{position:relative; z-index:1; max-width:440px;}
+.hack-icon{font-size:56px; margin-bottom:18px;}
+.hack-title{font-family:var(--font-display); font-size:clamp(28px,7vw,44px); color:#ff3b3b; letter-spacing:.02em; margin-bottom:14px; text-shadow:0 0 24px rgba(255,59,59,.65);}
+.hack-sub{color:#f4c9c9; font-size:15px; line-height:1.6; margin-bottom:28px;}
+.hack-dismiss{background:#ff3b3b; color:#fff; border:none;}
+.hack-dismiss:hover{background:#ff5c5c;}
+
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion: no-preference){
+  .hack-overlay.show{animation:hackFlash .5s ease;}
+  @keyframes hackFlash{0%{background:#ff3b3b;} 8%{background:#1a0000;} 16%{background:#ff3b3b;} 24%{background:#1a0000;} 100%{background:#1a0000;}}
+  .hack-overlay.show .hack-icon{animation:hackShake .4s ease .45s 2;}
+  @keyframes hackShake{0%,100%{transform:translateX(0) rotate(0);} 20%{transform:translateX(-6px) rotate(-4deg);} 40%{transform:translateX(6px) rotate(4deg);} 60%{transform:translateX(-4px) rotate(-2deg);} 80%{transform:translateX(4px) rotate(2deg);}}
+  .hack-overlay.show .hack-title{animation:hackGlitch 2.2s linear infinite;}
+  @keyframes hackGlitch{
+    0%,89%,100%{text-shadow:0 0 24px rgba(255,59,59,.65); transform:translateX(0);}
+    90%{text-shadow:-3px 0 #3ef7ff, 3px 0 #ff3b3b; transform:translateX(-2px);}
+    92%{text-shadow:3px 0 #3ef7ff, -3px 0 #ff3b3b; transform:translateX(2px);}
+    94%{text-shadow:0 0 24px rgba(255,59,59,.65); transform:translateX(0);}
+  }
+  .hack-overlay.show .hack-content{animation:hackIn .4s ease .15s both;}
+  @keyframes hackIn{from{opacity:0; transform:scale(.9);} to{opacity:1; transform:scale(1);}}
+
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 
@@ -585,6 +611,16 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
     <p data-i18n="footer_tagline">Free cybersecurity education for students. Built in Uzbekistan.</p>
   </div>
 </footer>
+
+<div class="hack-overlay" id="hackOverlay" role="alertdialog" aria-modal="true" aria-hidden="true">
+  <div class="hack-noise"></div>
+  <div class="hack-content">
+    <div class="hack-icon">⚠️</div>
+    <h2 class="hack-title" id="hackTitle">YOU'VE BEEN HACKED</h2>
+    <p class="hack-sub" id="hackSub"></p>
+    <button class="btn hack-dismiss" id="hackDismiss"></button>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>

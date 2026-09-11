@@ -26,6 +26,7 @@ I18N.id = {
   phish_eyebrow:"Interaktif · Lab Phishing", phish_title:"Bisakah kamu mengenali penipuan?", phish_desc:"Tentukan apakah setiap pesan aman atau phishing, lalu lihat apa yang mengungkapkannya.",
   judge_safe:"🟢 Aman", judge_phish:"🔴 Phishing", feedback_correct_title:"Benar!", feedback_wrong_title:"Belum tepat.",
   warning_signs_label:"Pesan ini", was_phishing:"phishing", was_safe:"aman", warning_colon:". Tanda peringatan:",
+  hacked_title:"ANDA DIRETAS", hacked_sub:"Anda menandai pesan phishing sebagai aman. Dalam kehidupan nyata, satu klik itu bisa saja menyerahkan kata sandi Anda ke penipu.", hacked_cta:"Lihat tanda-tandanya",
   next_scenario_btn:"Skenario berikutnya →", see_results_btn:"Lihat hasil →", score_label:"Skormu",
   awareness_level_label:"Tingkat kesadaran", level_beginner:"Pemula", level_intermediate:"Menengah", level_advanced:"Mahir",
   try_again_btn:"Coba lagi",

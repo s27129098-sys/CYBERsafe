@@ -26,6 +26,7 @@ I18N.es = {
   phish_eyebrow:"Interactivo · Laboratorio de phishing", phish_title:"¿Puedes detectar el engaño?", phish_desc:"Decide si cada mensaje es seguro o phishing, y después descubre qué lo delataba.",
   judge_safe:"🟢 Seguro", judge_phish:"🔴 Phishing", feedback_correct_title:"¡Correcto!", feedback_wrong_title:"No exactamente.",
   warning_signs_label:"Este mensaje era", was_phishing:"phishing", was_safe:"seguro", warning_colon:". Señales de alerta:",
+  hacked_title:"TE HAN HACKEADO", hacked_sub:"Marcaste un mensaje de phishing como seguro. En la vida real, ese clic podría haber entregado tu contraseña a un estafador.", hacked_cta:"Ver qué lo delataba",
   next_scenario_btn:"Siguiente escenario →", see_results_btn:"Ver resultados →", score_label:"Tu puntuación",
   awareness_level_label:"Nivel de concienciación", level_beginner:"Principiante", level_intermediate:"Intermedio", level_advanced:"Avanzado",
   try_again_btn:"Inténtalo de nuevo",
