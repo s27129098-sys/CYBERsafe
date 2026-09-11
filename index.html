@@ -314,11 +314,11 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 }
 
 /* ---------- hacked toast ---------- */
-.hack-toast{position:fixed; top:18px; left:50%; z-index:400; display:flex; align-items:flex-start; gap:12px;
-  width:min(380px, calc(100% - 32px)); background:var(--surface); border:1px solid var(--danger);
+.hack-toast{position:fixed; bottom:18px; right:18px; z-index:400; display:flex; align-items:flex-start; gap:12px;
+  width:min(360px, calc(100% - 32px)); background:var(--surface); border:1px solid var(--danger);
   border-left:4px solid var(--danger); border-radius:12px; padding:14px 14px 14px 16px; box-shadow:var(--shadow);
-  opacity:0; pointer-events:none; transform:translate(-50%,-14px); transition:opacity .3s ease, transform .3s ease;}
-.hack-toast.show{opacity:1; pointer-events:auto; transform:translate(-50%,0);}
+  opacity:0; pointer-events:none; transform:translateY(18px); transition:opacity .3s ease, transform .3s ease;}
+.hack-toast.show{opacity:1; pointer-events:auto; transform:translateY(0);}
 .hack-icon{font-size:22px; flex-shrink:0; line-height:1;}
 .hack-text{flex:1; min-width:0;}
 .hack-title{display:block; font-family:var(--font-display); font-size:14px; font-weight:700; color:var(--danger); margin-bottom:3px;}
@@ -338,6 +338,9 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   background:repeating-linear-gradient(180deg, rgba(62,123,250,.08) 0px, rgba(62,123,250,.08) 1px, transparent 1px, transparent 5px);
   mix-blend-mode:overlay;
 }
+.hack-rain{position:absolute; inset:0; overflow:hidden;}
+.rain-col{position:absolute; top:-30%; font-family:var(--font-mono); font-size:12px; line-height:1.4;
+  color:#ff5a4d; text-shadow:0 0 6px rgba(255,90,77,.6); text-align:center; opacity:0;}
 .hack-corner{position:absolute; width:34px; height:34px; opacity:0; border:2.5px solid #ff5a4d;
   filter:drop-shadow(0 0 7px rgba(255,90,77,.75));}
 .hack-corner.tl{top:14px; left:14px; border-right:none; border-bottom:none; border-radius:5px 0 0 0;}
@@ -348,7 +351,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion: no-preference){
   .hack-toast.show{animation:hackShake .5s ease .3s;}
-  @keyframes hackShake{0%,100%{transform:translate(-50%,0) rotate(0);} 20%{transform:translate(-50%,0) translateX(-5px) rotate(-1.5deg);} 40%{transform:translate(-50%,0) translateX(5px) rotate(1.5deg);} 60%{transform:translate(-50%,0) translateX(-3px);} 80%{transform:translate(-50%,0) translateX(3px);}}
+  @keyframes hackShake{0%,100%{transform:translateY(0) translateX(0) rotate(0);} 20%{transform:translateY(0) translateX(-5px) rotate(-1.5deg);} 40%{transform:translateY(0) translateX(5px) rotate(1.5deg);} 60%{transform:translateY(0) translateX(-3px);} 80%{transform:translateY(0) translateX(3px);}}
   .hack-toast.show .hack-icon{animation:hackGlow 1.6s ease-in-out .3s 2;}
   @keyframes hackGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(239,68,68,0));} 50%{filter:drop-shadow(0 0 8px rgba(239,68,68,.85));}}
 
@@ -359,6 +362,8 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   .hack-vignette.show .hack-corner.bl{animation-delay:.12s;}
   .hack-vignette.show .hack-corner.br{animation-delay:.18s;}
   @keyframes cornerFlash{0%{opacity:0; transform:scale(.7);} 15%{opacity:1; transform:scale(1);} 55%{opacity:.35;} 75%{opacity:.9;} 100%{opacity:0; transform:scale(.85);}}
+  .hack-vignette.show .rain-col{animation-name:rainFall; animation-timing-function:linear; animation-fill-mode:both;}
+  @keyframes rainFall{0%{transform:translateY(0); opacity:0;} 12%{opacity:.75;} 82%{opacity:.4;} 100%{transform:translateY(420px); opacity:0;}}
 
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
@@ -635,6 +640,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 </footer>
 
 <div class="hack-vignette" id="hackVignette" aria-hidden="true">
+  <div class="hack-rain" id="hackRain"></div>
   <span class="hack-corner tl"></span>
   <span class="hack-corner tr"></span>
   <span class="hack-corner bl"></span>
