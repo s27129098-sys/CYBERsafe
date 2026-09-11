@@ -339,7 +339,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   mix-blend-mode:overlay;
 }
 .hack-rain{position:absolute; inset:0; overflow:hidden;}
-.rain-col{position:absolute; top:-30%; font-family:var(--font-mono); font-size:12px; line-height:1.4;
+.rain-col{position:absolute; top:0; font-family:var(--font-mono); font-size:12px; line-height:1.4;
   color:#ff5a4d; text-shadow:0 0 6px rgba(255,90,77,.6); text-align:center; opacity:0;}
 .hack-corner{position:absolute; width:34px; height:34px; opacity:0; border:2.5px solid #ff5a4d;
   filter:drop-shadow(0 0 7px rgba(255,90,77,.75));}
@@ -363,7 +363,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   .hack-vignette.show .hack-corner.br{animation-delay:.18s;}
   @keyframes cornerFlash{0%{opacity:0; transform:scale(.7);} 15%{opacity:1; transform:scale(1);} 55%{opacity:.35;} 75%{opacity:.9;} 100%{opacity:0; transform:scale(.85);}}
   .hack-vignette.show .rain-col{animation-name:rainFall; animation-timing-function:linear; animation-fill-mode:both;}
-  @keyframes rainFall{0%{transform:translateY(0); opacity:0;} 12%{opacity:.75;} 82%{opacity:.4;} 100%{transform:translateY(420px); opacity:0;}}
+  @keyframes rainFall{0%{transform:translateY(-8%); opacity:0;} 10%{opacity:.8;} 80%{opacity:.45;} 100%{transform:translateY(55vh); opacity:0;}}
 
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
