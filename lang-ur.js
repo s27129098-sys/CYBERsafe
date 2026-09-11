@@ -26,7 +26,7 @@ I18N.ur = {
   phish_eyebrow:"انٹرایکٹو · فشنگ لیب", phish_title:"کیا آپ دھوکہ پہچان سکتے ہیں؟", phish_desc:"فیصلہ کریں کہ ہر پیغام محفوظ ہے یا فشنگ، پھر دیکھیں کہ اس کا پتہ کیسے چلا۔",
   judge_safe:"🟢 محفوظ", judge_phish:"🔴 فشنگ", feedback_correct_title:"درست!", feedback_wrong_title:"بالکل نہیں۔",
   warning_signs_label:"یہ پیغام", was_phishing:"فشنگ", was_safe:"محفوظ", warning_colon:" تھا۔ خطرے کی نشانیاں:",
-  hacked_title:"آپ ہیک ہو گئے!", hacked_sub:"آپ نے ایک فشنگ پیغام کو محفوظ قرار دیا۔ حقیقی زندگی میں، یہ ایک کلک آپ کا پاس ورڈ کسی دھوکے باز کے ہاتھ لگا سکتا تھا۔", hacked_cta:"دیکھیں کیا نشانیاں تھیں",
+  hacked_title:"آپ ہیک ہو گئے!", hacked_sub:"آپ نے ایک فشنگ پیغام کو محفوظ قرار دیا۔ حقیقی زندگی میں، یہ ایک کلک آپ کا پاس ورڈ کسی دھوکے باز کے ہاتھ لگا سکتا تھا۔",
   next_scenario_btn:"اگلا منظرنامہ ←", see_results_btn:"نتائج دیکھیں ←", score_label:"آپ کا اسکور",
   awareness_level_label:"آگہی کی سطح", level_beginner:"ابتدائی", level_intermediate:"درمیانہ", level_advanced:"اعلیٰ",
   try_again_btn:"دوبارہ کوشش کریں",

@@ -238,25 +238,23 @@ function judge(choice){
   if(!correct && s.answer==='phish' && choice==='safe') showHackOverlay();
 }
 
-/* ---------- HACKED OVERLAY (fell for a phishing message) ---------- */
-var hackOverlayEl=document.getElementById('hackOverlay');
+/* ---------- HACKED TOAST (fell for a phishing message) ---------- */
+var hackToastEl=document.getElementById('hackToast');
+var hackToastTimer=null;
 function showHackOverlay(){
   document.getElementById('hackTitle').textContent = t('hacked_title');
   document.getElementById('hackSub').textContent = t('hacked_sub');
-  document.getElementById('hackDismiss').textContent = t('hacked_cta');
-  hackOverlayEl.classList.add('show');
-  hackOverlayEl.setAttribute('aria-hidden','false');
-  document.body.style.overflow='hidden';
-  document.getElementById('hackDismiss').focus();
+  hackToastEl.classList.remove('show');
+  void hackToastEl.offsetWidth; /* restart the shake/glow animation on repeat triggers */
+  hackToastEl.classList.add('show');
+  clearTimeout(hackToastTimer);
+  hackToastTimer=setTimeout(hideHackOverlay, 6000);
 }
 function hideHackOverlay(){
-  hackOverlayEl.classList.remove('show');
-  hackOverlayEl.setAttribute('aria-hidden','true');
-  document.body.style.overflow='';
+  hackToastEl.classList.remove('show');
+  clearTimeout(hackToastTimer);
 }
 document.getElementById('hackDismiss').addEventListener('click', hideHackOverlay);
-hackOverlayEl.addEventListener('click', function(e){ if(e.target===hackOverlayEl) hideHackOverlay(); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape' && hackOverlayEl.classList.contains('show')) hideHackOverlay(); });
 
 /* ---------- QUIZ ---------- */
 var quizState=null;
