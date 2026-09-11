@@ -326,13 +326,24 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 .hack-dismiss{background:none; border:none; color:var(--text-dim); font-size:15px; line-height:1; padding:2px; flex-shrink:0;}
 .hack-dismiss:hover{color:var(--text);}
 
-.hack-vignette{position:fixed; inset:0; z-index:399; pointer-events:none; opacity:0;
+.hack-vignette{position:fixed; inset:0; z-index:399; pointer-events:none; opacity:0;}
+.hack-vignette::before{content:''; position:absolute; inset:0;
   background:
-    radial-gradient(ellipse 55% 45% at 0% 0%, rgba(239,68,68,.55), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(239,68,68,.55), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 0% 100%, rgba(239,68,68,.5), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 100% 100%, rgba(239,68,68,.5), transparent 60%);
+    radial-gradient(ellipse 55% 45% at 0% 0%, rgba(255,90,60,.6), rgba(160,15,30,.28) 42%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(255,90,60,.6), rgba(160,15,30,.28) 42%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 0% 100%, rgba(255,60,60,.55), rgba(140,10,25,.25) 42%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 100% 100%, rgba(255,60,60,.55), rgba(140,10,25,.25) 42%, transparent 65%);
 }
+.hack-vignette::after{content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(180deg, rgba(62,123,250,.08) 0px, rgba(62,123,250,.08) 1px, transparent 1px, transparent 5px);
+  mix-blend-mode:overlay;
+}
+.hack-corner{position:absolute; width:34px; height:34px; opacity:0; border:2.5px solid #ff5a4d;
+  filter:drop-shadow(0 0 7px rgba(255,90,77,.75));}
+.hack-corner.tl{top:14px; left:14px; border-right:none; border-bottom:none; border-radius:5px 0 0 0;}
+.hack-corner.tr{top:14px; right:14px; border-left:none; border-bottom:none; border-radius:0 5px 0 0;}
+.hack-corner.bl{bottom:14px; left:14px; border-right:none; border-top:none; border-radius:0 0 0 5px;}
+.hack-corner.br{bottom:14px; right:14px; border-left:none; border-top:none; border-radius:0 0 5px 0;}
 
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion: no-preference){
@@ -343,6 +354,11 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 
   .hack-vignette.show{animation:vignettePulse 2.2s ease-in-out both;}
   @keyframes vignettePulse{0%{opacity:0;} 18%{opacity:1;} 45%{opacity:.5;} 65%{opacity:.85;} 100%{opacity:0;}}
+  .hack-vignette.show .hack-corner{animation:cornerFlash 2.2s ease-in-out both;}
+  .hack-vignette.show .hack-corner.tr{animation-delay:.06s;}
+  .hack-vignette.show .hack-corner.bl{animation-delay:.12s;}
+  .hack-vignette.show .hack-corner.br{animation-delay:.18s;}
+  @keyframes cornerFlash{0%{opacity:0; transform:scale(.7);} 15%{opacity:1; transform:scale(1);} 55%{opacity:.35;} 75%{opacity:.9;} 100%{opacity:0; transform:scale(.85);}}
 
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
@@ -618,7 +634,12 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   </div>
 </footer>
 
-<div class="hack-vignette" id="hackVignette" aria-hidden="true"></div>
+<div class="hack-vignette" id="hackVignette" aria-hidden="true">
+  <span class="hack-corner tl"></span>
+  <span class="hack-corner tr"></span>
+  <span class="hack-corner bl"></span>
+  <span class="hack-corner br"></span>
+</div>
 <div class="hack-toast" id="hackToast" role="status" aria-live="polite">
   <span class="hack-icon">🔓</span>
   <div class="hack-text">
