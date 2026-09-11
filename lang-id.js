@@ -27,6 +27,8 @@ I18N.id = {
   judge_safe:"🟢 Aman", judge_phish:"🔴 Phishing", feedback_correct_title:"Benar!", feedback_wrong_title:"Belum tepat.",
   warning_signs_label:"Pesan ini", was_phishing:"phishing", was_safe:"aman", warning_colon:". Tanda peringatan:",
   hacked_title:"ANDA DIRETAS", hacked_sub:"Anda menandai pesan phishing sebagai aman. Dalam kehidupan nyata, satu klik itu bisa saja menyerahkan kata sandi Anda ke penipu.",
+  caught_title:"TANGKAPAN BAGUS!", caught_sub:"Anda berhasil mengenali upaya phishing. Insting itulah yang menjaga akun tetap aman.",
+  falsealarm_title:"ALARM PALSU", falsealarm_sub:"Pesan ini sebenarnya aman. Bersikap hati-hati itu bagus, tapi jangan curigai setiap pesan.",
   next_scenario_btn:"Skenario berikutnya →", see_results_btn:"Lihat hasil →", score_label:"Skormu",
   awareness_level_label:"Tingkat kesadaran", level_beginner:"Pemula", level_intermediate:"Menengah", level_advanced:"Mahir",
   try_again_btn:"Coba lagi",

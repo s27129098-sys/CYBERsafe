@@ -27,6 +27,8 @@ I18N.es = {
   judge_safe:"🟢 Seguro", judge_phish:"🔴 Phishing", feedback_correct_title:"¡Correcto!", feedback_wrong_title:"No exactamente.",
   warning_signs_label:"Este mensaje era", was_phishing:"phishing", was_safe:"seguro", warning_colon:". Señales de alerta:",
   hacked_title:"TE HAN HACKEADO", hacked_sub:"Marcaste un mensaje de phishing como seguro. En la vida real, ese clic podría haber entregado tu contraseña a un estafador.",
+  caught_title:"¡BUEN OJO!", caught_sub:"Detectaste el intento de phishing. Ese instinto es justo lo que mantiene seguras las cuentas.",
+  falsealarm_title:"FALSA ALARMA", falsealarm_sub:"En realidad, este mensaje era seguro. Ser precavido está bien, pero no sospeches de todo.",
   next_scenario_btn:"Siguiente escenario →", see_results_btn:"Ver resultados →", score_label:"Tu puntuación",
   awareness_level_label:"Nivel de concienciación", level_beginner:"Principiante", level_intermediate:"Intermedio", level_advanced:"Avanzado",
   try_again_btn:"Inténtalo de nuevo",
