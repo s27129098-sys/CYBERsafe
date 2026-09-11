@@ -27,6 +27,8 @@ I18N.kk = {
   judge_safe:"🟢 Қауіпсіз", judge_phish:"🔴 Фишинг", feedback_correct_title:"Дұрыс!", feedback_wrong_title:"Дәл емес.",
   warning_signs_label:"Бұл хабарлама", was_phishing:"фишинг", was_safe:"қауіпсіз", warning_colon:" болды. Қауіп белгілері:",
   hacked_title:"СІЗДІ ХАКЕРЛЕДІ", hacked_sub:"Сіз фишинг хабарламасын қауіпсіз деп белгіледіңіз. Шын өмірде бұл бір басу құпия сөзіңізді алаяққа беріп қоюы мүмкін еді.",
+  caught_title:"ЖАҚСЫ БАЙҚАДЫҢЫЗ!", caught_sub:"Сіз фишинг әрекетін байқадыңыз. Дәл осы сергектік аккаунттарды қауіпсіз сақтайды.",
+  falsealarm_title:"ЖАЛҒАН ДАБЫЛ", falsealarm_sub:"Бұл хабарлама шын мәнінде қауіпсіз болды. Сақ болу жақсы, бірақ әр хабарламаны күдікті деп есептемеңіз.",
   next_scenario_btn:"Келесі жағдай →", see_results_btn:"Нәтижені көру →", score_label:"Сіздің нәтижеңіз",
   awareness_level_label:"Хабардарлық деңгейі", level_beginner:"Бастауыш", level_intermediate:"Орта", level_advanced:"Жоғары",
   try_again_btn:"Қайта көру",

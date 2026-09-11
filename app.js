@@ -235,12 +235,15 @@ function judge(choice){
     + '<ul>'+s.flags.map(function(f){ return '<li>'+f+'</li>'; }).join('')+'</ul>'
     + '<button class="btn btn-primary" onclick="labIndex++;renderLab();">'+(labIndex<scenarios.length-1? t('next_scenario_btn') : t('see_results_btn'))+'</button>'
     + '</div>';
-  if(!correct && s.answer==='phish' && choice==='safe') showHackOverlay();
+  if(!correct && s.answer==='phish' && choice==='safe') showHackedFx();
+  else if(correct && s.answer==='phish' && choice==='phish') showCaughtFx();
+  else if(!correct && s.answer==='safe' && choice==='phish') showFalseAlarmFx();
 }
 
-/* ---------- HACKED TOAST (fell for a phishing message) ---------- */
+/* ---------- REACTION TOAST (hacked / caught the phish / false alarm) ---------- */
 var hackToastEl=document.getElementById('hackToast');
 var hackVignetteEl=document.getElementById('hackVignette');
+var hackIconEl=document.getElementById('hackIcon');
 var hackToastTimer=null, hackVignetteTimer=null;
 (function buildHackRain(){
   var rain=document.getElementById('hackRain');
@@ -257,24 +260,37 @@ var hackToastTimer=null, hackVignetteTimer=null;
     rain.appendChild(col);
   }
 })();
-function showHackOverlay(){
-  document.getElementById('hackTitle').textContent = t('hacked_title');
-  document.getElementById('hackSub').textContent = t('hacked_sub');
-  hackToastEl.classList.remove('show');
-  hackVignetteEl.classList.remove('show');
+function showFx(variant, icon, title, sub, opts){
+  opts = opts || {};
+  document.getElementById('hackTitle').textContent = title;
+  document.getElementById('hackSub').textContent = sub;
+  hackIconEl.textContent = icon;
+  hackToastEl.className = 'hack-toast' + (variant ? ' variant-'+variant : '');
+  hackVignetteEl.className = 'hack-vignette' + (variant ? ' variant-'+variant : '');
   void hackToastEl.offsetWidth; /* restart the shake/glow/vignette animations on repeat triggers */
   hackToastEl.classList.add('show');
-  hackVignetteEl.classList.add('show');
   clearTimeout(hackToastTimer);
-  clearTimeout(hackVignetteTimer);
-  hackToastTimer=setTimeout(hideHackOverlay, 6000);
-  hackVignetteTimer=setTimeout(function(){ hackVignetteEl.classList.remove('show'); }, 2200);
+  hackToastTimer=setTimeout(hideHackOverlay, opts.toastMs || 5000);
+  if(opts.vignette){
+    hackVignetteEl.classList.add('show');
+    clearTimeout(hackVignetteTimer);
+    hackVignetteTimer=setTimeout(function(){ hackVignetteEl.classList.remove('show'); }, opts.vignetteMs || 2200);
+  }
 }
 function hideHackOverlay(){
   hackToastEl.classList.remove('show');
   hackVignetteEl.classList.remove('show');
   clearTimeout(hackToastTimer);
   clearTimeout(hackVignetteTimer);
+}
+function showHackedFx(){
+  showFx('danger', '🔓', t('hacked_title'), t('hacked_sub'), {vignette:true, toastMs:6000, vignetteMs:2200});
+}
+function showCaughtFx(){
+  showFx('safe', '🛡️', t('caught_title'), t('caught_sub'), {vignette:true, toastMs:4000, vignetteMs:1300});
+}
+function showFalseAlarmFx(){
+  showFx('warn', '🤔', t('falsealarm_title'), t('falsealarm_sub'), {vignette:false, toastMs:4500});
 }
 document.getElementById('hackDismiss').addEventListener('click', hideHackOverlay);
 
