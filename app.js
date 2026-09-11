@@ -238,6 +238,7 @@ function judge(choice){
   if(!correct && s.answer==='phish' && choice==='safe') showHackedFx();
   else if(correct && s.answer==='phish' && choice==='phish') showCaughtFx();
   else if(!correct && s.answer==='safe' && choice==='phish') showFalseAlarmFx();
+  else if(correct && s.answer==='safe' && choice==='safe') showLegitFx();
 }
 
 /* ---------- REACTION TOAST (hacked / caught the phish / false alarm) ---------- */
@@ -291,6 +292,9 @@ function showCaughtFx(){
 }
 function showFalseAlarmFx(){
   showFx('warn', '🤔', t('falsealarm_title'), t('falsealarm_sub'), {vignette:false, toastMs:4500});
+}
+function showLegitFx(){
+  showFx('safe', '✅', t('legit_title'), t('legit_sub'), {vignette:false, toastMs:3500});
 }
 document.getElementById('hackDismiss').addEventListener('click', hideHackOverlay);
 
