@@ -240,19 +240,26 @@ function judge(choice){
 
 /* ---------- HACKED TOAST (fell for a phishing message) ---------- */
 var hackToastEl=document.getElementById('hackToast');
-var hackToastTimer=null;
+var hackVignetteEl=document.getElementById('hackVignette');
+var hackToastTimer=null, hackVignetteTimer=null;
 function showHackOverlay(){
   document.getElementById('hackTitle').textContent = t('hacked_title');
   document.getElementById('hackSub').textContent = t('hacked_sub');
   hackToastEl.classList.remove('show');
-  void hackToastEl.offsetWidth; /* restart the shake/glow animation on repeat triggers */
+  hackVignetteEl.classList.remove('show');
+  void hackToastEl.offsetWidth; /* restart the shake/glow/vignette animations on repeat triggers */
   hackToastEl.classList.add('show');
+  hackVignetteEl.classList.add('show');
   clearTimeout(hackToastTimer);
+  clearTimeout(hackVignetteTimer);
   hackToastTimer=setTimeout(hideHackOverlay, 6000);
+  hackVignetteTimer=setTimeout(function(){ hackVignetteEl.classList.remove('show'); }, 2200);
 }
 function hideHackOverlay(){
   hackToastEl.classList.remove('show');
+  hackVignetteEl.classList.remove('show');
   clearTimeout(hackToastTimer);
+  clearTimeout(hackVignetteTimer);
 }
 document.getElementById('hackDismiss').addEventListener('click', hideHackOverlay);
 
