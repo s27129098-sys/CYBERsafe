@@ -242,6 +242,21 @@ function judge(choice){
 var hackToastEl=document.getElementById('hackToast');
 var hackVignetteEl=document.getElementById('hackVignette');
 var hackToastTimer=null, hackVignetteTimer=null;
+(function buildHackRain(){
+  var rain=document.getElementById('hackRain');
+  var cols=14;
+  for(var i=0;i<cols;i++){
+    var col=document.createElement('span');
+    col.className='rain-col';
+    col.style.left=(2+i*(96/(cols-1)))+'%';
+    col.style.animationDuration=(1.5+Math.random()*1.1)+'s';
+    col.style.animationDelay=(Math.random()*0.7)+'s';
+    var lines=[], len=8+Math.floor(Math.random()*6);
+    for(var j=0;j<len;j++) lines.push(Math.random()<0.5 ? '0' : '1');
+    col.innerHTML=lines.join('<br>');
+    rain.appendChild(col);
+  }
+})();
 function showHackOverlay(){
   document.getElementById('hackTitle').textContent = t('hacked_title');
   document.getElementById('hackSub').textContent = t('hacked_sub');
