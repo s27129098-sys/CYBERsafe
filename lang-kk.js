@@ -26,6 +26,7 @@ I18N.kk = {
   phish_eyebrow:"Интерактив · Фишинг зертханасы", phish_title:"Алаяқтықты таба аласыз ба?", phish_desc:"Әр хабарлама қауіпсіз бе әлде фишинг пе — шешіңіз, содан кейін оны не әшкерелегенін көріңіз.",
   judge_safe:"🟢 Қауіпсіз", judge_phish:"🔴 Фишинг", feedback_correct_title:"Дұрыс!", feedback_wrong_title:"Дәл емес.",
   warning_signs_label:"Бұл хабарлама", was_phishing:"фишинг", was_safe:"қауіпсіз", warning_colon:" болды. Қауіп белгілері:",
+  hacked_title:"СІЗДІ ХАКЕРЛЕДІ", hacked_sub:"Сіз фишинг хабарламасын қауіпсіз деп белгіледіңіз. Шын өмірде бұл бір басу құпия сөзіңізді алаяққа беріп қоюы мүмкін еді.",
   next_scenario_btn:"Келесі жағдай →", see_results_btn:"Нәтижені көру →", score_label:"Сіздің нәтижеңіз",
   awareness_level_label:"Хабардарлық деңгейі", level_beginner:"Бастауыш", level_intermediate:"Орта", level_advanced:"Жоғары",
   try_again_btn:"Қайта көру",

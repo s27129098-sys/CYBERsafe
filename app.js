@@ -76,11 +76,27 @@ function navigate(route){
   window.scrollTo({top:0, behavior:'instant'});
   document.getElementById('mobileMenu').classList.remove('open');
   history.replaceState(null,'','#'+target);
+  observeReveals();
+  hideHackOverlay();
 }
 document.querySelectorAll('[data-nav]').forEach(function(el){
   el.addEventListener('click', function(e){ e.preventDefault(); navigate(el.dataset.nav); });
 });
 window.addEventListener('load', function(){ navigate(location.hash.replace('#','')||'home'); });
+
+/* ---------- SCROLL REVEAL ---------- */
+var revealIO = ('IntersectionObserver' in window) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ? new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); revealIO.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'})
+  : null;
+function observeReveals(){
+  if(!revealIO) return;
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ revealIO.observe(el); });
+}
+observeReveals();
 
 /* ---------- THEME ---------- */
 var themeBtn=document.getElementById('themeToggle');
@@ -219,7 +235,26 @@ function judge(choice){
     + '<ul>'+s.flags.map(function(f){ return '<li>'+f+'</li>'; }).join('')+'</ul>'
     + '<button class="btn btn-primary" onclick="labIndex++;renderLab();">'+(labIndex<scenarios.length-1? t('next_scenario_btn') : t('see_results_btn'))+'</button>'
     + '</div>';
+  if(!correct && s.answer==='phish' && choice==='safe') showHackOverlay();
 }
+
+/* ---------- HACKED TOAST (fell for a phishing message) ---------- */
+var hackToastEl=document.getElementById('hackToast');
+var hackToastTimer=null;
+function showHackOverlay(){
+  document.getElementById('hackTitle').textContent = t('hacked_title');
+  document.getElementById('hackSub').textContent = t('hacked_sub');
+  hackToastEl.classList.remove('show');
+  void hackToastEl.offsetWidth; /* restart the shake/glow animation on repeat triggers */
+  hackToastEl.classList.add('show');
+  clearTimeout(hackToastTimer);
+  hackToastTimer=setTimeout(hideHackOverlay, 6000);
+}
+function hideHackOverlay(){
+  hackToastEl.classList.remove('show');
+  clearTimeout(hackToastTimer);
+}
+document.getElementById('hackDismiss').addEventListener('click', hideHackOverlay);
 
 /* ---------- QUIZ ---------- */
 var quizState=null;
