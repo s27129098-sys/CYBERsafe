@@ -176,10 +176,19 @@ function renderLearn(){
 
 /* ---------- PRESENTATIONS ---------- */
 var PRESENTATIONS=[
-  {title:'Security Fundamentals', desc:'20 slides on passwords, phishing, and malware.', count:20,
-   folder:'slides/full/slide-', pdf:'slides/security-fundamentals.pdf',
-   thumbs:['slides/thumb/preview-1.png','slides/thumb/preview-2.png','slides/thumb/preview-3.png','slides/thumb/preview-4.png']}
+  {title:'Security Fundamentals', desc:'20 slides on passwords, phishing, and malware.', count:20, defaultLang:'en',
+   langs:{
+     en:{folder:'slides/full/en/slide-', pdf:'slides/pdf/security-fundamentals-en.pdf',
+       thumbs:['slides/thumb/en/preview-1.png','slides/thumb/en/preview-2.png','slides/thumb/en/preview-3.png','slides/thumb/en/preview-4.png']},
+     uz:{folder:'slides/full/uz/slide-', pdf:'slides/pdf/security-fundamentals-uz.pdf',
+       thumbs:['slides/thumb/uz/preview-1.png','slides/thumb/uz/preview-2.png','slides/thumb/uz/preview-3.png','slides/thumb/uz/preview-4.png']},
+     ru:{folder:'slides/full/ru/slide-', pdf:'slides/pdf/security-fundamentals-ru.pdf',
+       thumbs:['slides/thumb/ru/preview-1.png','slides/thumb/ru/preview-2.png','slides/thumb/ru/preview-3.png','slides/thumb/ru/preview-4.png']}
+   }}
 ];
+function deckLocale(deck){
+  return deck.langs[currentLang] || deck.langs[deck.defaultLang];
+}
 var deckPreviewTimers=[];
 function renderPresentations(){
   var grid=document.getElementById('presentationsGrid');
@@ -195,7 +204,8 @@ function renderPresentations(){
   }).join('');
   PRESENTATIONS.forEach(function(d, i){
     var box=document.getElementById('deckPreview-'+i);
-    d.thumbs.forEach(function(src, k){
+    var locale=deckLocale(d);
+    locale.thumbs.forEach(function(src, k){
       var img=document.createElement('img');
       img.src=src; img.alt='';
       if(k===0) img.className='active';
@@ -221,11 +231,12 @@ var deckCountEl=document.getElementById('deckCount');
 var deckDlEl=document.querySelector('.deck-dl');
 var deckIndex=0, deckActive=null;
 function deckBuild(deck){
+  var locale=deckLocale(deck);
   deckStage.innerHTML='';
   deckDots.innerHTML='';
   for(var n=1; n<=deck.count; n++){
     var img=document.createElement('img');
-    img.src=deck.folder+String(n).padStart(2,'0')+'.png';
+    img.src=locale.folder+String(n).padStart(2,'0')+'.png';
     img.alt='Slide '+n;
     if(n===1) img.className='active';
     deckStage.appendChild(img);
@@ -245,7 +256,7 @@ function deckShow(idx){
 }
 function deckOpen(deck){
   deckActive=deck;
-  deckDlEl.href=deck.pdf;
+  deckDlEl.href=deckLocale(deck).pdf;
   deckBuild(deck);
   deckShow(0);
   deckOverlay.classList.add('open');

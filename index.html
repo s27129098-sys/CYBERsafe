@@ -63,12 +63,14 @@ body{
 a{color:inherit; text-decoration:none;}
 h1,h2,h3,h4{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em;}
 .mono{font-family:var(--font-mono);}
-.container{max-width:1120px; margin:0 auto; padding:0 24px;}
+.container{max-width:1320px; margin:0 auto; padding:0 24px;}
+@media(min-width:1600px){.container{max-width:1480px;}}
 button{font-family:var(--font-body); cursor:pointer;}
 input,select{font-family:var(--font-body);}
 
 header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(14px); border-bottom:1px solid var(--border);}
-.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1240px; margin:0 auto; gap:12px;}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1440px; margin:0 auto; gap:12px;}
+@media(min-width:1600px){.nav-inner{max-width:1600px;}}
 .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:18px; flex-shrink:0;}
 .logo-mark{width:32px; height:32px; position:relative; flex-shrink:0;}
 .nav-links{display:flex; align-items:center; gap:2px; flex-wrap:wrap;}
@@ -83,6 +85,10 @@ header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--
 @media(max-width:1050px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
+}
+@media(max-width:560px){
+  .lang-switch{display:none;}
+  .nav-inner{padding:12px 16px;}
 }
 
 .page{display:none; animation:fadein .35s ease;}
@@ -246,7 +252,8 @@ footer p{font-size:13px; color:var(--text-dim);}
 .crit-list .c{display:flex; align-items:center; gap:8px;}
 
 .url-row{display:flex; gap:10px; margin-bottom:20px;}
-.url-row input{flex:1; padding:14px 16px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text); font-family:var(--font-mono); font-size:14px;}
+.url-row input{flex:1; min-width:0; padding:14px 16px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text); font-family:var(--font-mono); font-size:14px;}
+@media(max-width:480px){.url-row{flex-wrap:wrap;} .url-row button{width:100%;}}
 .url-row input:focus{outline:none; border-color:var(--blue);}
 .risk-box{text-align:center; padding:20px; border-radius:10px; margin-bottom:18px;}
 .risk-box .rlabel{font-family:var(--font-display); font-size:22px; font-weight:700;}
