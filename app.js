@@ -173,6 +173,78 @@ function renderLearn(){
   }).join('');
 }
 
+/* ---------- SLIDE DECK ---------- */
+var DECK_TOTAL=20;
+(function(){
+  var previewBox=document.getElementById('deckPreview');
+  var previewFiles=['slides/thumb/preview-1.png','slides/thumb/preview-2.png','slides/thumb/preview-3.png','slides/thumb/preview-4.png'];
+  previewFiles.forEach(function(src, k){
+    var img=document.createElement('img');
+    img.src=src; img.alt='';
+    if(k===0) img.className='active';
+    previewBox.appendChild(img);
+  });
+  var pk=0;
+  setInterval(function(){
+    var imgs=previewBox.querySelectorAll('img');
+    imgs[pk].classList.remove('active');
+    pk=(pk+1)%imgs.length;
+    imgs[pk].classList.add('active');
+  }, 2200);
+})();
+
+var deckOverlay=document.getElementById('deckOverlay');
+var deckStage=document.getElementById('deckStage');
+var deckDots=document.getElementById('deckDots');
+var deckCount=document.getElementById('deckCount');
+var deckIndex=0, deckBuilt=false;
+function deckBuild(){
+  if(deckBuilt) return;
+  deckBuilt=true;
+  for(var n=1; n<=DECK_TOTAL; n++){
+    var img=document.createElement('img');
+    img.src='slides/full/slide-'+String(n).padStart(2,'0')+'.png';
+    img.alt='Slide '+n;
+    if(n===1) img.className='active';
+    deckStage.appendChild(img);
+    var dot=document.createElement('button');
+    if(n===1) dot.className='active';
+    (function(idx){ dot.addEventListener('click', function(){ deckShow(idx); }); })(n-1);
+    deckDots.appendChild(dot);
+  }
+}
+function deckShow(idx){
+  deckIndex=(idx+DECK_TOTAL)%DECK_TOTAL;
+  var imgs=deckStage.querySelectorAll('img');
+  imgs.forEach(function(im,k){ im.classList.toggle('active', k===deckIndex); });
+  var dots=deckDots.querySelectorAll('button');
+  dots.forEach(function(d,k){ d.classList.toggle('active', k===deckIndex); });
+  deckCount.textContent=(deckIndex+1)+' / '+DECK_TOTAL;
+}
+function deckOpen(){
+  deckBuild();
+  deckShow(deckIndex);
+  deckOverlay.classList.add('open');
+  deckOverlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function deckClose(){
+  deckOverlay.classList.remove('open');
+  deckOverlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.getElementById('deckLaunch').addEventListener('click', deckOpen);
+document.getElementById('deckClose').addEventListener('click', deckClose);
+document.getElementById('deckPrev').addEventListener('click', function(){ deckShow(deckIndex-1); });
+document.getElementById('deckNext').addEventListener('click', function(){ deckShow(deckIndex+1); });
+deckOverlay.addEventListener('click', function(e){ if(e.target===deckOverlay) deckClose(); });
+document.addEventListener('keydown', function(e){
+  if(!deckOverlay.classList.contains('open')) return;
+  if(e.key==='Escape') deckClose();
+  else if(e.key==='ArrowLeft') deckShow(deckIndex-1);
+  else if(e.key==='ArrowRight') deckShow(deckIndex+1);
+});
+
 /* ---------- IMPACT TIMELINE ---------- */
 function renderTimeline(){
   document.getElementById('tl2026').innerHTML = t('tl2026').map(function(x){ return '<li>'+x+'</li>'; }).join('');

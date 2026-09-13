@@ -145,6 +145,37 @@ header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--
 .tool-card p{font-size:13.5px; color:var(--text-muted); margin-bottom:14px;}
 .tool-card .go{font-size:13px; color:var(--blue); font-weight:600;}
 
+/* ---------- slide deck launcher ---------- */
+.deck-launch{display:flex; align-items:center; gap:20px; padding:26px 28px; cursor:pointer; transition:.2s; position:relative; overflow:hidden;
+  background:linear-gradient(135deg, var(--blue-dim), var(--violet-dim)); border:1px solid rgba(140,124,240,.45); flex-wrap:wrap;}
+.deck-launch::before{content:''; position:absolute; inset:0; background:radial-gradient(circle at 12% 15%, rgba(62,123,250,.4), transparent 55%); pointer-events:none;}
+.deck-launch:hover{border-color:var(--violet); transform:translateY(-2px); box-shadow:var(--shadow);}
+.deck-ribbon{position:absolute; top:14px; right:-32px; transform:rotate(40deg); background:var(--safe); color:#06210f; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.08em; padding:3px 38px;}
+.deck-preview{width:70px; height:70px; border-radius:14px; overflow:hidden; flex-shrink:0; position:relative; z-index:1; box-shadow:0 0 20px rgba(140,124,240,.55);}
+.deck-preview img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .7s ease;}
+.deck-preview img.active{opacity:1;}
+.deck-text{position:relative; z-index:1;}
+.deck-text h4{font-family:var(--font-display); font-size:18px; margin:0 0 4px; color:#fff;}
+.deck-text p{font-size:13.5px; color:rgba(233,238,250,.82); margin:0;}
+.deck-go{margin-left:auto; font-size:13.5px; color:#fff; font-weight:700; flex-shrink:0; background:rgba(255,255,255,.14); padding:9px 16px; border-radius:9px; position:relative; z-index:1; white-space:nowrap;}
+
+.deck-overlay{position:fixed; inset:0; z-index:250; background:rgba(5,8,16,.92); backdrop-filter:blur(6px); display:none; align-items:center; justify-content:center; padding:20px;}
+.deck-overlay.open{display:flex;}
+.deck-inner{width:100%; max-width:1000px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);}
+.deck-top{display:flex; align-items:center; justify-content:space-between; padding:12px 14px 12px 18px; border-bottom:1px solid var(--border); gap:10px;}
+.deck-top span.mono{font-size:12px; color:var(--text-dim);}
+.deck-dl{padding:8px 14px; font-size:13px;}
+.deck-stage{position:relative; aspect-ratio:960/540; background:#0A0F1D;}
+.deck-stage img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .25s ease;}
+.deck-stage img.active{opacity:1;}
+.car-nav{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-top:1px solid var(--border); gap:12px;}
+.car-btn{background:var(--surface-2); border:1px solid var(--border); color:var(--text); width:36px; height:36px; border-radius:9px; font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.car-btn:hover{border-color:var(--blue);}
+.car-dots{display:flex; gap:6px; flex-wrap:wrap; justify-content:center;}
+.car-dots button{width:7px; height:7px; padding:0; border-radius:50%; border:none; background:var(--border); cursor:pointer;}
+.car-dots button.active{background:var(--blue); width:18px; border-radius:4px;}
+@media(max-width:560px){.deck-launch{padding:20px;} .deck-go{margin-left:0;}}
+
 footer{border-top:1px solid var(--border); padding:36px 0; margin-top:40px;}
 footer .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
 footer p{font-size:13px; color:var(--text-dim);}
@@ -409,6 +440,9 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   .opt.incorrect{animation:optShake .35s ease;}
   @keyframes correctPop{0%{transform:scale(1);} 45%{transform:scale(1.035);} 100%{transform:scale(1);}}
   @keyframes optShake{0%,100%{transform:translateX(0);} 25%{transform:translateX(-4px);} 75%{transform:translateX(4px);}}
+
+  .deck-preview{animation:deckGlow 2.6s ease-in-out infinite;}
+  @keyframes deckGlow{0%,100%{box-shadow:0 0 16px rgba(140,124,240,.45);} 50%{box-shadow:0 0 28px rgba(140,124,240,.8);}}
 }
 @media (prefers-reduced-motion: reduce){
   .hack-vignette.show{opacity:.3; transition:opacity .4s ease;}
@@ -545,7 +579,33 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 <section class="page" id="page-learn">
   <div class="page-hero"><span class="eyebrow-mini" data-i18n="s_curr_eyebrow">Curriculum</span><h1 data-i18n="learn_title">Learn cybersecurity, topic by topic</h1><p data-i18n="learn_desc">Six core categories, from the basics to social engineering. Tap a category to expand it.</p></div>
   <div class="section reveal" id="learnCats"></div>
+  <div class="section reveal">
+    <div class="card deck-launch" id="deckLaunch">
+      <span class="deck-ribbon" data-i18n="slides_new">NEW</span>
+      <div class="deck-preview" id="deckPreview"></div>
+      <div class="deck-text"><h4 data-i18n="slides_title">Prefer slides?</h4><p data-i18n="slides_desc">Security Fundamentals — 20 slides on passwords, phishing, and malware.</p></div>
+      <span class="deck-go" data-i18n="slides_go">View slides →</span>
+    </div>
+  </div>
 </section>
+
+<div class="deck-overlay" id="deckOverlay" aria-hidden="true">
+  <div class="deck-inner">
+    <div class="deck-top">
+      <span class="mono" id="deckCount"></span>
+      <div style="display:flex; gap:8px;">
+        <a href="slides/security-fundamentals.pdf" download class="btn btn-secondary deck-dl" data-i18n="slides_download">⬇ Download</a>
+        <button class="icon-btn" id="deckClose" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="deck-stage" id="deckStage"></div>
+    <div class="car-nav">
+      <button class="car-btn" id="deckPrev">‹</button>
+      <div class="car-dots" id="deckDots"></div>
+      <button class="car-btn" id="deckNext">›</button>
+    </div>
+  </div>
+</div>
 
 <section class="page" id="page-articles">
   <div class="page-hero"><span class="eyebrow-mini" data-i18n="s_art_eyebrow">Read</span><h1 data-i18n="articles_title">Articles</h1><p data-i18n="articles_desc">Short, practical reads on staying safe online.</p></div>

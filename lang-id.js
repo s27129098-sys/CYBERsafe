@@ -21,6 +21,8 @@ I18N.id = {
   tool2_t:"Kuis siber", tool2_d:"Uji pengetahuan keamanan sibermu dalam tiga tingkat kesulitan.", tool2_cta:"Ikuti kuis →",
   learn_title:"Pelajari keamanan siber, topik demi topik", learn_desc:"Delapan kategori inti dan 55+ topik, dari dasar-dasar hingga privasi digital. Ketuk sebuah kategori untuk membukanya.",
   learn_topics_suffix:"topik",
+  slides_new:"BARU", slides_title:"Lebih suka slide?", slides_desc:"Dasar-Dasar Keamanan Siber — 20 slide tentang kata sandi, phishing, dan malware.",
+  slides_go:"Lihat slide →", slides_download:"⬇ Unduh",
   articles_title:"Artikel", articles_desc:"Bacaan praktis tentang cara tetap aman saat online.",
   back_to_articles:"← Kembali ke artikel", by_label:"Oleh", test_yourself_label:"Uji dirimu",
   phish_eyebrow:"Interaktif · Lab Phishing", phish_title:"Bisakah kamu mengenali penipuan?", phish_desc:"Tentukan apakah setiap pesan aman atau phishing, lalu lihat apa yang mengungkapkannya.",

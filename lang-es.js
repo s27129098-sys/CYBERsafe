@@ -21,6 +21,8 @@ I18N.es = {
   tool2_t:"Test de ciberseguridad", tool2_d:"Pon a prueba tus conocimientos de ciberseguridad en tres niveles.", tool2_cta:"Hacer el test →",
   learn_title:"Aprende ciberseguridad, tema por tema", learn_desc:"Ocho categorías principales y más de 55 temas, desde lo básico hasta la privacidad digital. Toca una categoría para desplegarla.",
   learn_topics_suffix:"temas",
+  slides_new:"NUEVO", slides_title:"¿Prefieres diapositivas?", slides_desc:"Fundamentos de ciberseguridad — 20 diapositivas sobre contraseñas, phishing y malware.",
+  slides_go:"Ver diapositivas →", slides_download:"⬇ Descargar",
   articles_title:"Artículos", articles_desc:"Lecturas prácticas sobre cómo mantenerte seguro en línea.",
   back_to_articles:"← Volver a los artículos", by_label:"Por", test_yourself_label:"Ponte a prueba",
   phish_eyebrow:"Interactivo · Laboratorio de phishing", phish_title:"¿Puedes detectar el engaño?", phish_desc:"Decide si cada mensaje es seguro o phishing, y después descubre qué lo delataba.",
