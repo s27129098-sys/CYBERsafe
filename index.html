@@ -145,13 +145,6 @@ header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--
 .tool-card p{font-size:13.5px; color:var(--text-muted); margin-bottom:14px;}
 .tool-card .go{font-size:13px; color:var(--blue); font-weight:600;}
 
-.slide-embed{padding:0; overflow:hidden;}
-.slide-embed iframe{width:100%; height:600px; border:0; display:block; background:#0A0F1D;}
-.slide-embed-bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:14px 20px; border-top:1px solid var(--border);}
-.slide-embed-bar span{font-size:13px; color:var(--text-muted);}
-.slide-embed-bar .btn{padding:8px 14px; font-size:13px;}
-@media(max-width:600px){.slide-embed iframe{height:420px;}}
-
 footer{border-top:1px solid var(--border); padding:36px 0; margin-top:40px;}
 footer .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
 footer p{font-size:13px; color:var(--text-dim);}
@@ -552,16 +545,6 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 <section class="page" id="page-learn">
   <div class="page-hero"><span class="eyebrow-mini" data-i18n="s_curr_eyebrow">Curriculum</span><h1 data-i18n="learn_title">Learn cybersecurity, topic by topic</h1><p data-i18n="learn_desc">Six core categories, from the basics to social engineering. Tap a category to expand it.</p></div>
   <div class="section reveal" id="learnCats"></div>
-  <div class="section reveal">
-    <div class="section-head"><span class="eyebrow-mini" data-i18n="slides_eyebrow">Study deck</span><h2 data-i18n="slides_title">Prefer slides?</h2><p data-i18n="slides_desc">The same fundamentals above, as a 20-slide visual walkthrough — passwords, phishing, and malware included.</p></div>
-    <div class="card slide-embed">
-      <iframe src="slides/security-fundamentals.pdf" title="Security Fundamentals slides" loading="lazy"></iframe>
-      <div class="slide-embed-bar">
-        <span data-i18n="slides_caption">Security Fundamentals · 20 slides</span>
-        <a href="slides/security-fundamentals.pdf" download class="btn btn-secondary" data-i18n="slides_download">⬇ Download</a>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section class="page" id="page-articles">
