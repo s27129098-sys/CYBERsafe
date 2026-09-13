@@ -1,7 +1,7 @@
 /* اردو — CyberSafe Pakistan. Loaded on demand by app.js. RTL language. */
 
 I18N.ur = {
-  nav_home:"ہوم", nav_learn:"سیکھیں", nav_articles:"مضامین", nav_phishing:"فشنگ", nav_quiz:"کوئز",
+  nav_home:"ہوم", nav_learn:"سیکھیں", nav_articles:"مضامین", nav_presentations:"پریزنٹیشنز", nav_phishing:"فشنگ", nav_quiz:"کوئز",
   nav_urlcheck:"URL چیک", nav_research:"تحقیق", nav_about:"ہمارے بارے میں",
   nav_resources:"وسائل", nav_impact:"اثرات",
   hero_eyebrow:"● مفت · طلبہ کے لیے", hero_line1:"سائبر سیکیورٹی سیکھیں۔", hero_line2pre:"آن لائن",
@@ -21,8 +21,8 @@ I18N.ur = {
   tool2_t:"سائبر کوئز", tool2_d:"اپنی سائبر سیکیورٹی معلومات کو تین سطحوں پر آزمائیں۔", tool2_cta:"کوئز دیں ←",
   learn_title:"سائبر سیکیورٹی کو موضوع بہ موضوع سیکھیں", learn_desc:"آٹھ بنیادی زمرے اور 55+ موضوعات، بنیادی باتوں سے لے کر ڈیجیٹل رازداری تک۔ کسی زمرے کو کھولنے کے لیے اس پر ٹیپ کریں۔",
   learn_topics_suffix:"موضوعات",
-  slides_new:"نیا", slides_title:"سلائیڈز پسند ہیں؟", slides_desc:"سائبر سیکیورٹی کی بنیادی باتیں — پاس ورڈز، فشنگ اور مالویئر پر 20 سلائیڈز۔",
-  slides_go:"سلائیڈز دیکھیں →", slides_download:"⬇ ڈاؤن لوڈ کریں",
+  slides_new:"نیا", slides_go:"سلائیڈز دیکھیں →", slides_download:"⬇ ڈاؤن لوڈ کریں",
+  pres_eyebrow:"دیکھیں", pres_title:"بصری خلاصے", pres_desc:"وہی مواد، سلائیڈ بہ سلائیڈ سمجھایا گیا — ایک منتخب کریں اور شروع کریں۔",
   articles_title:"مضامین", articles_desc:"آن لائن محفوظ رہنے کے بارے میں عملی مضامین۔",
   back_to_articles:"→ مضامین کی طرف واپس", by_label:"از", test_yourself_label:"خود کو آزمائیں",
   phish_eyebrow:"انٹرایکٹو · فشنگ لیب", phish_title:"کیا آپ دھوکہ پہچان سکتے ہیں؟", phish_desc:"فیصلہ کریں کہ ہر پیغام محفوظ ہے یا فشنگ، پھر دیکھیں کہ اس کا پتہ کیسے چلا۔",

@@ -1,6 +1,6 @@
 var I18N = {
 en: {
-  nav_home:"Home", nav_learn:"Learn", nav_articles:"Articles", nav_phishing:"Phishing Lab", nav_quiz:"Quiz",
+  nav_home:"Home", nav_learn:"Learn", nav_articles:"Articles", nav_presentations:"Presentations", nav_phishing:"Phishing Lab", nav_quiz:"Quiz",
   nav_urlcheck:"URL Check", nav_research:"Research", nav_about:"About",
   nav_resources:"Resources", nav_impact:"Impact",
   hero_eyebrow:"● Free · Built for students", hero_line1:"Learn cybersecurity.", hero_line2pre:"Stay",
@@ -20,8 +20,8 @@ en: {
   tool2_t:"Cyber quiz", tool2_d:"Test your cybersecurity knowledge, three levels deep.", tool2_cta:"Take the quiz →",
   learn_title:"Learn cybersecurity, topic by topic", learn_desc:"Eight core categories and 55+ topics, from the basics to digital privacy. Tap a category to expand it.",
   learn_topics_suffix:"topics",
-  slides_new:"NEW", slides_title:"Prefer slides?", slides_desc:"Security Fundamentals — 20 slides on passwords, phishing, and malware.",
-  slides_go:"View slides →", slides_download:"⬇ Download",
+  slides_new:"NEW", slides_go:"View slides →", slides_download:"⬇ Download",
+  pres_eyebrow:"Watch", pres_title:"Visual study decks", pres_desc:"The same material, walked through slide by slide — pick a deck and go.",
   articles_title:"Articles", articles_desc:"Practical reads on staying safe online.",
   back_to_articles:"← Back to articles", by_label:"By", test_yourself_label:"Test yourself",
   phish_eyebrow:"Interactive · Phishing Lab", phish_title:"Can you spot the scam?", phish_desc:"Decide if each message is safe or phishing, then see what gave it away.",
@@ -83,7 +83,7 @@ en: {
   footer_tagline:"Free cybersecurity education for students. Built in Uzbekistan."
 },
 uz: {
-  nav_home:"Bosh sahifa", nav_learn:"Oʻrganish", nav_articles:"Maqolalar", nav_phishing:"Fishing", nav_quiz:"Test",
+  nav_home:"Bosh sahifa", nav_learn:"Oʻrganish", nav_articles:"Maqolalar", nav_presentations:"Prezentatsiyalar", nav_phishing:"Fishing", nav_quiz:"Test",
   nav_urlcheck:"URL tekshiruv", nav_research:"Tadqiqot", nav_about:"Biz haqimizda",
   nav_resources:"Manbalar", nav_impact:"Natijalar",
   hero_eyebrow:"● Bepul · Oʻquvchilar uchun", hero_line1:"Kiberxavfsizlikni oʻrganing.", hero_line2pre:"Onlaynda",
@@ -103,8 +103,8 @@ uz: {
   tool2_t:"Kiber test", tool2_d:"Uch darajada kiberxavfsizlik bilimingizni sinang.", tool2_cta:"Testni boshlash →",
   learn_title:"Kiberxavfsizlikni mavzu boʻyicha oʻrganing", learn_desc:"Asoslardan raqamli maxfiylikkacha sakkizta asosiy kategoriya va 55+ mavzu. Kengaytirish uchun kategoriyaga bosing.",
   learn_topics_suffix:"mavzu",
-  slides_new:"YANGI", slides_title:"Slaydlar afzalmi?", slides_desc:"Kiberxavfsizlik asoslari — parollar, fishing va zararli dasturlar haqida 20 slayd.",
-  slides_go:"Slaydlarni ko‘rish →", slides_download:"⬇ Yuklab olish",
+  slides_new:"YANGI", slides_go:"Slaydlarni ko‘rish →", slides_download:"⬇ Yuklab olish",
+  pres_eyebrow:"Tomosha", pres_title:"Vizual konspektlar", pres_desc:"Xuddi shu material, slaydma-slayd tushuntirilgan — bittasini tanlang.",
   articles_title:"Maqolalar", articles_desc:"Onlaynda xavfsiz boʻlish haqida amaliy maqolalar.",
   back_to_articles:"← Maqolalarga qaytish", by_label:"Muallif", test_yourself_label:"Oʻzingizni sinang",
   phish_eyebrow:"Interaktiv · Fishing laboratoriyasi", phish_title:"Firibgarlikni topa olasizmi?", phish_desc:"Har bir xabar xavfsiz yoki fishing ekanligini aniqlang, keyin sababini koʻring.",
@@ -166,7 +166,7 @@ uz: {
   footer_tagline:"Oʻquvchilar uchun bepul kiberxavfsizlik taʼlimi. Oʻzbekistonda yaratilgan."
 },
 ru: {
-  nav_home:"Главная", nav_learn:"Учиться", nav_articles:"Статьи", nav_phishing:"Фишинг", nav_quiz:"Тест",
+  nav_home:"Главная", nav_learn:"Учиться", nav_articles:"Статьи", nav_presentations:"Презентации", nav_phishing:"Фишинг", nav_quiz:"Тест",
   nav_urlcheck:"Проверка URL", nav_research:"Исследование", nav_about:"О нас",
   nav_resources:"Ресурсы", nav_impact:"Итоги",
   hero_eyebrow:"● Бесплатно · Для студентов", hero_line1:"Изучайте кибербезопасность.", hero_line2pre:"Оставайтесь",
@@ -186,8 +186,8 @@ ru: {
   tool2_t:"Кибер-тест", tool2_d:"Проверьте свои знания по кибербезопасности на трёх уровнях.", tool2_cta:"Пройти тест →",
   learn_title:"Изучайте кибербезопасность по темам", learn_desc:"Восемь основных категорий и более 55 тем — от основ до цифровой приватности. Нажмите на категорию, чтобы раскрыть её.",
   learn_topics_suffix:"тем",
-  slides_new:"НОВОЕ", slides_title:"Предпочитаешь слайды?", slides_desc:"Основы кибербезопасности — 20 слайдов про пароли, фишинг и вредоносное ПО.",
-  slides_go:"Смотреть слайды →", slides_download:"⬇ Скачать",
+  slides_new:"НОВОЕ", slides_go:"Смотреть слайды →", slides_download:"⬇ Скачать",
+  pres_eyebrow:"Смотреть", pres_title:"Визуальные конспекты", pres_desc:"Тот же материал, разобранный слайд за слайдом — выбери колоду и вперёд.",
   articles_title:"Статьи", articles_desc:"Практические материалы о безопасности в интернете.",
   back_to_articles:"← Назад к статьям", by_label:"Автор", test_yourself_label:"Проверьте себя",
   phish_eyebrow:"Интерактив · Лаборатория фишинга", phish_title:"Сможете распознать обман?", phish_desc:"Определите, безопасно сообщение или это фишинг, затем узнайте, что его выдало.",

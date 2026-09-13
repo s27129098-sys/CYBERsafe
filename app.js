@@ -37,6 +37,7 @@ function applyLanguage(){
   });
   renderArticleGrids();
   renderLearn();
+  renderPresentations();
   renderTimeline();
   renderRoadmap();
   labIndex=0; labScore=0; renderLab();
@@ -173,37 +174,58 @@ function renderLearn(){
   }).join('');
 }
 
-/* ---------- SLIDE DECK ---------- */
-var DECK_TOTAL=20;
-(function(){
-  var previewBox=document.getElementById('deckPreview');
-  var previewFiles=['slides/thumb/preview-1.png','slides/thumb/preview-2.png','slides/thumb/preview-3.png','slides/thumb/preview-4.png'];
-  previewFiles.forEach(function(src, k){
-    var img=document.createElement('img');
-    img.src=src; img.alt='';
-    if(k===0) img.className='active';
-    previewBox.appendChild(img);
+/* ---------- PRESENTATIONS ---------- */
+var PRESENTATIONS=[
+  {title:'Security Fundamentals', desc:'20 slides on passwords, phishing, and malware.', count:20,
+   folder:'slides/full/slide-', pdf:'slides/security-fundamentals.pdf',
+   thumbs:['slides/thumb/preview-1.png','slides/thumb/preview-2.png','slides/thumb/preview-3.png','slides/thumb/preview-4.png']}
+];
+var deckPreviewTimers=[];
+function renderPresentations(){
+  var grid=document.getElementById('presentationsGrid');
+  if(!grid) return;
+  deckPreviewTimers.forEach(function(timer){ clearInterval(timer); });
+  deckPreviewTimers=[];
+  grid.innerHTML = PRESENTATIONS.map(function(d, i){
+    return '<div class="card deck-card" data-deck="'+i+'">'
+      + '<span class="deck-ribbon">'+t('slides_new')+'</span>'
+      + '<div class="deck-preview" id="deckPreview-'+i+'"></div>'
+      + '<div class="deck-text"><h4>'+d.title+'</h4><p>'+d.desc+'</p></div>'
+      + '<span class="deck-go">'+t('slides_go')+'</span></div>';
+  }).join('');
+  PRESENTATIONS.forEach(function(d, i){
+    var box=document.getElementById('deckPreview-'+i);
+    d.thumbs.forEach(function(src, k){
+      var img=document.createElement('img');
+      img.src=src; img.alt='';
+      if(k===0) img.className='active';
+      box.appendChild(img);
+    });
+    var pk=0;
+    deckPreviewTimers.push(setInterval(function(){
+      var imgs=box.querySelectorAll('img');
+      imgs[pk].classList.remove('active');
+      pk=(pk+1)%imgs.length;
+      imgs[pk].classList.add('active');
+    }, 2200));
   });
-  var pk=0;
-  setInterval(function(){
-    var imgs=previewBox.querySelectorAll('img');
-    imgs[pk].classList.remove('active');
-    pk=(pk+1)%imgs.length;
-    imgs[pk].classList.add('active');
-  }, 2200);
-})();
+  grid.querySelectorAll('.deck-card').forEach(function(card){
+    card.addEventListener('click', function(){ deckOpen(PRESENTATIONS[+card.dataset.deck]); });
+  });
+}
 
 var deckOverlay=document.getElementById('deckOverlay');
 var deckStage=document.getElementById('deckStage');
 var deckDots=document.getElementById('deckDots');
-var deckCount=document.getElementById('deckCount');
-var deckIndex=0, deckBuilt=false;
-function deckBuild(){
-  if(deckBuilt) return;
-  deckBuilt=true;
-  for(var n=1; n<=DECK_TOTAL; n++){
+var deckCountEl=document.getElementById('deckCount');
+var deckDlEl=document.querySelector('.deck-dl');
+var deckIndex=0, deckActive=null;
+function deckBuild(deck){
+  deckStage.innerHTML='';
+  deckDots.innerHTML='';
+  for(var n=1; n<=deck.count; n++){
     var img=document.createElement('img');
-    img.src='slides/full/slide-'+String(n).padStart(2,'0')+'.png';
+    img.src=deck.folder+String(n).padStart(2,'0')+'.png';
     img.alt='Slide '+n;
     if(n===1) img.className='active';
     deckStage.appendChild(img);
@@ -214,16 +236,18 @@ function deckBuild(){
   }
 }
 function deckShow(idx){
-  deckIndex=(idx+DECK_TOTAL)%DECK_TOTAL;
+  deckIndex=(idx+deckActive.count)%deckActive.count;
   var imgs=deckStage.querySelectorAll('img');
   imgs.forEach(function(im,k){ im.classList.toggle('active', k===deckIndex); });
   var dots=deckDots.querySelectorAll('button');
   dots.forEach(function(d,k){ d.classList.toggle('active', k===deckIndex); });
-  deckCount.textContent=(deckIndex+1)+' / '+DECK_TOTAL;
+  deckCountEl.textContent=(deckIndex+1)+' / '+deckActive.count;
 }
-function deckOpen(){
-  deckBuild();
-  deckShow(deckIndex);
+function deckOpen(deck){
+  deckActive=deck;
+  deckDlEl.href=deck.pdf;
+  deckBuild(deck);
+  deckShow(0);
   deckOverlay.classList.add('open');
   deckOverlay.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
@@ -233,10 +257,9 @@ function deckClose(){
   deckOverlay.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
 }
-document.getElementById('deckLaunch').addEventListener('click', deckOpen);
 document.getElementById('deckClose').addEventListener('click', deckClose);
-document.getElementById('deckPrev').addEventListener('click', function(){ deckShow(deckIndex-1); });
-document.getElementById('deckNext').addEventListener('click', function(){ deckShow(deckIndex+1); });
+document.getElementById('deckPrev').addEventListener('click', function(){ if(deckActive) deckShow(deckIndex-1); });
+document.getElementById('deckNext').addEventListener('click', function(){ if(deckActive) deckShow(deckIndex+1); });
 deckOverlay.addEventListener('click', function(e){ if(e.target===deckOverlay) deckClose(); });
 document.addEventListener('keydown', function(e){
   if(!deckOverlay.classList.contains('open')) return;
