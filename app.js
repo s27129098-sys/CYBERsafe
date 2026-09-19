@@ -46,7 +46,7 @@ function applyLanguage(){
 }
 
 /* Languages shipped as separate packs, fetched the first time they are picked. */
-var LANG_PACKS={kk:1, ur:1, es:1, id:1};
+var LANG_PACKS={kk:1, ur:1, es:1, id:1, pt:1};
 var RTL_LANGS={ur:1};
 function ensureLang(code, cb){
   if(!LANG_PACKS[code] || I18N[code]) return cb();
@@ -520,7 +520,9 @@ var COUNTRIES=[
  {id:'724', code:'ES', name:'Spain', native:'España',
   langs:[{name:'Español', tag:'ES', lang:'es', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'288', code:'GH', name:'Ghana', native:'Ghana',
-  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]}
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'076', code:'BR', name:'Brazil', native:'Brasil',
+  langs:[{name:'Português', tag:'PT', lang:'pt', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]}
 ];
 var COUNTRY_BY_ID={}; COUNTRIES.forEach(function(c){ COUNTRY_BY_ID[c.id]=c; });
 
