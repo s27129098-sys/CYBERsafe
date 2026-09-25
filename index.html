@@ -140,6 +140,9 @@ header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--
 .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; transition:.18s;}
 .card:hover{border-color:var(--blue); transform:translateY(-2px);}
 .card .icon-box{width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px;}
+.icon-box svg{width:20px; height:20px; display:block;}
+.tool-card .icon-box svg{width:22px; height:22px;}
+.cat-head .icon-box svg{width:18px; height:18px;}
 .card h4{font-size:16px; margin-bottom:6px;}
 .card p{font-size:13.5px; color:var(--text-muted);}
 .card.clickable{cursor:pointer;}
@@ -269,7 +272,8 @@ footer p{font-size:13px; color:var(--text-dim);}
 .tl-year{font-family:var(--font-display); font-weight:700; color:var(--blue); font-size:15px; margin-bottom:6px;}
 .tl-item ul{margin-left:18px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:4px;}
 
-.about-hero{display:flex; gap:24px; align-items:center; margin-bottom:32px; flex-wrap:wrap;}
+.about-hero{display:flex; gap:36px; align-items:center; margin-bottom:32px; flex-wrap:wrap;}
+.about-person{display:flex; gap:16px; align-items:center;}
 .avatar{width:76px; height:76px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--violet)); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:26px; color:#fff; flex-shrink:0;}
 .tag{display:inline-block; padding:6px 12px; background:var(--surface-2); border:1px solid var(--border); border-radius:100px; font-size:12.5px; margin:4px 6px 0 0;}
 
@@ -563,10 +567,10 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   <div class="section reveal">
     <div class="section-head"><span class="eyebrow-mini" data-i18n="s_curr_eyebrow">Curriculum</span><h2 data-i18n="s_curr_title">What can you learn?</h2></div>
     <div class="grid-4">
-      <div class="card clickable" data-nav="learn"><div class="icon-box" style="background:var(--blue-dim); color:var(--blue);">🔐</div><h4 data-i18n="card1_t">Online security</h4><p data-i18n="card1_d">Passwords, 2FA, and privacy basics.</p></div>
-      <div class="card clickable" data-nav="phishing"><div class="icon-box" style="background:var(--danger-dim); color:var(--danger);">🎣</div><h4 data-i18n="card2_t">Phishing</h4><p data-i18n="card2_d">Learn to identify scam emails and links.</p></div>
-      <div class="card clickable" data-nav="learn"><div class="icon-box" style="background:var(--warn-dim); color:var(--warn);">🦠</div><h4 data-i18n="card3_t">Malware</h4><p data-i18n="card3_d">Viruses, ransomware, and spyware.</p></div>
-      <div class="card clickable" data-nav="learn"><div class="icon-box" style="background:var(--violet-dim); color:var(--violet);">👤</div><h4 data-i18n="card4_t">Social engineering</h4><p data-i18n="card4_d">How attackers manipulate people.</p></div>
+      <div class="card clickable" data-nav="learn"><div class="icon-box" style="background:var(--blue-dim); color:var(--blue);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h4 data-i18n="card1_t">Online security</h4><p data-i18n="card1_d">Passwords, 2FA, and privacy basics.</p></div>
+      <div class="card clickable" data-nav="phishing"><div class="icon-box" style="background:var(--danger-dim); color:var(--danger);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div><h4 data-i18n="card2_t">Phishing</h4><p data-i18n="card2_d">Learn to identify scam emails and links.</p></div>
+      <div class="card clickable" data-nav="learn"><div class="icon-box" style="background:var(--warn-dim); color:var(--warn);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7.5" y="9" width="9" height="9.5" rx="4"/><path d="M9.5 9V7.2a2.5 2.5 0 0 1 5 0V9"/><path d="M4.5 12.5h3M16.5 12.5h3M5.5 8l2 1.6M18.5 8l-2 1.6M5.5 17l2-1.6M18.5 17l-2-1.6M12 4.5v2.2"/></svg></div><h4 data-i18n="card3_t">Malware</h4><p data-i18n="card3_d">Viruses, ransomware, and spyware.</p></div>
+      <div class="card clickable" data-nav="learn"><div class="icon-box" style="background:var(--violet-dim); color:var(--violet);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.4"/><path d="M5 19.5c0-3.7 3.1-6.6 7-6.6s7 2.9 7 6.6"/></svg></div><h4 data-i18n="card4_t">Social engineering</h4><p data-i18n="card4_d">How attackers manipulate people.</p></div>
     </div>
   </div>
 
@@ -578,8 +582,8 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   <div class="section reveal">
     <div class="section-head"><span class="eyebrow-mini" data-i18n="s_practice_eyebrow">Practice</span><h2 data-i18n="s_practice_title">Do not just read. Practice.</h2><p data-i18n="s_practice_desc">Hands-on tools that check your skills in real time — nothing you type ever leaves your browser.</p></div>
     <div class="grid-3">
-      <div class="tool-card" data-nav="phishing"><div class="icon-box">🎣</div><h4 data-i18n="tool1_t">Phishing simulator</h4><p data-i18n="tool1_d">Can you spot the scam in real inbox scenarios?</p><span class="go" data-i18n="tool1_cta">Start simulation →</span></div>
-      <div class="tool-card" data-nav="quiz"><div class="icon-box">🧠</div><h4 data-i18n="tool2_t">Cyber quiz</h4><p data-i18n="tool2_d">Test your cybersecurity knowledge, three levels deep.</p><span class="go" data-i18n="tool2_cta">Take the quiz →</span></div>
+      <div class="tool-card" data-nav="phishing"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div><h4 data-i18n="tool1_t">Phishing simulator</h4><p data-i18n="tool1_d">Can you spot the scam in real inbox scenarios?</p><span class="go" data-i18n="tool1_cta">Start simulation →</span></div>
+      <div class="tool-card" data-nav="quiz"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg></div><h4 data-i18n="tool2_t">Cyber quiz</h4><p data-i18n="tool2_d">Test your cybersecurity knowledge, three levels deep.</p><span class="go" data-i18n="tool2_cta">Take the quiz →</span></div>
     </div>
   </div>
 </section>
@@ -686,8 +690,18 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   <div class="page-hero"><span class="eyebrow-mini" data-i18n="about_eyebrow">About</span><h1 data-i18n="about_title">Why I created CyberSafe</h1></div>
   <div class="section reveal">
     <div class="about-hero">
-      <div class="avatar">SA</div>
-      <div><h3 style="font-size:19px;">Ataxanov Shoxjaxon</h3><p style="color:var(--text-muted); font-size:14px;" data-i18n="about_role">Founder & developer, CyberSafe Uzbekistan</p></div>
+      <div class="about-person">
+        <div class="avatar">SA</div>
+        <div><h3 style="font-size:19px;">Ataxanov Shoxjaxon</h3><p style="color:var(--text-muted); font-size:14px;" data-i18n="about_role">Founder & developer, CyberSafe Uzbekistan</p></div>
+      </div>
+      <div class="about-person">
+        <div class="avatar">IM</div>
+        <div><h3 style="font-size:19px;">Ilhomov Mirjahon</h3><p style="color:var(--text-muted); font-size:14px;" data-i18n="about_role2">Co-founder, CyberSafe Uzbekistan</p></div>
+      </div>
+      <div class="about-person">
+        <div class="avatar">BK</div>
+        <div><h3 style="font-size:19px;">Boburjon Khamidjonov</h3><p style="color:var(--text-muted); font-size:14px;" data-i18n="about_role2">Co-founder, CyberSafe Uzbekistan</p></div>
+      </div>
     </div>
     <p style="color:var(--text-muted); font-size:15px; max-width:640px; margin-bottom:20px;" data-i18n="about_body">I created CyberSafe Uzbekistan because cybersecurity education is becoming increasingly important for students, while many young people are still unfamiliar with common online threats.</p>
     <div>
