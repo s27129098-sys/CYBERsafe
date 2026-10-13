@@ -354,6 +354,17 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   .globe-wrap{max-width:400px;}
 }
 
+.country-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr)); gap:14px;}
+.country-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; transition:.18s;}
+.country-card:hover{border-color:rgba(62,123,250,.5);}
+.cc-head{display:flex; align-items:center; gap:12px; margin-bottom:12px;}
+.cc-code{font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; padding:6px 8px; border-radius:8px; background:var(--blue-dim); color:var(--blue); flex-shrink:0;}
+.cc-head h4{font-size:15px; line-height:1.25;}
+.cc-native{font-size:12.5px; color:var(--text-dim);}
+.cc-langs .tag{margin:0 6px 6px 0;}
+.cc-team{margin-top:8px; font-size:12.5px; color:var(--text-muted); line-height:1.55;}
+.cc-team b{color:var(--text); font-weight:600;}
+
 /* ---------- reaction toast (hacked / caught / false alarm) ---------- */
 .hack-toast{--toast-c:var(--danger); position:fixed; bottom:18px; right:18px; z-index:400; display:flex; align-items:flex-start; gap:12px;
   width:min(360px, calc(100% - 32px)); background:var(--surface); border:1px solid var(--toast-c);
@@ -364,6 +375,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 .hack-toast.show{opacity:1; pointer-events:auto; transform:translateY(0);}
 .hack-icon{font-size:22px; flex-shrink:0; line-height:1;}
 .hack-text{flex:1; min-width:0;}
+.hack-tag{display:block; font-family:var(--font-mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-dim); margin-bottom:5px;}
 .hack-title{display:block; font-family:var(--font-display); font-size:14px; font-weight:700; color:var(--toast-c); margin-bottom:3px;}
 .hack-sub{font-size:12.5px; color:var(--text-muted); line-height:1.5;}
 .hack-dismiss{background:none; border:none; color:var(--text-dim); font-size:15px; line-height:1; padding:2px; flex-shrink:0;}
@@ -468,7 +480,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
         <svg class="logo-mark" viewBox="0 0 32 32" fill="none"><path d="M16 3L27 7V15C27 22 22 27 16 29C10 27 5 22 5 15V7L16 3Z" fill="var(--blue-dim)" stroke="var(--blue)" stroke-width="1.5"/><path d="M11 16L14.5 19.5L21 12" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         CyberSafe
       </div>
-      <div class="entry-stat">7 COUNTRIES · 7 LANGUAGES</div>
+      <div class="entry-stat">8 COUNTRIES · 8 LANGUAGES</div>
     </div>
 
     <div class="entry-head">
@@ -543,7 +555,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
     <div>
       <span class="eyebrow" data-i18n="hero_eyebrow">● Free · Built for students</span>
       <h1><span data-i18n="hero_line1">Learn cybersecurity.</span><br><span data-i18n="hero_line2pre">Stay</span> <span class="accent" data-i18n="hero_accent">safe</span> <span data-i18n="hero_line2post">online.</span></h1>
-      <p class="lead" data-i18n="hero_lead">Free cybersecurity education and interactive tools designed for students in Uzbekistan.</p>
+      <p class="lead" data-i18n="hero_lead">Free cybersecurity education and interactive tools for students. Started in Uzbekistan, now in 8 countries.</p>
       <div class="btn-row">
         <a href="#learn" class="btn btn-primary" data-nav="learn" data-i18n="btn_start_learning">Start learning</a>
         <a href="#quiz" class="btn btn-secondary" data-nav="quiz" data-i18n="btn_test_knowledge">Test your knowledge</a>
@@ -562,6 +574,11 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
     <div class="stat"><div class="num">21+</div><div class="lbl" data-i18n="stats_lessons">Interactive lessons</div></div>
     <div class="stat"><div class="num">500+</div><div class="lbl" data-i18n="stats_students">Students reached</div></div>
     <div class="stat"><div class="num">100+</div><div class="lbl" data-i18n="stats_research">Research participants</div></div>
+  </div>
+
+  <div class="section reveal" id="whereSection">
+    <div class="section-head"><span class="eyebrow-mini" data-i18n="where_eyebrow">Where we run</span><h2 data-i18n="where_title">Started in Uzbekistan, now in 8 countries</h2><p data-i18n="where_desc">Lessons are offered in each country's own language, translated and taught by student volunteers.</p></div>
+    <div class="country-grid" id="countryGrid"></div>
   </div>
 
   <div class="section reveal">
@@ -740,13 +757,14 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
   <span class="hack-corner bl"></span>
   <span class="hack-corner br"></span>
 </div>
-<div class="hack-toast" id="hackToast" role="status" aria-live="polite">
-  <span class="hack-icon" id="hackIcon">🔓</span>
+<div class="hack-toast" id="hackToast" role="status" aria-live="polite" aria-hidden="true">
+  <span class="hack-icon" id="hackIcon"></span>
   <div class="hack-text">
-    <strong class="hack-title" id="hackTitle">You've been hacked</strong>
+    <span class="hack-tag" id="hackTag"></span>
+    <strong class="hack-title" id="hackTitle"></strong>
     <p class="hack-sub" id="hackSub"></p>
   </div>
-  <button class="hack-dismiss" id="hackDismiss" aria-label="Dismiss">✕</button>
+  <button class="hack-dismiss" id="hackDismiss" aria-label="Dismiss" tabindex="-1">✕</button>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>

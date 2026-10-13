@@ -2,7 +2,8 @@ var currentLang = localStorage.getItem ? 'en' : 'en';
 try{ var savedLang = window.localStorage.getItem('csuz_lang'); if(savedLang) currentLang = savedLang; }catch(e){}
 
 function t(key){
-  return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key;
+  var v=(I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key;
+  return (typeof v==='string' && typeof COUNTRIES!=='undefined' && COUNTRIES) ? v.replace(/\{n\}/g, COUNTRIES.length) : v;
 }
 
 var URDU_FONT_LOADED=false;
@@ -38,6 +39,7 @@ function applyLanguage(){
   renderArticleGrids();
   renderLearn();
   renderPresentations();
+  renderCountries();
   renderTimeline();
   renderRoadmap();
   labIndex=0; labScore=0; renderLab();
@@ -370,6 +372,7 @@ var hackToastTimer=null, hackVignetteTimer=null;
 })();
 function showFx(variant, icon, title, sub, opts){
   opts = opts || {};
+  document.getElementById('hackTag').textContent = t('hack_sim');
   document.getElementById('hackTitle').textContent = title;
   document.getElementById('hackSub').textContent = sub;
   hackIconEl.textContent = icon;
@@ -377,6 +380,8 @@ function showFx(variant, icon, title, sub, opts){
   hackVignetteEl.className = 'hack-vignette' + (variant ? ' variant-'+variant : '');
   void hackToastEl.offsetWidth; /* restart the shake/glow/vignette animations on repeat triggers */
   hackToastEl.classList.add('show');
+  hackToastEl.setAttribute('aria-hidden','false');
+  document.getElementById('hackDismiss').tabIndex=0;
   clearTimeout(hackToastTimer);
   hackToastTimer=setTimeout(hideHackOverlay, opts.toastMs || 5000);
   if(opts.vignette){
@@ -387,6 +392,8 @@ function showFx(variant, icon, title, sub, opts){
 }
 function hideHackOverlay(){
   hackToastEl.classList.remove('show');
+  hackToastEl.setAttribute('aria-hidden','true');
+  document.getElementById('hackDismiss').tabIndex=-1;
   hackVignetteEl.classList.remove('show');
   clearTimeout(hackToastTimer);
   clearTimeout(hackVignetteTimer);
@@ -508,7 +515,7 @@ function checkUrl(){
 /* ready:true = the site is already translated into that language.
    ready:false = volunteers are still translating; the option is shown but not selectable yet. */
 var COUNTRIES=[
- {id:'860', code:'UZ', name:'Uzbekistan', native:'Oʻzbekiston',
+ {id:'860', code:'UZ', name:'Uzbekistan', native:'Oʻzbekiston', founders:['Ataxanov Shoxjaxon','Ilhomov Mirjahon','Boburjon Khamidjonov'], volunteers:[],
   langs:[{name:'Oʻzbekcha', tag:'UZ', lang:'uz', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'398', code:'KZ', name:'Kazakhstan', native:'Қазақстан',
   langs:[{name:'Қазақша', tag:'KK', lang:'kk', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
@@ -526,6 +533,24 @@ var COUNTRIES=[
   langs:[{name:'Português', tag:'PT', lang:'pt', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]}
 ];
 var COUNTRY_BY_ID={}; COUNTRIES.forEach(function(c){ COUNTRY_BY_ID[c.id]=c; });
+function renderCountries(){
+  var grid=document.getElementById('countryGrid');
+  if(!grid || typeof COUNTRIES==='undefined' || !COUNTRIES) return;
+  grid.innerHTML = COUNTRIES.map(function(c){
+    var langs=c.langs.map(function(l){ return '<span class="tag">'+l.name+'</span>'; }).join('');
+    var team='';
+    if(c.founders && c.founders.length) team+='<p class="cc-team"><b>'+t('where_founders')+':</b> '+c.founders.join(', ')+'</p>';
+    if(c.volunteers && c.volunteers.length) team+='<p class="cc-team"><b>'+t('where_volunteers')+':</b> '+c.volunteers.join(', ')+'</p>';
+    return '<div class="country-card"><div class="cc-head"><span class="cc-code">'+c.code+'</span><div><h4>'+c.name+'</h4><span class="cc-native">'+c.native+'</span></div></div>'
+      + '<div class="cc-langs">'+langs+'</div>'+team+'</div>';
+  }).join('');
+}
+(function syncEntryStat(){
+  var seen={}; COUNTRIES.forEach(function(c){ c.langs.forEach(function(l){ seen[l.lang]=1; }); });
+  var el=document.querySelector('.entry-stat');
+  if(el) el.textContent = COUNTRIES.length+' COUNTRIES \u00b7 '+Object.keys(seen).length+' LANGUAGES';
+  renderCountries();
+})();
 
 var entryEl=document.getElementById('entry');
 var entryStage=document.getElementById('entryStage');
