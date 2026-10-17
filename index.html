@@ -114,7 +114,8 @@ header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--
 .hero p.lead{font-size:17px; color:var(--text-muted); max-width:480px; margin-bottom:28px;}
 @media(max-width:820px){.hero p.lead{margin-left:auto; margin-right:auto;}}
 .btn-row{display:flex; gap:12px; flex-wrap:wrap;}
-@media(max-width:820px){.btn-row{justify-content:center;}}
+@media(max-width:820px){.btn-row{justify-content:center;} .signal-wrap{--ring-scale:1.9; margin:20px 0;}}
+@media(max-width:520px){.btn-row{flex-direction:column; align-items:stretch; max-width:320px; margin:0 auto;} .btn-row .btn{justify-content:center;}}
 .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:10px; font-weight:600; font-size:14.5px; border:1px solid transparent; transition:.15s;}
 .btn-primary{background:var(--blue); color:#fff;}
 .btn-primary:hover{background:#5b8fff;}
@@ -126,7 +127,7 @@ header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--
 .ring:nth-child(1){width:120px; height:120px; animation-delay:0s;}
 .ring:nth-child(2){width:120px; height:120px; animation-delay:1.05s;}
 .ring:nth-child(3){width:120px; height:120px; animation-delay:2.1s;}
-@keyframes pulse{0%{transform:scale(1); opacity:.55;} 100%{transform:scale(2.6); opacity:0;}}
+@keyframes pulse{0%{transform:scale(1); opacity:.55;} 100%{transform:scale(var(--ring-scale,2.6)); opacity:0;}}
 @media(prefers-reduced-motion:reduce){.ring{animation:none; display:none;}}
 .shield-core{width:120px; height:120px; border-radius:50%; background:linear-gradient(180deg,var(--blue-dim),var(--surface)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; box-shadow:var(--shadow);}
 
@@ -372,9 +373,11 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 .cc-code{font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; padding:6px 8px; border-radius:8px; background:var(--blue-dim); color:var(--blue); flex-shrink:0;}
 .cc-head h4{font-size:15px; line-height:1.25;}
 .cc-native{font-size:12.5px; color:var(--text-dim);}
+.cc-langs{margin-bottom:-6px;}
 .cc-langs .tag{margin:0 6px 6px 0;}
 .cc-team{margin-top:8px; font-size:12.5px; color:var(--text-muted); line-height:1.55;}
 .cc-team b{color:var(--text); font-weight:600;}
+@media(max-width:560px){.country-card{padding:14px 16px;} .cc-head{margin-bottom:10px;} .cc-langs .tag{font-size:12px; padding:5px 10px;}}
 
 /* ---------- reaction toast (hacked / caught / false alarm) ---------- */
 .hack-toast{--toast-c:var(--danger); position:fixed; bottom:18px; right:18px; z-index:400; display:flex; align-items:flex-start; gap:12px;
