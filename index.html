@@ -73,8 +73,11 @@ button{font-family:var(--font-body); cursor:pointer;}
 input,select{font-family:var(--font-body);}
 
 header{position:sticky; top:0; z-index:100; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(14px); border-bottom:1px solid var(--border);}
-.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1440px; margin:0 auto; gap:12px;}
-@media(min-width:1600px){.nav-inner{max-width:1600px;}}
+.nav-inner{display:flex; align-items:center; padding:14px 24px; max-width:1320px; margin:0 auto; gap:12px;}
+@media(min-width:1600px){.nav-inner{max-width:1480px;}}
+.nav-left{display:flex; align-items:center; flex-shrink:0;}
+.nav-links, .nav-right{margin-left:auto;}
+@media(min-width:1280px){.nav-inner{display:grid; grid-template-columns:1fr auto 1fr;} .nav-links{margin-left:0;}}
 .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:18px; flex-shrink:0;}
 .logo-mark{width:32px; height:32px; position:relative; flex-shrink:0;}
 .logo-safe{background:linear-gradient(135deg,#1f6bff,#14c3ff); -webkit-background-clip:text; background-clip:text; color:transparent;}
@@ -513,11 +516,13 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 
 <header>
   <div class="nav-inner">
+    <div class="nav-left">
     <a href="#home" class="logo">
       <svg class="logo-mark" viewBox="428 271 398 435" aria-hidden="true"><use href="#cs-mark"/></svg>
       <span>Cyber<span class="logo-safe">Safe</span></span>
     </a>
     <button class="country-badge" id="countryBadge" title="Change country and language">UZ</button>
+    </div>
     <nav class="nav-links" id="navLinks">
       <a href="#home" data-nav="home" data-i18n="nav_home">Home</a>
       <a href="#learn" data-nav="learn" data-i18n="nav_learn">Learn</a>
