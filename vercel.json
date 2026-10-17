@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "cybe-rsafe.vercel.app" }],
+      "destination": "https://cybersafe.international/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.cybersafe.international" }],
+      "destination": "https://cybersafe.international/$1",
+      "permanent": true
+    }
+  ]
+}
