@@ -3,9 +3,9 @@ en: {
   nav_home:"Home", nav_learn:"Learn", nav_articles:"Articles", nav_presentations:"Presentations", nav_phishing:"Phishing Lab", nav_quiz:"Quiz",
   nav_urlcheck:"URL Check", nav_research:"Research", nav_about:"About",
   nav_resources:"Resources", nav_impact:"Impact",
-  hero_eyebrow:"● Free · Built for students", hero_line1:"Learn cybersecurity.", hero_line2pre:"Stay",
+  hero_eyebrow:"● Free · For everyone", hero_line1:"Learn cybersecurity.", hero_line2pre:"Stay",
   hero_accent:"safe", hero_line2post:"online.",
-  hero_lead:"Free cybersecurity education and interactive tools for students. Started in Uzbekistan, now in {n} countries.",
+  hero_lead:"Free cybersecurity education and interactive tools for everyone. Started in Uzbekistan, now in {n} countries.",
   btn_start_learning:"Start learning", btn_test_knowledge:"Test your knowledge",
   stats_topics:"Topics covered", stats_questions:"Quiz questions", stats_students:"Students reached", stats_research:"Research participants",
   s_curr_eyebrow:"Curriculum", s_curr_title:"What can you learn?",
@@ -83,15 +83,15 @@ en: {
     ["Web security","How websites get attacked — and defended."],
     ["Ethical hacking basics","Thinking like an attacker, legally and safely."]
   ],
-  footer_tagline:"Free cybersecurity education for students. Built in Uzbekistan."
+  footer_tagline:"Free cybersecurity education for everyone. Built in Uzbekistan."
 },
 uz: {
   nav_home:"Bosh sahifa", nav_learn:"Oʻrganish", nav_articles:"Maqolalar", nav_presentations:"Prezentatsiyalar", nav_phishing:"Fishing", nav_quiz:"Test",
   nav_urlcheck:"URL tekshiruv", nav_research:"Tadqiqot", nav_about:"Biz haqimizda",
   nav_resources:"Manbalar", nav_impact:"Natijalar",
-  hero_eyebrow:"● Bepul · Oʻquvchilar uchun", hero_line1:"Kiberxavfsizlikni oʻrganing.", hero_line2pre:"Onlaynda",
+  hero_eyebrow:"● Bepul · Hamma uchun", hero_line1:"Kiberxavfsizlikni oʻrganing.", hero_line2pre:"Onlaynda",
   hero_accent:"xavfsiz", hero_line2post:"boʻling.",
-  hero_lead:"Oʻquvchilar uchun bepul kiberxavfsizlik taʼlimi va interaktiv vositalar. Oʻzbekistonda boshlangan, hozir {n} ta davlatda.",
+  hero_lead:"Hamma uchun bepul kiberxavfsizlik taʼlimi va interaktiv vositalar. Oʻzbekistonda boshlangan, hozir {n} ta davlatda.",
   btn_start_learning:"Oʻrganishni boshlash", btn_test_knowledge:"Bilimingizni sinang",
   stats_topics:"Qamrab olingan mavzular", stats_questions:"Test savollari", stats_students:"Qamrab olingan oʻquvchilar", stats_research:"Tadqiqot ishtirokchilari",
   s_curr_eyebrow:"Oʻquv dasturi", s_curr_title:"Nimalarni oʻrganishingiz mumkin?",
@@ -169,15 +169,15 @@ uz: {
     ["Veb xavfsizlik","Saytlar qanday hujumga uchraydi — va qanday himoyalanadi."],
     ["Etik xakerlik asoslari","Qonuniy va xavfsiz tarzda hujumchidek fikrlash."]
   ],
-  footer_tagline:"Oʻquvchilar uchun bepul kiberxavfsizlik taʼlimi. Oʻzbekistonda yaratilgan."
+  footer_tagline:"Hamma uchun bepul kiberxavfsizlik taʼlimi. Oʻzbekistonda yaratilgan."
 },
 ru: {
   nav_home:"Главная", nav_learn:"Учиться", nav_articles:"Статьи", nav_presentations:"Презентации", nav_phishing:"Фишинг", nav_quiz:"Тест",
   nav_urlcheck:"Проверка URL", nav_research:"Исследование", nav_about:"О нас",
   nav_resources:"Ресурсы", nav_impact:"Итоги",
-  hero_eyebrow:"● Бесплатно · Для студентов", hero_line1:"Изучайте кибербезопасность.", hero_line2pre:"Оставайтесь",
+  hero_eyebrow:"● Бесплатно · Для всех", hero_line1:"Изучайте кибербезопасность.", hero_line2pre:"Оставайтесь",
   hero_accent:"в безопасности", hero_line2post:"онлайн.",
-  hero_lead:"Бесплатное образование по кибербезопасности и интерактивные инструменты для студентов. Начали в Узбекистане, теперь — в {n} странах.",
+  hero_lead:"Бесплатное образование по кибербезопасности и интерактивные инструменты для всех. Начали в Узбекистане, теперь — в {n} странах.",
   btn_start_learning:"Начать обучение", btn_test_knowledge:"Проверить знания",
   stats_topics:"Тем изучено", stats_questions:"Вопросов в тесте", stats_students:"Студентов охвачено", stats_research:"Участников исследования",
   s_curr_eyebrow:"Программа", s_curr_title:"Что вы можете изучить?",
@@ -255,7 +255,7 @@ ru: {
     ["Веб-безопасность","Как атакуют сайты — и как их защищают."],
     ["Основы этичного хакинга","Мышление атакующего — законно и безопасно."]
   ],
-  footer_tagline:"Бесплатное образование по кибербезопасности для студентов. Создано в Узбекистане."
+  footer_tagline:"Бесплатное образование по кибербезопасности для всех. Создано в Узбекистане."
 }
 };
 

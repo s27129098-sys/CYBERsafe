@@ -4,9 +4,9 @@ I18N.ur = {
   nav_home:"ہوم", nav_learn:"سیکھیں", nav_articles:"مضامین", nav_presentations:"پریزنٹیشنز", nav_phishing:"فشنگ", nav_quiz:"کوئز",
   nav_urlcheck:"URL چیک", nav_research:"تحقیق", nav_about:"ہمارے بارے میں",
   nav_resources:"وسائل", nav_impact:"اثرات",
-  hero_eyebrow:"● مفت · طلبہ کے لیے", hero_line1:"سائبر سیکیورٹی سیکھیں۔", hero_line2pre:"آن لائن",
+  hero_eyebrow:"● مفت · سب کے لیے", hero_line1:"سائبر سیکیورٹی سیکھیں۔", hero_line2pre:"آن لائن",
   hero_accent:"محفوظ", hero_line2post:"رہیں۔",
-  hero_lead:"پاکستان کے طلبہ کے لیے مفت سائبر سیکیورٹی تعلیم اور انٹرایکٹو ٹولز۔",
+  hero_lead:"پاکستان میں سب کے لیے مفت سائبر سیکیورٹی تعلیم اور انٹرایکٹو ٹولز۔",
   btn_start_learning:"سیکھنا شروع کریں", btn_test_knowledge:"اپنا علم آزمائیں",
   stats_topics:"موضوعات شامل", stats_questions:"کوئز کے سوالات", stats_students:"طلبہ تک رسائی", stats_research:"تحقیق میں شرکاء",
   s_curr_eyebrow:"نصاب", s_curr_title:"آپ کیا سیکھ سکتے ہیں؟",
@@ -84,7 +84,7 @@ I18N.ur = {
     ["ویب سیکیورٹی","ویب سائٹس پر حملہ کیسے ہوتا ہے — اور دفاع کیسے کیا جاتا ہے۔"],
     ["ایتھیکل ہیکنگ کی بنیادی باتیں","حملہ آور کی طرح سوچنا، قانونی اور محفوظ طریقے سے۔"]
   ],
-  footer_tagline:"طلبہ کے لیے مفت سائبر سیکیورٹی تعلیم۔ ازبکستان میں بنایا گیا۔"
+  footer_tagline:"سب کے لیے مفت سائبر سیکیورٹی تعلیم۔ ازبکستان میں بنایا گیا۔"
 };
 
 LEARN.ur = [

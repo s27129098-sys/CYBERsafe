@@ -4,9 +4,9 @@ I18N.es = {
   nav_home:"Inicio", nav_learn:"Aprender", nav_articles:"Artículos", nav_presentations:"Presentaciones", nav_phishing:"Phishing", nav_quiz:"Test",
   nav_urlcheck:"Verificar URL", nav_research:"Investigación", nav_about:"Sobre mí",
   nav_resources:"Recursos", nav_impact:"Impacto",
-  hero_eyebrow:"● Gratis · Para estudiantes", hero_line1:"Aprende ciberseguridad.", hero_line2pre:"Mantente",
+  hero_eyebrow:"● Gratis · Para todos", hero_line1:"Aprende ciberseguridad.", hero_line2pre:"Mantente",
   hero_accent:"seguro", hero_line2post:"en línea.",
-  hero_lead:"Educación gratuita en ciberseguridad y herramientas interactivas diseñadas para estudiantes en España.",
+  hero_lead:"Educación gratuita en ciberseguridad y herramientas interactivas diseñadas para todos en España.",
   btn_start_learning:"Empezar a aprender", btn_test_knowledge:"Pon a prueba tus conocimientos",
   stats_topics:"Temas cubiertos", stats_questions:"Preguntas del test", stats_students:"Estudiantes alcanzados", stats_research:"Participantes en la investigación",
   s_curr_eyebrow:"Programa", s_curr_title:"¿Qué puedes aprender?",
@@ -84,7 +84,7 @@ I18N.es = {
     ["Seguridad web","Cómo se ataca a los sitios web — y cómo se defienden."],
     ["Fundamentos del hacking ético","Pensar como un atacante, de forma legal y segura."]
   ],
-  footer_tagline:"Educación gratuita en ciberseguridad para estudiantes. Creado en Uzbekistán."
+  footer_tagline:"Educación gratuita en ciberseguridad para todos. Creado en Uzbekistán."
 };
 
 LEARN.es = [

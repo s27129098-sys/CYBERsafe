@@ -4,9 +4,9 @@ I18N.id = {
   nav_home:"Beranda", nav_learn:"Belajar", nav_articles:"Artikel", nav_presentations:"Presentasi", nav_phishing:"Phishing", nav_quiz:"Kuis",
   nav_urlcheck:"Cek URL", nav_research:"Riset", nav_about:"Tentang",
   nav_resources:"Sumber Daya", nav_impact:"Dampak",
-  hero_eyebrow:"● Gratis · Untuk pelajar", hero_line1:"Pelajari keamanan siber.", hero_line2pre:"Tetap",
+  hero_eyebrow:"● Gratis · Untuk semua orang", hero_line1:"Pelajari keamanan siber.", hero_line2pre:"Tetap",
   hero_accent:"aman", hero_line2post:"saat online.",
-  hero_lead:"Edukasi keamanan siber gratis dan alat interaktif yang dirancang untuk pelajar di Indonesia.",
+  hero_lead:"Edukasi keamanan siber gratis dan alat interaktif yang dirancang untuk semua orang di Indonesia.",
   btn_start_learning:"Mulai belajar", btn_test_knowledge:"Uji pengetahuanmu",
   stats_topics:"Topik yang dibahas", stats_questions:"Pertanyaan kuis", stats_students:"Pelajar yang terjangkau", stats_research:"Peserta riset",
   s_curr_eyebrow:"Kurikulum", s_curr_title:"Apa yang bisa kamu pelajari?",
@@ -84,7 +84,7 @@ I18N.id = {
     ["Keamanan web","Bagaimana situs web diserang — dan dipertahankan."],
     ["Dasar-dasar ethical hacking","Berpikir seperti penyerang, secara legal dan aman."]
   ],
-  footer_tagline:"Edukasi keamanan siber gratis untuk pelajar. Dibuat di Uzbekistan."
+  footer_tagline:"Edukasi keamanan siber gratis untuk semua orang. Dibuat di Uzbekistan."
 };
 
 LEARN.id = [
