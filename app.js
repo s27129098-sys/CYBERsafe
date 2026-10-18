@@ -40,6 +40,7 @@ function applyLanguage(){
   renderLearn();
   renderPresentations();
   renderCountries();
+  renderStats();
   renderTimeline();
   renderRoadmap();
   labIndex=0; labScore=0; renderLab();
@@ -71,9 +72,11 @@ document.getElementById('langSwitch').addEventListener('click', function(e){
 });
 
 /* ---------- ROUTER ---------- */
+/* Pages kept in the markup but not linked or reachable until real data is ready. */
+var HIDDEN_PAGES={research:1};
 function navigate(route){
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
-  var target = document.getElementById('page-'+route) ? route : 'home';
+  var target = (document.getElementById('page-'+route) && !HIDDEN_PAGES[route]) ? route : 'home';
   document.getElementById('page-'+target).classList.add('active');
   document.querySelectorAll('[data-nav]').forEach(function(a){ a.classList.toggle('active', a.dataset.nav===target); });
   window.scrollTo({top:0, behavior:'instant'});
@@ -283,6 +286,15 @@ document.addEventListener('keydown', function(e){
 });
 
 /* ---------- IMPACT TIMELINE ---------- */
+function renderStats(){
+  var cats=LEARN[currentLang]||LEARN.en;
+  var topics=cats.reduce(function(n,c){ return n+c.topics.length; },0);
+  var qz=QUIZ[currentLang]||QUIZ.en;
+  var questions=Object.keys(qz).reduce(function(n,k){ return n+qz[k].length; },0);
+  var a=document.getElementById('statTopics'), b=document.getElementById('statQuestions');
+  if(a) a.textContent=topics;
+  if(b) b.textContent=questions;
+}
 function renderTimeline(){
   document.getElementById('tl2026').innerHTML = t('tl2026').map(function(x){ return '<li>'+x+'</li>'; }).join('');
   document.getElementById('tl2027').innerHTML = t('tl2027').map(function(x){ return '<li>'+x+'</li>'; }).join('');

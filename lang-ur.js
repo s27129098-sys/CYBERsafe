@@ -8,7 +8,7 @@ I18N.ur = {
   hero_accent:"محفوظ", hero_line2post:"رہیں۔",
   hero_lead:"پاکستان کے طلبہ کے لیے مفت سائبر سیکیورٹی تعلیم اور انٹرایکٹو ٹولز۔",
   btn_start_learning:"سیکھنا شروع کریں", btn_test_knowledge:"اپنا علم آزمائیں",
-  stats_topics:"موضوعات شامل", stats_lessons:"انٹرایکٹو اسباق", stats_students:"طلبہ تک رسائی", stats_research:"تحقیق میں شرکاء",
+  stats_topics:"موضوعات شامل", stats_questions:"کوئز کے سوالات", stats_students:"طلبہ تک رسائی", stats_research:"تحقیق میں شرکاء",
   s_curr_eyebrow:"نصاب", s_curr_title:"آپ کیا سیکھ سکتے ہیں؟",
   card1_t:"آن لائن سیکیورٹی", card1_d:"پاس ورڈز، 2FA اور رازداری کی بنیادی باتیں۔",
   card2_t:"فشنگ", card2_d:"جعلی ای میلز اور لنکس پہچاننا سیکھیں۔",

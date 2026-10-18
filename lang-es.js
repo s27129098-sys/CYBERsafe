@@ -8,7 +8,7 @@ I18N.es = {
   hero_accent:"seguro", hero_line2post:"en línea.",
   hero_lead:"Educación gratuita en ciberseguridad y herramientas interactivas diseñadas para estudiantes en España.",
   btn_start_learning:"Empezar a aprender", btn_test_knowledge:"Pon a prueba tus conocimientos",
-  stats_topics:"Temas cubiertos", stats_lessons:"Lecciones interactivas", stats_students:"Estudiantes alcanzados", stats_research:"Participantes en la investigación",
+  stats_topics:"Temas cubiertos", stats_questions:"Preguntas del test", stats_students:"Estudiantes alcanzados", stats_research:"Participantes en la investigación",
   s_curr_eyebrow:"Programa", s_curr_title:"¿Qué puedes aprender?",
   card1_t:"Seguridad en línea", card1_d:"Contraseñas, 2FA y fundamentos de privacidad.",
   card2_t:"Phishing", card2_d:"Aprende a identificar correos y enlaces fraudulentos.",

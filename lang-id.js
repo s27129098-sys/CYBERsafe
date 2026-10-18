@@ -8,7 +8,7 @@ I18N.id = {
   hero_accent:"aman", hero_line2post:"saat online.",
   hero_lead:"Edukasi keamanan siber gratis dan alat interaktif yang dirancang untuk pelajar di Indonesia.",
   btn_start_learning:"Mulai belajar", btn_test_knowledge:"Uji pengetahuanmu",
-  stats_topics:"Topik yang dibahas", stats_lessons:"Pelajaran interaktif", stats_students:"Pelajar yang terjangkau", stats_research:"Peserta riset",
+  stats_topics:"Topik yang dibahas", stats_questions:"Pertanyaan kuis", stats_students:"Pelajar yang terjangkau", stats_research:"Peserta riset",
   s_curr_eyebrow:"Kurikulum", s_curr_title:"Apa yang bisa kamu pelajari?",
   card1_t:"Keamanan online", card1_d:"Kata sandi, 2FA, dan dasar-dasar privasi.",
   card2_t:"Phishing", card2_d:"Pelajari cara mengenali email dan tautan penipuan.",

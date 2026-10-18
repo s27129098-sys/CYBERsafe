@@ -8,7 +8,7 @@ I18N.pt = {
   hero_accent:"seguro", hero_line2post:"online.",
   hero_lead:"Educação gratuita em cibersegurança e ferramentas interativas criadas para estudantes no Brasil.",
   btn_start_learning:"Começar a aprender", btn_test_knowledge:"Teste seus conhecimentos",
-  stats_topics:"Temas abordados", stats_lessons:"Aulas interativas", stats_students:"Estudantes alcançados", stats_research:"Participantes da pesquisa",
+  stats_topics:"Temas abordados", stats_questions:"Perguntas do quiz", stats_students:"Estudantes alcançados", stats_research:"Participantes da pesquisa",
   s_curr_eyebrow:"Currículo", s_curr_title:"O que você pode aprender?",
   card1_t:"Segurança online", card1_d:"Senhas, 2FA e fundamentos de privacidade.",
   card2_t:"Phishing", card2_d:"Aprenda a identificar e-mails e links fraudulentos.",
