@@ -32,7 +32,7 @@ I18N.pt = {
   caught_title:"BOA PERCEPÇÃO!", caught_sub:"Você identificou a tentativa de phishing. Esse instinto é exatamente o que mantém as contas seguras.",
   falsealarm_title:"FALSO ALARME", falsealarm_sub:"Na verdade, esta mensagem era segura. Ter cautela é bom, mas não desconfie de tudo.",
   legit_title:"BOA PERCEPÇÃO!", legit_sub:"Você identificou corretamente que era segura. Nem toda mensagem é uma armadilha — saber diferenciar também importa.",
-  next_scenario_btn:"Próximo cenário →", see_results_btn:"Ver resultados →", score_label:"Sua pontuação",
+  next_question_btn:"Próxima pergunta →", next_scenario_btn:"Próximo cenário →", see_results_btn:"Ver resultados →", score_label:"Sua pontuação",
   awareness_level_label:"Nível de conscientização", level_beginner:"Iniciante", level_intermediate:"Intermediário", level_advanced:"Avançado",
   try_again_btn:"Tentar novamente",
   quiz_eyebrow:"Interativo · Quiz de cibersegurança", quiz_title:"Teste seus conhecimentos", quiz_desc:"Escolha um nível de dificuldade e responda perguntas sobre senhas, phishing, malware e muito mais.",

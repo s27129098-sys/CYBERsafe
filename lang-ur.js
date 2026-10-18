@@ -32,7 +32,7 @@ I18N.ur = {
   caught_title:"شاندار!", caught_sub:"آپ نے فشنگ کی کوشش پہچان لی۔ یہی ہوشیاری اکاؤنٹس کو محفوظ رکھتی ہے۔",
   falsealarm_title:"جھوٹا الارم", falsealarm_sub:"یہ پیغام دراصل محفوظ تھا۔ محتاط رہنا اچھی بات ہے، مگر ہر پیغام کو مشکوک نہ سمجھیں۔",
   legit_title:"تیز نظر!", legit_sub:"آپ نے اسے درست طور پر محفوظ پہچانا۔ ہر پیغام جال نہیں ہوتا — فرق پہچاننا بھی ضروری ہے۔",
-  next_scenario_btn:"اگلا منظرنامہ ←", see_results_btn:"نتائج دیکھیں ←", score_label:"آپ کا اسکور",
+  next_question_btn:"اگلا سوال ←", next_scenario_btn:"اگلا منظرنامہ ←", see_results_btn:"نتائج دیکھیں ←", score_label:"آپ کا اسکور",
   awareness_level_label:"آگہی کی سطح", level_beginner:"ابتدائی", level_intermediate:"درمیانہ", level_advanced:"اعلیٰ",
   try_again_btn:"دوبارہ کوشش کریں",
   quiz_eyebrow:"انٹرایکٹو · سائبر کوئز", quiz_title:"اپنا علم آزمائیں", quiz_desc:"مشکل کی سطح منتخب کریں اور پاس ورڈز، فشنگ، میلویئر اور مزید کے بارے میں سوالات کے جواب دیں۔",

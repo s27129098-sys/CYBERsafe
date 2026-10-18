@@ -32,7 +32,7 @@ I18N.es = {
   caught_title:"¡BUEN OJO!", caught_sub:"Detectaste el intento de phishing. Ese instinto es justo lo que mantiene seguras las cuentas.",
   falsealarm_title:"FALSA ALARMA", falsealarm_sub:"En realidad, este mensaje era seguro. Ser precavido está bien, pero no sospeches de todo.",
   legit_title:"¡BUEN OJO!", legit_sub:"Identificaste correctamente que era seguro. No todo mensaje es una trampa — saber diferenciar también importa.",
-  next_scenario_btn:"Siguiente escenario →", see_results_btn:"Ver resultados →", score_label:"Tu puntuación",
+  next_question_btn:"Siguiente pregunta →", next_scenario_btn:"Siguiente escenario →", see_results_btn:"Ver resultados →", score_label:"Tu puntuación",
   awareness_level_label:"Nivel de concienciación", level_beginner:"Principiante", level_intermediate:"Intermedio", level_advanced:"Avanzado",
   try_again_btn:"Inténtalo de nuevo",
   quiz_eyebrow:"Interactivo · Test de ciberseguridad", quiz_title:"Pon a prueba tus conocimientos", quiz_desc:"Elige un nivel de dificultad y responde preguntas sobre contraseñas, phishing, malware y mucho más.",

@@ -32,7 +32,7 @@ I18N.id = {
   caught_title:"TANGKAPAN BAGUS!", caught_sub:"Anda berhasil mengenali upaya phishing. Insting itulah yang menjaga akun tetap aman.",
   falsealarm_title:"ALARM PALSU", falsealarm_sub:"Pesan ini sebenarnya aman. Bersikap hati-hati itu bagus, tapi jangan curigai setiap pesan.",
   legit_title:"JELI SEKALI!", legit_sub:"Anda benar mengenali pesan ini sebagai aman. Tidak semua pesan adalah jebakan — mengetahui bedanya juga penting.",
-  next_scenario_btn:"Skenario berikutnya →", see_results_btn:"Lihat hasil →", score_label:"Skormu",
+  next_question_btn:"Pertanyaan berikutnya →", next_scenario_btn:"Skenario berikutnya →", see_results_btn:"Lihat hasil →", score_label:"Skormu",
   awareness_level_label:"Tingkat kesadaran", level_beginner:"Pemula", level_intermediate:"Menengah", level_advanced:"Mahir",
   try_again_btn:"Coba lagi",
   quiz_eyebrow:"Interaktif · Kuis Siber", quiz_title:"Uji pengetahuanmu", quiz_desc:"Pilih tingkat kesulitan dan jawab pertanyaan tentang kata sandi, phishing, malware, dan lainnya.",

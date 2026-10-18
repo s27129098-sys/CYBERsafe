@@ -43,7 +43,7 @@ function applyLanguage(){
   renderStats();
   renderTimeline();
   renderRoadmap();
-  labIndex=0; labScore=0; renderLab();
+  startLab();
   quizState=null; renderQuiz();
   document.getElementById('urlResult').innerHTML='';
 }
@@ -138,6 +138,8 @@ function openArticle(id){
   if(!a) return;
   var quizHtml='';
   if(a.quiz){
+    var ord=shuffle(a.quiz.options.map(function(_,k){ return k; }));
+    a={id:a.id,t:a.t,r:a.r,tag:a.tag,date:a.date,paras:a.paras,quiz:{q:a.quiz.q,explain:a.quiz.explain,options:ord.map(function(k){ return a.quiz.options[k]; }),correct:ord.indexOf(a.quiz.correct)}};
     quizHtml='<div class="card" style="margin-top:28px;">'
       + '<span class="eyebrow-mini">'+t('test_yourself_label')+'</span>'
       + '<h4 style="margin:10px 0 14px;">'+a.quiz.q+'</h4>'
@@ -310,9 +312,16 @@ function renderRoadmap(){
 }
 
 /* ---------- PHISHING LAB ---------- */
-var labIndex=0, labScore=0, labAnswered=false;
+var labIndex=0, labScore=0, labAnswered=false, labList=null, LAB_ROUND=12;
+function shuffle(arr){ var a=arr.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var x=a[i]; a[i]=a[j]; a[j]=x; } return a; }
+function startLab(){
+  var pool = PHISHING[currentLang] || PHISHING.en;
+  labList = shuffle(pool).slice(0, LAB_ROUND);
+  labIndex=0; labScore=0; renderLab();
+}
 function renderLab(){
-  var scenarios = PHISHING[currentLang] || PHISHING.en;
+  if(!labList) { var pool0 = PHISHING[currentLang] || PHISHING.en; labList = shuffle(pool0).slice(0, LAB_ROUND); }
+  var scenarios = labList;
   var wrap=document.getElementById('labWrap');
   if(!wrap) return;
   if(labIndex>=scenarios.length){
@@ -323,7 +332,7 @@ function renderLab(){
       + '<div style="font-size:13px;color:var(--text-muted);">'+t('score_label')+'</div>'
       + '<div class="score">'+labScore+'/'+scenarios.length+'</div>'
       + '<div class="status-pill '+cls+'"><span class="dot"></span>'+t('awareness_level_label')+': '+level+'</div>'
-      + '<div style="margin-top:24px;"><button class="btn btn-primary" onclick="labIndex=0;labScore=0;renderLab();">'+t('try_again_btn')+'</button></div>'
+      + '<div style="margin-top:24px;"><button class="btn btn-primary" onclick="startLab();">'+t('try_again_btn')+'</button></div>'
       + '</div>';
     return;
   }
@@ -343,7 +352,7 @@ function renderLab(){
 function judge(choice){
   if(labAnswered) return;
   labAnswered=true;
-  var scenarios = PHISHING[currentLang] || PHISHING.en;
+  var scenarios = labList;
   var s=scenarios[labIndex];
   var correct = choice===s.answer;
   if(correct) labScore++;
@@ -435,9 +444,15 @@ function renderQuizHome(){
     + '<div class="level-card" onclick="startQuiz(\'advanced\')"><div class="n">'+t('level_advanced')+'</div><p style="color:var(--text-muted);font-size:13.5px;margin-top:6px;">'+banks.advanced.length+' '+t('questions_suffix')+'</p></div>'
     + '</div>';
 }
+function shuffleBank(bank){
+  return shuffle(bank).map(function(q){
+    var order=shuffle(q.o.map(function(_,k){ return k; }));
+    return {q:q.q, e:q.e, o:order.map(function(k){ return q.o[k]; }), a:order.indexOf(q.a)};
+  });
+}
 function startQuiz(level){
   var banks = QUIZ[currentLang] || QUIZ.en;
-  quizState={level:level, i:0, score:0, bank:banks[level]};
+  quizState={level:level, i:0, score:0, bank:shuffleBank(banks[level])};
   renderQuiz();
 }
 function renderQuiz(){
@@ -475,8 +490,17 @@ function answerQuiz(idx){
     if(bi===q.a) btn.classList.add('correct');
     else if(bi===idx) btn.classList.add('incorrect');
   });
-  if(idx===q.a) quizState.score++;
-  setTimeout(function(){ quizState.i++; renderQuiz(); }, 900);
+  var ok = idx===q.a;
+  if(ok) quizState.score++;
+  if(!q.e){ setTimeout(function(){ quizState.i++; renderQuiz(); }, 900); return; }
+  var last = i>=bank.length-1;
+  var box=document.createElement('div');
+  box.className='feedback '+(ok?'correct':'wrong');
+  box.innerHTML='<h5>'+(ok? t('feedback_correct_title') : t('feedback_wrong_title'))+'</h5>'
+    + '<div style="font-size:13.5px;color:var(--text-muted);margin-bottom:12px;">'+q.e+'</div>'
+    + '<button class="btn btn-primary" onclick="quizState.i++;renderQuiz();">'+(last? t('see_results_btn') : t('next_question_btn'))+'</button>';
+  document.getElementById('optWrap').insertAdjacentElement('afterend', box);
+  var nb=box.querySelector('button'); if(nb) nb.focus({preventScroll:true});
 }
 
 /* ---------- URL CHECKER ---------- */
