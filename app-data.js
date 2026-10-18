@@ -532,7 +532,7 @@ en:[
    '8. Leaving devices unlocked in shared spaces like libraries or dormitories.',
    '9. Trusting a message just because it appears to come from a friend, since many attacks spread by hijacking real accounts.',
    '10. Assuming it will not happen to me. Attackers usually cast a wide net rather than choosing victims individually.'
-  ], quiz:null
+  ], quiz:{q:'One of your accounts appears in a data breach. Why is reusing the same password everywhere so risky?',options:['Sites delete any account whose password is shared','Reused passwords make each login slower to complete','One leaked password can open every account that shares it','Password managers refuse to store duplicate passwords'],correct:2,explain:'Attackers automatically try leaked passwords on other sites, so a single breach can unlock many accounts. Use a unique password for each account.'}
  },
  {id:'social-engineering', t:'What social engineering looks like in real life', r:'6 min read', tag:'Social engineering', date:'August 2026',
   paras:[
@@ -541,7 +541,7 @@ en:[
    'Another version happens over social media: a message from what looks like a friend account, urgently asking for money because they are "stuck abroad." The account was likely hijacked earlier through a separate phishing attempt.',
    'These attacks work because they exploit normal, healthy instincts — helpfulness, respect for authority, and trust in people we know. The defense is not paranoia, it is verification: hang up and call the company back on their official number, or confirm with a friend through a different channel before sending money.',
    'If something creates pressure to act fast and skip your normal checks, that pressure is itself a warning sign.'
-  ], quiz:null
+  ], quiz:{q:'A caller says they are tech support and asks you to install a remote assistance tool. What is the best response?',options:['Hang up and call the company back on its official number','Install it, because support staff are trusted experts','Install it but only share your screen, never your files','Ask for their employee ID, then install the tool'],correct:0,explain:'Remote tools give full control of your device. Verification means ending the call and contacting the company yourself through an official channel.'}
  },
  {id:'securing-social-media', t:'A quick checklist for securing your social media accounts', r:'5 min read', tag:'Online security', date:'August 2026',
   paras:[
@@ -550,7 +550,7 @@ en:[
    'Review connected apps and third-party logins periodically. Old apps you no longer use can still have access to your account and data.',
    'Set a strong, unique password for each platform, and check whether your email has appeared in any known data breaches.',
    'Finally, be deliberate about what you share publicly. Birthdates, school names, and location tags all give attackers material for both phishing and security-question guessing.'
-  ], quiz:null
+  ], quiz:{q:'Which two-factor option is generally safest for a social media account?',options:['SMS codes sent to your phone number','A security question about your first school','A second password that looks like the first one','An authenticator app that creates codes on your device'],correct:3,explain:'SMS codes can be intercepted through SIM-swap attacks. An authenticator app keeps the codes on your own device.'}
  },
  {id:'public-wifi', t:'Why you should think twice before using public Wi-Fi', r:'5 min read', tag:'Internet security', date:'August 2026',
   paras:[
@@ -559,83 +559,83 @@ en:[
    'HTTPS websites encrypt your data even on public Wi-Fi, which helps a lot, but not every app or connection uses it consistently. Avoid logging into banking or other sensitive accounts on public networks when you can.',
    'A VPN encrypts all of your traffic regardless of which app is sending it, closing most of this gap. It is one of the simplest upgrades to make before regularly using public networks.',
    'When in doubt, use mobile data for anything sensitive instead of an unfamiliar Wi-Fi network.'
-  ], quiz:null
+  ], quiz:{q:'You must check your bank balance while sitting in a cafe. What is the safest choice?',options:['Join whichever "Free WiFi" network has the strongest signal','Use your mobile data instead of the cafe network','Turn off your screen lock so the phone connects faster','Log in quickly and hope nobody is watching'],correct:1,explain:'Fake hotspots and unsecured networks let others see your traffic. Mobile data avoids the shared network completely.'}
  },
  {id:'2fa-explained', t:'Two-factor authentication, explained simply', r:'5 min read', tag:'Passwords', date:'August 2026', paras:[
    'Two-factor authentication (2FA) adds a second proof of identity beyond your password — something you have (a phone) or something you are (a fingerprint), not just something you know.',
    'Even if an attacker steals your password in a data breach, they still cannot get in without that second factor, which is why 2FA blocks the vast majority of automated account takeovers.',
    'An authenticator app (like Google Authenticator or Authy) is generally safer than SMS codes, since SMS can be intercepted through SIM-swap attacks. Turn on 2FA first on your email, since it is the recovery key to almost everything else.'
-  ], quiz:null},
+  ], quiz:{q:'Why is it wise to turn on two-factor authentication on your email account first?',options:['Email is the only kind of account that supports 2FA','It stops other people from sending you spam messages','Email can reset the passwords of most of your other accounts','It gives your mailbox extra storage space for free'],correct:2,explain:'Email is the recovery key to almost everything else, so protecting it protects your other accounts too.'}},
  {id:'ransomware-explained', t:'What is ransomware, and how do you avoid it', r:'6 min read', tag:'Malware', date:'August 2026', paras:[
    'Ransomware is malware that encrypts your files and demands payment, usually in cryptocurrency, for the key to unlock them. It spreads through malicious email attachments, fake software downloads, and infected USB drives.',
    'Paying the ransom is discouraged: there is no guarantee of getting your files back, and it funds further attacks. The real defense is prevention and backups.',
    'Keep regular backups on a drive that is not permanently connected to your computer, keep software updated, and never open unexpected attachments, even from people you know, since their account may have been compromised.'
-  ], quiz:null},
+  ], quiz:{q:'Which habit protects you best against ransomware before an attack happens?',options:['Regular offline backups and keeping software updated','Paying quickly so the attackers stay friendly','Renaming your files so malware cannot find them','Keeping every backup drive plugged in all the time'],correct:0,explain:'Backups kept away from your computer let you restore files without paying, and updates close the holes ransomware uses.'}},
  {id:'fake-websites', t:'How to recognize fake websites and cloned login pages', r:'6 min read', tag:'Phishing', date:'August 2026', paras:[
    'A cloned login page can look pixel-perfect, copying the real site\u2019s logo, colors, and layout entirely. The one thing it cannot copy convincingly is the domain name.',
    'Before typing a password anywhere, check the address bar carefully: look for extra words, misspellings, or a completely different domain than the service you expect.',
    'Bookmark the real login pages of services you use often (bank, email, university portal) and use those bookmarks instead of clicking links from messages or search ads.'
-  ], quiz:null},
+  ], quiz:{q:'A login page looks identical to your bank\'s. What is the most reliable thing to check?',options:['The logo and colors used on the page','Whether the page loads quickly on your phone','How professional the text on the page looks','The domain name shown in the address bar'],correct:3,explain:'A cloned page can copy everything except the real domain name. Use bookmarks for important logins.'}},
  {id:'how-vpn-works', t:'How VPNs actually work', r:'5 min read', tag:'Internet security', date:'August 2026', paras:[
    'A VPN creates an encrypted tunnel between your device and a server operated by the VPN provider, so your internet provider and anyone on the same network cannot see what you are doing.',
    'It hides your IP address and encrypts your traffic, which is especially useful on public Wi-Fi, but it does not make you anonymous or immune to phishing — you can still be tricked into giving up information voluntarily.',
    'Choose a reputable provider with a clear no-logs policy, since a VPN simply shifts your trust from your internet provider to the VPN company.'
-  ], quiz:null},
+  ], quiz:{q:'Which statement about VPNs is true?',options:['It makes you completely anonymous everywhere online','It encrypts your traffic but cannot stop you being phished','It protects your device from every kind of malware','It removes the need to use strong passwords'],correct:1,explain:'A VPN hides your traffic from the local network, but you can still be tricked into handing over information.'}},
  {id:'encryption-plain-language', t:'Understanding encryption in plain language', r:'6 min read', tag:'Basics', date:'August 2026', paras:[
    'Encryption scrambles data using a mathematical formula and a key, turning readable information into gibberish that only someone with the right key can turn back.',
    'Two common types exist: symmetric encryption, where the same key locks and unlocks the data, and asymmetric encryption, where a public key locks data that only a matching private key can unlock — this is how HTTPS keeps your browsing private.',
    'You already rely on encryption dozens of times a day: HTTPS websites, messaging apps, and Wi-Fi passwords all use it quietly in the background.'
-  ], quiz:null},
+  ], quiz:{q:'In asymmetric encryption, how is data locked and unlocked?',options:['A public key locks it and a matching private key unlocks it','The same single key both locks and unlocks the data','A password locks it and a fingerprint unlocks it','No key is needed once the data has been scrambled'],correct:0,explain:'Asymmetric encryption uses a key pair. This is how HTTPS keeps your browsing private.'}},
  {id:'sim-swap', t:'SIM-swap attacks and how to prevent them', r:'5 min read', tag:'Social engineering', date:'August 2026', paras:[
    'A SIM-swap attack happens when someone tricks your mobile carrier into transferring your phone number to their SIM card, often using personal details gathered from social media or previous leaks.',
    'Once they control your number, they can intercept SMS-based verification codes and reset passwords on accounts tied to that phone number, including banking apps.',
    'Protect yourself by adding a PIN or extra security question with your mobile carrier, and prefer authenticator apps over SMS for two-factor authentication wherever possible.'
-  ], quiz:null},
+  ], quiz:{q:'What can an attacker do after a successful SIM swap on your number?',options:['Read all of the photos stored on your phone','Make your phone battery drain much faster','Receive your SMS codes and reset your account passwords','See every website you visited during last year'],correct:2,explain:'Once they control your number, SMS verification codes reach them. Add a PIN with your carrier and prefer authenticator apps.'}},
  {id:'safe-online-shopping', t:'Safe online shopping habits', r:'5 min read', tag:'Online security', date:'August 2026', paras:[
    'Before entering payment details on an unfamiliar store, check for HTTPS, a real physical address or contact page, and reviews from sources outside the site itself.',
    'Use a credit card or a virtual card number rather than a debit card where possible, since credit cards generally offer stronger fraud protection and dispute options.',
    'Be wary of deals that seem far too good to be true, and double-check the domain name carefully — many scam stores use names that closely mimic well-known brands.'
-  ], quiz:null},
+  ], quiz:{q:'Which payment method usually gives stronger fraud protection online?',options:['A debit card linked to your main bank account','A bank transfer sent directly to the seller','Gift cards bought through the seller\'s own page','A credit card or a virtual card number'],correct:3,explain:'Credit cards offer stronger dispute options, and virtual numbers keep your real card details away from the shop.'}},
  {id:'gaming-account-security', t:'Protecting your identity on gaming platforms', r:'5 min read', tag:'Online security', date:'August 2026', paras:[
    'Gaming accounts are frequently targeted because they hold purchased items, in-game currency, and linked payment methods that can be resold.',
    'Enable 2FA on your gaming platform and email, avoid downloading "cheats" or "mods" from unofficial sources, since these are a common way malware spreads among gamers.',
    'Be cautious of messages from other players offering free items in exchange for your login details or a "trade" link — these almost always lead to phishing pages designed to look like the real platform.'
-  ], quiz:null},
+  ], quiz:{q:'Another player offers free items if you click their "trade" link. What is most likely?',options:['A reward from the game\'s developers for loyal players','A phishing page copying the platform to steal your login','A harmless link that only opens the trade window','A test the platform uses to check your account'],correct:1,explain:'Free-item offers almost always lead to pages that imitate the real platform and steal your login details.'}},
  {id:'account-hacked', t:'What to do if your account gets hacked', r:'6 min read', tag:'Basics', date:'August 2026', paras:[
    'Act quickly: change your password immediately from a different, trusted device, and log out of all active sessions if the platform allows it.',
    'Enable two-factor authentication if you have not already, and check your account\u2019s recovery email and phone number, since attackers often change these first to lock you out permanently.',
    'Check for suspicious activity — messages sent, purchases made, or new connected apps — and report the compromise to the platform. If you reused that password anywhere else, change it there too immediately.'
-  ], quiz:null},
+  ], quiz:{q:'Your account has been hacked. What should you do first?',options:['Change the password from a different, trusted device','Wait a few days to see what the attacker does','Delete the account without contacting the platform','Message the attacker and ask them to stop'],correct:0,explain:'Act quickly from a clean device, log out all sessions, and check your recovery email and phone number.'}},
  {id:'data-breaches', t:'Understanding data breaches and what to do after one', r:'6 min read', tag:'Basics', date:'August 2026', paras:[
    'A data breach happens when a company\u2019s systems are compromised and user data — emails, passwords, sometimes payment details — is stolen, often later sold or leaked online.',
    'You can check whether your email has appeared in known breaches using reputable breach-checking services, without ever needing to enter your actual password.',
    'If you are affected, change the password on that account and anywhere you reused it, and watch closely for follow-up phishing attempts, since breached data is often used to craft convincing scam emails.'
-  ], quiz:null},
+  ], quiz:{q:'You find your email in a data breach. What is the right next step?',options:['Ignore it, because old breaches are harmless','Change only the name of your email and keep the password','Change reused passwords and watch for phishing','Send your password to the checking site to confirm it'],correct:2,explain:'Breached data is used to craft convincing scam emails. Genuine breach checkers never need your actual password.'}},
  {id:'mobile-security-basics', t:'Mobile security basics for smartphones', r:'5 min read', tag:'Internet security', date:'August 2026', paras:[
    'Your phone holds more personal data than most computers, yet often gets fewer security precautions. Start with a strong screen lock — a PIN or biometric, not a simple pattern.',
    'Only install apps from official app stores, and review the permissions an app requests; a flashlight app rarely needs access to your contacts or messages.',
    'Keep your operating system updated, since updates frequently patch security vulnerabilities that are actively being exploited.'
-  ], quiz:null},
+  ], quiz:{q:'A flashlight app asks for access to your contacts and messages. What should you do?',options:['Allow it, since every app needs full access','Deny it, because a flashlight does not need that data','Allow it only if the app is free to download','Allow it and uninstall the app a few weeks later'],correct:1,explain:'Apps should only get the permissions their job requires. Excess permissions are a warning sign.'}},
  {id:'usb-safety', t:'Safe use of USB drives and external devices', r:'4 min read', tag:'Malware', date:'August 2026', paras:[
    'An unfamiliar USB drive found in a parking lot or classroom is a classic attack tool: plugging it in can silently install malware or trigger scripted keystrokes.',
    'Never plug in a USB drive of unknown origin, even out of curiosity, and be cautious with borrowed drives, scanning them with antivirus before opening files.',
    'For your own drives, consider encrypting sensitive files, since a lost USB drive can expose everything on it to whoever finds it.'
-  ], quiz:null},
+  ], quiz:{q:'You find a USB drive in a parking lot. What is the safest action?',options:['Plug it in on an old computer you no longer use','Plug it in to look for the owner\'s name','Plug it in after switching off the Wi-Fi','Do not plug it in, however curious you are'],correct:3,explain:'An unknown USB drive can silently install malware or run scripted keystrokes as soon as it is connected.'}},
  {id:'fake-job-offers', t:'How to spot a fake job offer scam', r:'5 min read', tag:'Phishing', date:'August 2026', paras:[
    'Fake job offers often arrive unexpectedly, promise unusually high pay for simple work, and move very quickly toward an "interview" over chat rather than a real hiring process.',
    'A major warning sign is being asked to pay for training materials, equipment, or a "processing fee" before starting — legitimate employers do not charge candidates to be hired.',
    'Verify the company independently: search for it outside of the messages they sent you, check whether the recruiter\u2019s profile and domain match a real organization, and never share your ID, bank details, or passport scan before verifying legitimacy.'
-  ], quiz:null},
+  ], quiz:{q:'A "recruiter" offers you a job but asks for a $50 processing fee first. What does this suggest?',options:['A scam, since real employers do not charge candidates','A normal step that shows you are serious','A security deposit that every employer asks for','A sign that the job pays unusually well'],correct:0,explain:'Legitimate employers never charge you to be hired. Verify the company independently before sharing any details.'}},
  {id:'cyberbullying-safety', t:'Cyberbullying and online harassment: staying safe', r:'5 min read', tag:'Social engineering', date:'August 2026', paras:[
    'Online harassment can include repeated unwanted messages, impersonation, doxxing (sharing private information publicly), or coordinated pile-ons across platforms.',
    'Keep evidence: screenshot messages with timestamps before blocking or reporting, since platforms and, if needed, authorities will want that record.',
    'Tighten your privacy settings, limit who can message or tag you, and talk to a trusted adult, teacher, or platform support — you do not have to handle harassment alone or in silence.'
-  ], quiz:null},
+  ], quiz:{q:'You are being harassed online. What should you do before blocking the person?',options:['Reply angrily so they stop immediately','Delete all the messages so you forget them','Take screenshots with dates and times as evidence','Post their personal details to embarrass them'],correct:2,explain:'Platforms and authorities will want a record, so save evidence first, then block, report and talk to someone you trust.'}},
  {id:'backing-up-data', t:'Backing up your data the right way', r:'4 min read', tag:'Basics', date:'August 2026', paras:[
    'A good backup strategy follows the 3-2-1 rule: keep at least three copies of your data, on two different types of storage, with one copy stored somewhere physically separate.',
    'Cloud storage handles the offsite copy well, while an external drive covers the second local copy. Automate backups where possible, since a backup you forget to run is not a backup at all.',
    'Test your backups occasionally by actually restoring a file — a backup that cannot be restored is just wasted storage space.'
-  ], quiz:null}
+  ], quiz:{q:'What does the 3-2-1 backup rule recommend?',options:['Three backups made on the same external drive','Three copies, on two storage types, with one stored offsite','Two copies in the cloud and one printed on paper','One copy, tested every two weeks, kept in three folders'],correct:1,explain:'Spreading copies across different storage types and locations means one failure cannot destroy everything.'}}
 ],
 uz:[
  {id:'phishing-email', t:'Fishing xatini qanday tanish mumkin', r:'8 daqiqa', tag:'Fishing', date:'2026-yil avgust',
@@ -675,7 +675,7 @@ uz:[
    '8. Kutubxona yoki yotoqxona kabi umumiy joylarda qurilmani qulflanmagan holda qoldirish.',
    '9. Faqat doʻst hisobidan kelganday koʻrinsa ham xabarga ishonish, chunki koʻp hujumlar haqiqiy hisoblarni egallab olish orqali tarqaladi.',
    '10. "Bu men bilan sodir boʻlmaydi" deb oʻylash. Hujumchilar odatda alohida qurbonni tanlamaydi, balki keng tarmoq tashlab kim ilinishini kutadi.'
-  ], quiz:null
+  ], quiz:{q:'Hisoblaringizdan biri maʼlumotlar sizib chiqishida paydo boʻldi. Nega bir xil parolni hamma joyda ishlatish xavfli?',options:['Parol takrorlangan hisoblarni saytlar oʻzlari oʻchirib tashlaydi','Takrorlangan parollar har bir kirishni sekinroq qiladi','Sizib chiqqan bitta parol uni ishlatgan barcha hisoblarni ochishi mumkin','Parol menejerlari takroriy parollarni saqlashdan bosh tortadi'],correct:2,explain:'Hujumchilar sizib chiqqan parollarni boshqa saytlarda avtomatik sinaydi, shuning uchun bitta sizib chiqish koʻp hisobni ochishi mumkin. Har bir hisob uchun noyob parol qoʻying.'}
  },
  {id:'social-engineering', t:'Ijtimoiy muhandislik real hayotda qanday koʻrinadi', r:'6 daqiqa', tag:'Ijtimoiy muhandislik', date:'2026-yil avgust',
   paras:[
@@ -684,7 +684,7 @@ uz:[
    'Boshqa turi ijtimoiy tarmoqda sodir boʻladi: doʻst hisobiday koʻringan xabar "chet elda qolib ketdim" deb shoshilinch pul soʻraydi. Bu hisob avvalroq boshqa fishing hujumi orqali egallab olingan boʻlishi mumkin.',
    'Bunday hujumlar samarali, chunki ular yordam berish istagi, obroʻga hurmat va tanish odamlarga ishonch kabi sogʻlom instinktlardan foydalanadi. Himoya — bu shubhalanish emas, balki tekshirishdir: rasmiy raqam orqali qayta qoʻngʻiroq qiling yoki pul yuborishdan oldin doʻstingiz bilan boshqa kanal orqali tasdiqlang.',
    'Agar biror narsa tez harakat qilishga va odatdagi tekshiruvlarni oʻtkazib yuborishga bosim qilsa, bu bosimning oʻzi ogohlantiruvchi belgidir.'
-  ], quiz:null
+  ], quiz:{q:'Qoʻngʻiroq qilgan kishi texnik yordam xodimiman deb, masofaviy yordam dasturini oʻrnatishni soʻraydi. Eng yaxshi javob qaysi?',options:['Qoʻngʻiroqni tugatib, rasmiy raqamdan oʻzingiz qayta qoʻngʻiroq qilish','Oʻrnatish, chunki yordam xodimlari ishonchli mutaxassislar boʻladi','Oʻrnatish, lekin faqat ekranni koʻrsatish, fayllarni hech qachon koʻrsatmaslik','Xodim identifikatorini soʻrab olib, keyin dasturni xotirjam oʻrnatish'],correct:0,explain:'Masofaviy dasturlar qurilmangizni toʻliq boshqarishga imkon beradi. Tekshirish — qoʻngʻiroqni tugatib, kompaniya bilan rasmiy kanal orqali oʻzingiz bogʻlanish.'}
  },
  {id:'securing-social-media', t:'Ijtimoiy tarmoq hisoblarini himoyalash uchun qisqa roʻyxat', r:'5 daqiqa', tag:'Onlayn xavfsizlik', date:'2026-yil avgust',
   paras:[
@@ -693,7 +693,7 @@ uz:[
    'Ulangan ilovalar va uchinchi tomon kirishlarini vaqti-vaqti bilan koʻrib chiqing. Endi ishlatmaydigan eski ilovalar hisobingiz va maʼlumotlaringizga hali ham kirish huquqiga ega boʻlishi mumkin.',
    'Har bir platforma uchun kuchli, noyob parol oʻrnating va emailingiz maʼlum maʼlumot sizib chiqishlarida uchraganini tekshiring.',
    'Nihoyat, ochiq ulashadigan narsalaringizga ehtiyot boʻling. Tugʻilgan sana, maktab nomi va joylashuv teglari hujumchilarga ham fishing, ham xavfsizlik savollarini taxmin qilish uchun material beradi.'
-  ], quiz:null
+  ], quiz:{q:'Ijtimoiy tarmoq hisobi uchun qaysi ikki bosqichli variant odatda eng xavfsiz?',options:['Telefon raqamingizga yuboriladigan SMS orqali kelgan kodlar','Birinchi maktabingiz nomi haqidagi maxfiy savol-javob','Birinchisiga juda oʻxshaydigan ikkinchi qoʻshimcha parol','Kodlarni qurilmangizda yaratadigan autentifikator ilova'],correct:3,explain:'SMS kodlarini SIM almashtirish hujumlari orqali ushlab olish mumkin. Autentifikator ilovada kodlar oʻz qurilmangizda qoladi.'}
  },
  {id:'public-wifi', t:'Ochiq Wi-Fi dan foydalanishdan oldin ikki marta oʻylang', r:'5 daqiqa', tag:'Internet xavfsizligi', date:'2026-yil avgust',
   paras:[
@@ -702,83 +702,83 @@ uz:[
    'HTTPS saytlar ochiq Wi-Fi da ham maʼlumotingizni shifrlaydi, bu juda foydali, lekin har bir ilova yoki ulanish buni doim bir xilda qilavermaydi. Imkon qadar ochiq tarmoqlarda bank yoki boshqa muhim hisoblarga kirmang.',
    'VPN qaysi ilova yuborayotganidan qatʼi nazar butun trafikingizni shifrlaydi va bu boʻshliqning katta qismini yopadi. Ochiq tarmoqlardan muntazam foydalanishdan oldin qilish kerak boʻlgan eng sodda yaxshilanishlardan biri.',
    'Shubha tugʻilsa, notanish Wi-Fi oʻrniga muhim ishlar uchun mobil internetdan foydalaning.'
-  ], quiz:null
+  ], quiz:{q:'Kafeda oʻtirib bank hisobingizdagi qoldiqni tekshirishingiz kerak. Eng xavfsiz tanlov qaysi?',options:['Signali eng kuchli boʻlgan "Free WiFi" tarmogʻiga ulanish','Kafe tarmogʻi oʻrniga mobil internetdan foydalanish','Telefon tezroq ulanishi uchun ekran blokini oʻchirib qoʻyish','Tezda kirib, hech kim qaramasligiga umid qilish'],correct:1,explain:'Soxta ulanish nuqtalari va himoyasiz tarmoqlar trafigingizni boshqalarga koʻrsatadi. Mobil internet umumiy tarmoqdan butunlay qochishga imkon beradi.'}
  },
  {id:'2fa-explained', t:'Ikki bosqichli autentifikatsiya (2FA) — sodda tilda', r:'5 daqiqa', tag:'Parollar', date:'2026-yil avgust', paras:[
    'Ikki bosqichli autentifikatsiya (2FA) paroldan tashqari qoʻshimcha tasdiq qoʻshadi — sizda bor narsa (telefon) yoki siz kim ekanligingiz (barmoq izi), shunchaki bilgan narsangiz emas.',
    'Hujumchi parolingizni maʼlumot sizib chiqishida oʻgʻirlab olsa ham, ikkinchi omilsiz kira olmaydi — shuning uchun 2FA avtomatik hisob egallashning katta qismini bloklaydi.',
    'Autentifikator ilova (Google Authenticator yoki Authy kabi) odatda SMS kodlardan xavfsizroq, chunki SMS SIM-almashtirish hujumlari orqali ushlanishi mumkin. 2FA ni avvalo emailda yoqing, chunki u deyarli hamma narsaning tiklash kaliti hisoblanadi.'
-  ], quiz:null},
+  ], quiz:{q:'Nega ikki bosqichli autentifikatsiyani avvalo elektron pochtada yoqish maqsadga muvofiq?',options:['Faqat elektron pochta hisoblari 2FA ni qoʻllab-quvvatlaydi','U boshqalarning sizga spam yuborishini toʻxtatadi','Pochta orqali boshqa hisoblar parolini tiklash mumkin','U pochta qutingizga qoʻshimcha xotirani bepul beradi'],correct:2,explain:'Pochta deyarli hamma narsaning tiklash kaliti, shuning uchun uni himoya qilish boshqa hisoblaringizni ham himoya qiladi.'}},
  {id:'ransomware-explained', t:'Ransomware nima va undan qanday saqlanish mumkin', r:'6 daqiqa', tag:'Zararli dasturlar', date:'2026-yil avgust', paras:[
    'Ransomware fayllaringizni shifrlab, ularni ochish kaliti uchun odatda kriptovalyutada toʻlov talab qiluvchi zararli dastur. U zararli email ilovalari, soxta dastur yuklamalari va zararlangan USB fleshlar orqali tarqaladi.',
    'Toʻlov toʻlash tavsiya etilmaydi: fayllaringizni qaytarib olish kafolatlanmagan, bundan tashqari bu keyingi hujumlarni moliyalashtiradi. Haqiqiy himoya — oldini olish va zaxira nusxalar.',
    'Kompyuteringizga doimiy ulanmagan diskda muntazam zaxira nusxa saqlang, dasturlarni yangilab turing va hatto tanish odamlardan boʻlsa ham kutilmagan ilovalarni ochmang, chunki uning hisobi buzilgan boʻlishi mumkin.'
-  ], quiz:null},
+  ], quiz:{q:'Hujum boshlanishidan oldin qaysi odat sizni tovlamachi dasturlardan eng yaxshi himoya qiladi?',options:['Muntazam oflayn zaxira nusxalar va dasturlarni yangilab turish','Hujumchilar xushmuomala boʻlib qolishi uchun tezda toʻlash','Zararli dastur topa olmasligi uchun fayllar nomini oʻzgartirish','Barcha zaxira disklarni har doim ulangan holda saqlash'],correct:0,explain:'Kompyuterdan uzoqda saqlangan zaxira nusxalar toʻlovsiz fayllarni tiklashga, yangilanishlar esa tovlamachi dastur ishlatadigan boʻshliqlarni yopishga yordam beradi.'}},
  {id:'fake-websites', t:'Soxta saytlar va klonlangan login sahifalarini qanday tanish', r:'6 daqiqa', tag:'Fishing', date:'2026-yil avgust', paras:[
    'Klonlangan login sahifasi haqiqiy saytning logotipi, ranglari va dizaynini toʻliq nusxalab, piksel darajasida bir xil koʻrinishi mumkin. Ishonarli tarzda nusxalab boʻlmaydigan yagona narsa — domen nomi.',
    'Hech qayerga parol kiritishdan oldin manzil satrini diqqat bilan tekshiring: ortiqcha soʻzlar, imlo xatolari yoki kutayotgan xizmatingizdan butunlay boshqa domenga eʼtibor bering.',
    'Tez-tez ishlatadigan xizmatlaringizning (bank, email, universitet portali) haqiqiy login sahifalarini xatchoʻp qilib qoʻying va xabarlardagi yoki qidiruv reklamalaridagi havolalar oʻrniga shu xatchoʻplardan foydalaning.'
-  ], quiz:null},
+  ], quiz:{q:'Kirish sahifasi bankingiznikiga aynan oʻxshaydi. Eng ishonchli tekshiruv nima?',options:['Sahifadagi logotip va ranglar','Sahifa telefoningizda tez ochilishi','Sahifadagi matn qanchalik professional koʻrinishi','Manzil satrida koʻrsatilgan domen nomi'],correct:3,explain:'Klonlangan sahifa hamma narsani nusxalashi mumkin, faqat haqiqiy domenni emas. Muhim kirishlar uchun xatcholardan foydalaning.'}},
  {id:'how-vpn-works', t:'VPN aslida qanday ishlaydi', r:'5 daqiqa', tag:'Internet xavfsizligi', date:'2026-yil avgust', paras:[
    'VPN qurilmangiz va VPN taʼminlovchisi ishlatadigan server orasida shifrlangan tunnel yaratadi, shunda internet provayderingiz va bir xil tarmoqdagi boshqa hech kim nima qilayotganingizni koʻra olmaydi.',
    'U IP manzilingizni yashiradi va trafikingizni shifrlaydi, bu ayniqsa ochiq Wi-Fi da foydali, lekin u sizni anonim yoki fishingdan butunlay himoyalangan qilmaydi — siz hali ham maʼlumotingizni oʻzingiz ixtiyoriy ravishda berib qoʻyishingiz mumkin.',
    'Aniq "loglarni saqlamaslik" siyosatiga ega ishonchli taʼminlovchini tanlang, chunki VPN shunchaki ishonchingizni internet provayderingizdan VPN kompaniyasiga oʻtkazadi.'
-  ], quiz:null},
+  ], quiz:{q:'VPN haqidagi qaysi fikr toʻgʻri?',options:['U sizni internetning hamma joyida toʻliq anonim qiladi','U trafikni shifrlaydi, lekin fishingdan himoya qila olmaydi','U qurilmangizni har qanday zararli dasturdan himoyalaydi','U kuchli parollardan foydalanish zaruratini yoʻq qiladi'],correct:1,explain:'VPN trafigingizni mahalliy tarmoqdan yashiradi, lekin sizni maʼlumot berishga aldash baribir mumkin.'}},
  {id:'encryption-plain-language', t:'Shifrlashni sodda tilda tushunish', r:'6 daqiqa', tag:'Asoslar', date:'2026-yil avgust', paras:[
    'Shifrlash maʼlumotni matematik formula va kalit yordamida aralashtirib, oʻqiladigan maʼlumotni faqat toʻgʻri kalitga ega odam qayta oʻqiy oladigan tartibsiz koʻrinishga aylantiradi.',
    'Ikki keng tarqalgan turi bor: simmetrik shifrlash, bunda bir xil kalit maʼlumotni qulflaydi va ochadi, va assimetrik shifrlash, bunda ochiq kalit maʼlumotni qulflaydi va faqat mos yopiq kalit uni ochadi — aynan shu tarzda HTTPS brauzeringizni maxfiy saqlaydi.',
    'Siz kuniga oʻnlab marta shifrlashga tayanasiz: HTTPS saytlar, xabar almashish ilovalari va Wi-Fi parollari — bularning barchasi orqa fonda sokin ishlaydi.'
-  ], quiz:null},
+  ], quiz:{q:'Asimmetrik shifrlashda maʼlumot qanday qulflanadi va ochiladi?',options:['Ochiq kalit qulflaydi, mos yopiq kalit ochadi','Bitta bir xil kalit ham qulflaydi, ham ochadi','Parol qulflaydi, barmoq izi ochadi','Maʼlumot aralashtirilgach, hech qanday kalit kerak emas'],correct:0,explain:'Asimmetrik shifrlash kalit juftligidan foydalanadi. HTTPS shu tarzda kezishingizni maxfiy saqlaydi.'}},
  {id:'sim-swap', t:'SIM-almashtirish hujumlari va ulardan qanday saqlanish', r:'5 daqiqa', tag:'Ijtimoiy muhandislik', date:'2026-yil avgust', paras:[
    'SIM-almashtirish hujumi kimdir mobil operatoringizni telefon raqamingizni oʻz SIM kartasiga oʻtkazishga aldaganda sodir boʻladi, koʻpincha ijtimoiy tarmoq yoki oldingi sizib chiqishlardan olingan shaxsiy maʼlumotlardan foydalanib.',
    'Raqamingizni nazorat qilgach, ular SMS orqali tasdiqlash kodlarini ushlab qolishi va shu raqamga bogʻlangan hisoblar, jumladan bank ilovalarida parollarni qayta oʻrnatishi mumkin.',
    'Oʻzingizni himoya qilish uchun mobil operatoringizda PIN yoki qoʻshimcha xavfsizlik savoli qoʻshing va imkon qadar SMS oʻrniga ikki bosqichli autentifikatsiya uchun autentifikator ilovalardan foydalaning.'
-  ], quiz:null},
+  ], quiz:{q:'SIM almashtirish muvaffaqiyatli boʻlgach, hujumchi nima qila oladi?',options:['Telefoningizdagi barcha rasmlarni oʻqishi mumkin','Telefon batareyasini ancha tez sarflatishi mumkin','SMS kodlaringizni olib, hisob parollarini tiklashi mumkin','Oʻtgan yili kirgan har bir saytingizni koʻrishi mumkin'],correct:2,explain:'Raqamingiz ustidan nazorat qolgach, SMS tasdiqlash kodlari ularga keladi. Operatorda PIN oʻrnating va autentifikator ilovalarni afzal koʻring.'}},
  {id:'safe-online-shopping', t:'Onlayn xarid qilishda xavfsiz odatlar', r:'5 daqiqa', tag:'Onlayn xavfsizlik', date:'2026-yil avgust', paras:[
    'Notanish doʻkonga toʻlov maʼlumotlarini kiritishdan oldin HTTPS mavjudligini, haqiqiy manzil yoki aloqa sahifasini va saytning oʻzidan tashqari manbalardan sharhlarni tekshiring.',
    'Imkon qadar debit karta oʻrniga kredit karta yoki virtual karta raqamidan foydalaning, chunki kredit kartalar odatda kuchliroq firibgarlikdan himoya va nizolarni hal qilish imkoniyatlarini beradi.',
    'Juda ham yaxshi koʻrinadigan chegirmalardan ehtiyot boʻling va domen nomini diqqat bilan qayta tekshiring — koʻplab firibgar doʻkonlar taniqli brendlarga yaqin nomlardan foydalanadi.'
-  ], quiz:null},
+  ], quiz:{q:'Onlayn firibgarlikdan qaysi toʻlov usuli odatda kuchliroq himoya beradi?',options:['Asosiy bank hisobingizga bogʻlangan debet karta','Sotuvchiga toʻgʻridan-toʻgʻri bank oʻtkazmasi','Sotuvchining oʻz sahifasi orqali olingan sovgʻa kartalari','Kredit karta yoki virtual karta raqami'],correct:3,explain:'Kredit kartalar nizolarni hal qilishda kuchliroq imkon beradi, virtual raqamlar esa haqiqiy karta maʼlumotlarini doʻkondan uzoqda saqlaydi.'}},
  {id:'gaming-account-security', t:'Gaming platformalarida shaxsiyatingizni himoya qilish', r:'5 daqiqa', tag:'Onlayn xavfsizlik', date:'2026-yil avgust', paras:[
    'Gaming hisoblari koʻpincha nishonga olinadi, chunki ularda sotib olingan buyumlar, oʻyin ichi valyutasi va qayta sotilishi mumkin boʻlgan bogʻlangan toʻlov usullari mavjud.',
    'Gaming platformangiz va emailingizda 2FA ni yoqing, rasmiy boʻlmagan manbalardan "cheat" yoki "mod" yuklab olishdan saqlaning, chunki bu gamerlar orasida zararli dastur tarqalishining keng tarqalgan usuli.',
    'Boshqa oʻyinchilardan login maʼlumotlaringiz yoki "trade" havolasi evaziga bepul buyumlar taklif qiluvchi xabarlardan ehtiyot boʻling — bular deyarli har doim haqiqiy platformaga oʻxshab yaratilgan fishing sahifalariga olib boradi.'
-  ], quiz:null},
+  ], quiz:{q:'Boshqa oʻyinchi "trade" havolasini bossangiz, bepul buyumlar berishni taklif qiladi. Bu nima boʻlishi ehtimoli koʻproq?',options:['Oʻyin yaratuvchilaridan sodiq oʻyinchilarga beriladigan mukofot','Kirishingizni oʻgʻirlash uchun platformani nusxalagan fishing sahifa','Faqat almashuv oynasini ochadigan mutlaqo zararsiz havola','Platforma hisobingizni tekshirish uchun oʻtkazadigan sinov jarayoni'],correct:1,explain:'Bepul buyum takliflari deyarli har doim haqiqiy platformani taqlid qilib, kirish maʼlumotlarini oʻgʻirlaydigan sahifalarga olib boradi.'}},
  {id:'account-hacked', t:'Hisobingiz buzilsa nima qilish kerak', r:'6 daqiqa', tag:'Asoslar', date:'2026-yil avgust', paras:[
    'Tezda harakat qiling: boshqa, ishonchli qurilmadan darhol parolingizni oʻzgartiring va platforma imkon bersa, barcha faol seanslardan chiqing.',
    'Agar hali yoqmagan boʻlsangiz, ikki bosqichli autentifikatsiyani yoqing va hisobingizning tiklash email va telefon raqamini tekshiring, chunki hujumchilar sizni butunlay bloklab qoʻyish uchun avvalo shularni oʻzgartiradi.',
    'Shubhali faoliyatni — yuborilgan xabarlar, qilingan xaridlar yoki yangi ulangan ilovalarni tekshiring va buzilish haqida platformaga xabar bering. Agar shu parolni boshqa joyda ham ishlatgan boʻlsangiz, uni ham darhol oʻzgartiring.'
-  ], quiz:null},
+  ], quiz:{q:'Hisobingiz buzildi. Avvalo nima qilish kerak?',options:['Parolni boshqa, ishonchli qurilmadan oʻzgartirish','Hujumchi nima qilishini koʻrish uchun bir necha kun kutish','Platforma bilan bogʻlanmasdan hisobni oʻchirib yuborish','Hujumchiga yozib, toʻxtashini soʻrash'],correct:0,explain:'Toza qurilmadan tez harakat qiling, barcha seanslardan chiqing va tiklash pochtasi hamda telefon raqamini tekshiring.'}},
  {id:'data-breaches', t:'Maʼlumot sizib chiqishi nima va undan keyin nima qilish kerak', r:'6 daqiqa', tag:'Asoslar', date:'2026-yil avgust', paras:[
    'Maʼlumot sizib chiqishi kompaniya tizimlari buzilib, foydalanuvchi maʼlumotlari — emaillar, parollar, ba'+String.fromCharCode(39)+'zan toʻlov maʼlumotlari — oʻgʻirlanib, koʻpincha keyinchalik sotilgan yoki internetga tarqatilganda sodir boʻladi.',
    'Emailingiz maʼlum sizib chiqishlarda uchraganini haqiqiy parolingizni kiritmasdan turib ishonchli tekshiruv xizmatlari orqali bilib olishingiz mumkin.',
    'Agar taʼsirlangan boʻlsangiz, shu hisob va uni qayta ishlatgan har qanday joydagi parolni oʻzgartiring va keyingi fishing urinishlariga diqqat bilan qarang, chunki sizib chiqqan maʼlumotlar ishonarli firibgar xatlar yaratish uchun koʻp ishlatiladi.'
-  ], quiz:null},
+  ], quiz:{q:'Elektron pochtangiz maʼlumotlar sizib chiqishida topildi. Toʻgʻri keyingi qadam qaysi?',options:['Eʼtibor bermaslik, chunki eski sizib chiqishlar zararsiz','Faqat pochta manzili nomini oʻzgartirib, parolni oʻzgartirmaslik','Takrorlangan parollarni oʻzgartirish va fishingdan ehtiyot boʻlish','Tasdiqlash uchun parolingizni tekshiruv saytiga yuborish'],correct:2,explain:'Sizib chiqqan maʼlumotlar ishonarli firibgarlik xatlarini yozishda ishlatiladi. Haqiqiy tekshiruv xizmatlariga parolingiz hech qachon kerak emas.'}},
  {id:'mobile-security-basics', t:'Smartfonlar uchun mobil xavfsizlik asoslari', r:'5 daqiqa', tag:'Internet xavfsizligi', date:'2026-yil avgust', paras:[
    'Telefoningizda koʻpchilik kompyuterlardan koʻra koʻproq shaxsiy maʼlumot bor, ammo koʻpincha kamroq xavfsizlik chorasi qoʻllaniladi. Kuchli ekran qulfidan boshlang — PIN yoki biometrika, oddiy naqsh emas.',
    'Faqat rasmiy ilova doʻkonlaridan ilova oʻrnating va ilova soʻrayotgan ruxsatlarni koʻrib chiqing; fonar ilovasi kamdan-kam holda kontaktlar yoki xabarlaringizga kirish huquqiga muhtoj boʻladi.',
    'Operatsion tizimingizni yangilab turing, chunki yangilanishlar faol suiisteʼmol qilinayotgan xavfsizlik kamchiliklarini tez-tez yopadi.'
-  ], quiz:null},
+  ], quiz:{q:'Chiroq ilovasi kontaktlaringiz va xabarlaringizga ruxsat soʻramoqda. Nima qilish kerak?',options:['Ruxsat berish, chunki har bir ilovaga toʻliq ruxsat kerak','Rad etish, chunki chiroq uchun bunday maʼlumot kerak emas','Faqat ilova bepul yuklab olinsa ruxsat berish','Ruxsat berib, bir necha haftadan keyin ilovani oʻchirish'],correct:1,explain:'Ilovalar faqat vazifasi talab qiladigan ruxsatlarni olishi kerak. Ortiqcha ruxsatlar ogohlantiruvchi belgi.'}},
  {id:'usb-safety', t:'USB fleshlar va tashqi qurilmalardan xavfsiz foydalanish', r:'4 daqiqa', tag:'Zararli dasturlar', date:'2026-yil avgust', paras:[
    'Avtoturargoh yoki sinfxonada topilgan notanish USB flesh klassik hujum vositasi: uni ulash sokin tarzda zararli dastur oʻrnatishi yoki dasturlashtirilgan klaviatura bosishlarini ishga tushirishi mumkin.',
    'Hech qachon manbasi noaniq USB fleshni, hatto qiziqishdan boʻlsa ham, ulamang, va qarzga olingan fleshlarga ehtiyot boʻling — fayllarni ochishdan oldin antivirus bilan skanerlang.',
    'Oʻz fleshlaringiz uchun maxfiy fayllarni shifrlashni koʻrib chiqing, chunki yoʻqolgan USB flesh topgan har kimga undagi hamma narsani ochib berishi mumkin.'
-  ], quiz:null},
+  ], quiz:{q:'Avtoturargohda USB fleshka topdingiz. Eng xavfsiz harakat qaysi?',options:['Endi ishlatmaydigan eski kompyuterga ulash','Egasining ismini topish uchun ulash','Wi-Fi ni oʻchirib, keyin ulash','Qanchalik qiziqsangiz ham, uni ulamaslik'],correct:3,explain:'Nomaʼlum USB ulanishi bilan jimgina zararli dastur oʻrnatishi yoki skript orqali tugmalarni bosishi mumkin.'}},
  {id:'fake-job-offers', t:'Soxta ish taklifi firibgarligini qanday aniqlash', r:'5 daqiqa', tag:'Fishing', date:'2026-yil avgust', paras:[
    'Soxta ish takliflari koʻpincha kutilmaganda keladi, oddiy ish uchun g\u02bbayrioddiy yuqori toʻlov vaʼda qiladi va haqiqiy ishga qabul jarayoni oʻrniga chatda tezda "intervyu" ga olib boradi.',
    'Katta ogohlantiruvchi belgi — ishni boshlashdan oldin oʻqitish materiallari, uskunalar yoki "qayta ishlash toʻlovi" uchun pul soʻralishi — qonuniy ish beruvchilar nomzodlardan ishga olish uchun pul talab qilmaydi.',
    'Kompaniyani mustaqil tekshiring: ular yuborgan xabarlardan tashqarida uni qidiring, ishga oluvchining profili va domeni haqiqiy tashkilotga mos kelishini tekshiring va qonuniyligini tasdiqlamasdan turib hech qachon shaxsingizni tasdiqlovchi hujjat, bank maʼlumotlari yoki pasport skanini ulashmang.'
-  ], quiz:null},
+  ], quiz:{q:'"Rekruter" ish taklif qilib, avval 50 dollar rasmiylashtirish toʻlovini soʻraydi. Bu nimadan dalolat beradi?',options:['Firibgarlik: haqiqiy ish beruvchilar nomzoddan pul olmaydi','Jiddiyligingizni koʻrsatadigan odatiy rasmiy bosqichdan','Har bir ish beruvchi soʻraydigan oddiy garov puldan','Ish haqi juda yuqori ekanligidan dalolat beruvchi belgi'],correct:0,explain:'Haqiqiy ish beruvchilar ishga olish uchun pul talab qilmaydi. Maʼlumot berishdan oldin kompaniyani mustaqil tekshiring.'}},
  {id:'cyberbullying-safety', t:'Kiberbulling va onlayn tazyiq: xavfsiz boʻlish', r:'5 daqiqa', tag:'Ijtimoiy muhandislik', date:'2026-yil avgust', paras:[
    'Onlayn tazyiq takroriy istalmagan xabarlar, taqlid qilish, doxing (shaxsiy maʼlumotlarni ochiq eʼlon qilish) yoki turli platformalarda birgalikda hujum qilishni oʻz ichiga olishi mumkin.',
    'Dalillarni saqlang: bloklash yoki xabar berishdan oldin vaqt belgisi bilan xabarlarning skrinshotini oling, chunki platformalar va, agar kerak boʻlsa, rasmiy organlar bu yozuvni talab qilishi mumkin.',
    'Maxfiylik sozlamalaringizni qattiqlashtiring, sizga kim xabar yozishi yoki teglashi mumkinligini cheklang va ishonchli kattalar, oʻqituvchi yoki platforma yordamiga murojaat qiling — tazyiqni yolgʻiz yoki jim boʻlib koʻtarishingiz shart emas.'
-  ], quiz:null},
+  ], quiz:{q:'Internetda sizni taʼqib qilishmoqda. Odamni bloklashdan oldin nima qilish kerak?',options:['Darhol toʻxtashi uchun jahl bilan javob yozish','Unutish uchun barcha xabarlarni oʻchirib tashlash','Sana va vaqt koʻrsatilgan skrinshotlarni dalil sifatida saqlash','Uni sharmanda qilish uchun shaxsiy maʼlumotlarini eʼlon qilish'],correct:2,explain:'Platformalar va idoralar dalil soʻraydi, shuning uchun avval saqlang, soʻng bloklang, shikoyat qiling va ishonchli odam bilan gaplashing.'}},
  {id:'backing-up-data', t:'Maʼlumotlaringizni toʻgʻri zaxiralash', r:'4 daqiqa', tag:'Asoslar', date:'2026-yil avgust', paras:[
    'Yaxshi zaxira strategiyasi 3-2-1 qoidasiga amal qiladi: maʼlumotlaringizning kamida uchta nusxasini, ikki xil turdagi saqlash vositasida, bittasini esa jismonan alohida joyda saqlang.',
    'Bulutli saqlash tashqi nusxani yaxshi taʼminlaydi, tashqi disk esa ikkinchi mahalliy nusxani qamrab oladi. Imkon qadar zaxiralashni avtomatlashtiring, chunki ishga tushirishni unutgan zaxira umuman zaxira emas.',
    'Zaxira nusxalaringizni vaqti-vaqti bilan haqiqatan ham faylni tiklash orqali sinab koʻring — tiklab boʻlmaydigan zaxira shunchaki behuda sarflangan xotira joyidir.'
-  ], quiz:null}
+  ], quiz:{q:'3-2-1 zaxira qoidasi nimani tavsiya qiladi?',options:['Bitta tashqi diskda yaratilgan uchta zaxira','Uch nusxa, ikki xil saqlash turida, bittasi boshqa joyda','Bulutda ikki nusxa va qogʻozda bitta nusxa','Bitta nusxa, har ikki haftada tekshirilib, uch papkada saqlanadi'],correct:1,explain:'Nusxalarni turli saqlash turlari va joylarga taqsimlash bitta nosozlik hamma narsani yoʻq qilib yubormasligini taʼminlaydi.'}}
 ],
 ru:[
  {id:'phishing-email', t:'Как распознать фишинговое письмо', r:'8 мин чтения', tag:'Фишинг', date:'август 2026',
@@ -818,7 +818,7 @@ ru:[
    '8. Оставление устройств разблокированными в общих местах вроде библиотек или общежитий.',
    '9. Доверие сообщению только потому, что оно выглядит от друга, ведь многие атаки распространяются через взломанные настоящие аккаунты.',
    '10. Мысль "со мной такого не случится". Злоумышленники обычно не выбирают жертв индивидуально, а забрасывают широкую сеть.'
-  ], quiz:null
+  ], quiz:{q:'Один из ваших аккаунтов попал в утечку данных. Чем опасно использовать один пароль везде?',options:['Сайты сами удаляют аккаунты с одинаковым паролем','Повторяющиеся пароли замедляют каждый вход','Один утёкший пароль откроет все аккаунты, где он есть','Менеджеры паролей отказываются хранить дубликаты'],correct:2,explain:'Злоумышленники автоматически пробуют утёкшие пароли на других сайтах, поэтому одна утечка может открыть много аккаунтов. Для каждого аккаунта нужен свой пароль.'}
  },
  {id:'social-engineering', t:'Как социальная инженерия выглядит в реальной жизни', r:'6 мин чтения', tag:'Соц. инженерия', date:'август 2026',
   paras:[
@@ -827,7 +827,7 @@ ru:[
    'Другой вариант происходит в соцсетях: сообщение, похожее на аккаунт друга, срочно просит денег, потому что он "застрял за границей". Этот аккаунт, вероятно, был взломан ранее через отдельную фишинговую атаку.',
    'Такие атаки работают, потому что эксплуатируют нормальные здоровые инстинкты — желание помочь, уважение к авторитету и доверие к знакомым людям. Защита — это не паранойя, а проверка: перезвоните компании по официальному номеру или подтвердите с другом по другому каналу связи, прежде чем отправлять деньги.',
    'Если что-то создаёт давление действовать быстро и пропустить обычные проверки, само это давление уже является предупреждающим сигналом.'
-  ], quiz:null
+  ], quiz:{q:'Звонящий представляется службой техподдержки и просит установить программу удалённого доступа. Как лучше поступить?',options:['Положить трубку и перезвонить в компанию по её официальному номеру','Установить, ведь сотрудники поддержки — доверенные специалисты','Установить, но показывать только экран, а не файлы','Спросить табельный номер сотрудника и затем установить'],correct:0,explain:'Программы удалённого доступа дают полный контроль над устройством. Проверка — завершить звонок и самому связаться с компанией по официальному каналу.'}
  },
  {id:'securing-social-media', t:'Краткий чек-лист по защите аккаунтов в соцсетях', r:'5 мин чтения', tag:'Онлайн-безопасность', date:'август 2026',
   paras:[
@@ -836,7 +836,7 @@ ru:[
    'Периодически проверяйте подключённые приложения и сторонние входы. Старые неиспользуемые приложения могут всё ещё иметь доступ к вашему аккаунту и данным.',
    'Установите надёжный уникальный пароль для каждой платформы и проверьте, не появлялась ли ваша почта в известных утечках данных.',
    'Наконец, будьте осознанны в том, чем делитесь публично. Дата рождения, название школы и геометки дают злоумышленникам материал как для фишинга, так и для угадывания контрольных вопросов.'
-  ], quiz:null
+  ], quiz:{q:'Какой вариант двухфакторной защиты обычно надёжнее всего для соцсети?',options:['СМС-коды, присылаемые на ваш номер телефона','Секретный вопрос о названии вашей первой школы','Дополнительный пароль, очень похожий на первый','Приложение-аутентификатор с кодами на устройстве'],correct:3,explain:'СМС-коды можно перехватить с помощью подмены SIM-карты. Приложение хранит коды на вашем устройстве.'}
  },
  {id:'public-wifi', t:'Почему стоит дважды подумать перед использованием публичного Wi-Fi', r:'5 мин чтения', tag:'Интернет-безопасность', date:'август 2026',
   paras:[
@@ -845,83 +845,83 @@ ru:[
    'Сайты с HTTPS шифруют данные даже в публичном Wi-Fi, что сильно помогает, но не каждое приложение использует его последовательно. По возможности избегайте входа в банковские и другие важные аккаунты в публичных сетях.',
    'VPN шифрует весь трафик независимо от того, какое приложение его отправляет, закрывая большую часть этого пробела. Это одно из самых простых улучшений перед регулярным использованием публичных сетей.',
    'Если сомневаетесь, используйте мобильный интернет для важных операций вместо незнакомого Wi-Fi.'
-  ], quiz:null
+  ], quiz:{q:'Вам нужно проверить баланс в банке, сидя в кафе. Какой выбор самый безопасный?',options:['Подключиться к «Free WiFi» с самым сильным сигналом','Использовать мобильный интернет вместо сети кафе','Отключить блокировку экрана, чтобы телефон подключился быстрее','Быстро войти и надеяться, что никто не смотрит'],correct:1,explain:'Поддельные точки доступа и незащищённые сети позволяют другим видеть ваш трафик. Мобильный интернет полностью обходит общую сеть.'}
  },
  {id:'2fa-explained', t:'Двухфакторная аутентификация простыми словами', r:'5 мин чтения', tag:'Пароли', date:'август 2026', paras:[
    'Двухфакторная аутентификация (2FA) добавляет второе доказательство личности помимо пароля — то, чем вы владеете (телефон), или то, чем вы являетесь (отпечаток пальца), а не только то, что вы знаете.',
    'Даже если злоумышленник украдёт ваш пароль при утечке данных, он всё равно не сможет войти без второго фактора — поэтому 2FA блокирует подавляющее большинство автоматических захватов аккаунтов.',
    'Приложение-аутентификатор (например, Google Authenticator или Authy) обычно безопаснее SMS-кодов, так как SMS можно перехватить через атаки подмены SIM-карты. Включите 2FA в первую очередь для почты — она является ключом восстановления почти для всего остального.'
-  ], quiz:null},
+  ], quiz:{q:'Почему двухфакторную защиту разумно включить в первую очередь на электронной почте?',options:['Только почтовые аккаунты поддерживают двухфакторную защиту','Она не даёт посторонним присылать вам спам и рекламу','Через почту сбрасываются пароли большинства других аккаунтов','Она бесплатно увеличивает объём вашего почтового ящика'],correct:2,explain:'Почта — ключ восстановления почти ко всему остальному, поэтому её защита защищает и другие аккаунты.'}},
  {id:'ransomware-explained', t:'Что такое программа-вымогатель и как её избежать', r:'6 мин чтения', tag:'Вредоносное ПО', date:'август 2026', paras:[
    'Программа-вымогатель (ransomware) шифрует ваши файлы и требует оплату, обычно в криптовалюте, за ключ разблокировки. Она распространяется через вредоносные вложения писем, поддельные загрузки ПО и заражённые USB-накопители.',
    'Платить выкуп не рекомендуется: нет гарантии возврата файлов, а деньги идут на финансирование новых атак. Настоящая защита — это профилактика и резервные копии.',
    'Делайте регулярные резервные копии на диске, который не подключён постоянно к компьютеру, обновляйте ПО и никогда не открывайте неожиданные вложения, даже от знакомых людей — их аккаунт мог быть взломан.'
-  ], quiz:null},
+  ], quiz:{q:'Какая привычка лучше всего защищает от вирусов-вымогателей ещё до атаки?',options:['Регулярные офлайн-копии и обновления программ','Быстро заплатить, чтобы злоумышленники остались вежливыми','Переименовать файлы, чтобы вредонос их не нашёл','Всегда держать все диски с копиями подключёнными'],correct:0,explain:'Копии, хранящиеся отдельно от компьютера, позволяют восстановить файлы без выкупа, а обновления закрывают уязвимости, которыми пользуются вымогатели.'}},
  {id:'fake-websites', t:'Как распознать поддельные сайты и клонированные страницы входа', r:'6 мин чтения', tag:'Фишинг', date:'август 2026', paras:[
    'Клонированная страница входа может выглядеть безупречно, полностью копируя логотип, цвета и оформление настоящего сайта. Единственное, что нельзя убедительно скопировать — это доменное имя.',
    'Прежде чем вводить пароль где-либо, внимательно проверьте адресную строку: обратите внимание на лишние слова, опечатки или совершенно другой домен, отличный от ожидаемого сервиса.',
    'Добавьте в закладки настоящие страницы входа часто используемых сервисов (банк, почта, портал университета) и используйте эти закладки вместо перехода по ссылкам из сообщений или рекламы в поиске.'
-  ], quiz:null},
+  ], quiz:{q:'Страница входа выглядит точь-в-точь как у вашего банка. Что проверить надёжнее всего?',options:['Логотип и цвета на странице','Быстро ли страница открывается на телефоне','Насколько профессионально выглядит текст страницы','Доменное имя в адресной строке'],correct:3,explain:'Копия страницы может повторить всё, кроме настоящего домена. Для важных входов используйте закладки.'}},
  {id:'how-vpn-works', t:'Как на самом деле работает VPN', r:'5 мин чтения', tag:'Интернет-безопасность', date:'август 2026', paras:[
    'VPN создаёт зашифрованный туннель между вашим устройством и сервером провайдера VPN, поэтому ваш интернет-провайдер и другие пользователи той же сети не видят, чем вы занимаетесь.',
    'Он скрывает ваш IP-адрес и шифрует трафик, что особенно полезно в публичном Wi-Fi, но не делает вас анонимным или неуязвимым для фишинга — вы всё ещё можете добровольно передать информацию обманщику.',
    'Выбирайте надёжного провайдера с чёткой политикой отсутствия логов, поскольку VPN просто переносит ваше доверие с интернет-провайдера на компанию VPN.'
-  ], quiz:null},
+  ], quiz:{q:'Какое утверждение о VPN верно?',options:['Он делает вас полностью анонимным везде в сети','Он шифрует трафик, но не защищает от фишинга','Он защищает устройство от любых вредоносных программ','Он избавляет от необходимости в надёжных паролях'],correct:1,explain:'VPN скрывает трафик от локальной сети, но вас всё равно могут обманом заставить выдать информацию.'}},
  {id:'encryption-plain-language', t:'Шифрование простыми словами', r:'6 мин чтения', tag:'Основы', date:'август 2026', paras:[
    'Шифрование превращает данные в нечитаемый набор символов с помощью математической формулы и ключа, так что расшифровать их может только обладатель нужного ключа.',
    'Существует два основных типа: симметричное шифрование, где один и тот же ключ шифрует и расшифровывает данные, и асимметричное, где открытый ключ шифрует данные, а расшифровать их может только соответствующий закрытый ключ — именно так HTTPS обеспечивает конфиденциальность просмотра.',
    'Вы уже пользуетесь шифрованием десятки раз в день: сайты с HTTPS, мессенджеры и пароли Wi-Fi тихо используют его в фоновом режиме.'
-  ], quiz:null},
+  ], quiz:{q:'Как данные блокируются и открываются при асимметричном шифровании?',options:['Открытый ключ закрывает, парный закрытый — открывает','Один и тот же ключ и закрывает, и открывает данные','Пароль закрывает, а отпечаток пальца открывает','После перемешивания данных никакой ключ уже не нужен'],correct:0,explain:'Асимметричное шифрование использует пару ключей. Так HTTPS сохраняет приватность вашего сёрфинга.'}},
  {id:'sim-swap', t:'Атаки подмены SIM-карты и как их предотвратить', r:'5 мин чтения', tag:'Соц. инженерия', date:'август 2026', paras:[
    'Атака подмены SIM-карты происходит, когда злоумышленник обманом заставляет вашего оператора связи перенести ваш номер на его SIM-карту, часто используя личные данные из соцсетей или прошлых утечек.',
    'Получив контроль над номером, он может перехватывать SMS-коды подтверждения и сбрасывать пароли на аккаунтах, привязанных к этому номеру, включая банковские приложения.',
    'Защититесь, добавив PIN-код или дополнительный контрольный вопрос у своего мобильного оператора, и предпочитайте приложения-аутентификаторы SMS для двухфакторной аутентификации, где это возможно.'
-  ], quiz:null},
+  ], quiz:{q:'Что может сделать злоумышленник после успешной подмены вашей SIM-карты?',options:['Читать все фотографии на вашем телефоне','Заставить батарею телефона разряжаться намного быстрее','Получать ваши СМС-коды и сбрасывать пароли от аккаунтов','Увидеть все сайты, которые вы посещали в прошлом году'],correct:2,explain:'Когда номер под контролем злоумышленника, СМС с кодами приходят ему. Установите PIN у оператора и предпочитайте приложения-аутентификаторы.'}},
  {id:'safe-online-shopping', t:'Безопасные привычки при онлайн-покупках', r:'5 мин чтения', tag:'Онлайн-безопасность', date:'август 2026', paras:[
    'Прежде чем вводить платёжные данные в незнакомом магазине, проверьте наличие HTTPS, реального физического адреса или страницы контактов, а также отзывы из источников вне самого сайта.',
    'По возможности используйте кредитную карту или виртуальный номер карты вместо дебетовой — кредитные карты обычно предлагают более надёжную защиту от мошенничества и возможность оспорить платёж.',
    'Остерегайтесь слишком выгодных предложений и внимательно проверяйте доменное имя — многие мошеннические магазины используют названия, очень похожие на известные бренды.'
-  ], quiz:null},
+  ], quiz:{q:'Какой способ оплаты обычно лучше защищает от мошенничества в сети?',options:['Дебетовая карта, привязанная к основному счёту','Банковский перевод напрямую продавцу','Подарочные карты, купленные на странице продавца','Кредитная карта или виртуальный номер карты'],correct:3,explain:'У кредитных карт больше возможностей оспорить платёж, а виртуальные номера не дают магазину увидеть данные вашей настоящей карты.'}},
  {id:'gaming-account-security', t:'Защита личности на игровых платформах', r:'5 мин чтения', tag:'Онлайн-безопасность', date:'август 2026', paras:[
    'Игровые аккаунты часто становятся мишенью, поскольку содержат купленные предметы, игровую валюту и привязанные способы оплаты, которые можно перепродать.',
    'Включите 2FA на игровой платформе и почте, избегайте загрузки "читов" или "модов" из неофициальных источников — это частый способ распространения вредоносного ПО среди геймеров.',
    'Будьте осторожны с сообщениями от других игроков, предлагающих бесплатные предметы в обмен на данные для входа или "трейд"-ссылку — это почти всегда ведёт на фишинговые страницы, оформленные под настоящую платформу.'
-  ], quiz:null},
+  ], quiz:{q:'Другой игрок предлагает бесплатные предметы, если перейти по его ссылке «обмена». Что это, скорее всего?',options:['Награда от разработчиков игры самым лояльным игрокам','Фишинговая страница, копирующая платформу ради кражи входа','Безвредная ссылка, которая просто открывает окно обмена','Проверка, которую платформа делает для вашего аккаунта'],correct:1,explain:'Предложения бесплатных предметов почти всегда ведут на страницы, подделывающие настоящую платформу и ворующие данные для входа.'}},
  {id:'account-hacked', t:'Что делать, если ваш аккаунт взломали', r:'6 мин чтения', tag:'Основы', date:'август 2026', paras:[
    'Действуйте быстро: немедленно смените пароль с другого доверенного устройства и завершите все активные сеансы, если платформа это позволяет.',
    'Включите двухфакторную аутентификацию, если ещё не сделали этого, и проверьте почту и телефон для восстановления аккаунта — злоумышленники часто меняют их первыми, чтобы заблокировать вас навсегда.',
    'Проверьте подозрительную активность — отправленные сообщения, покупки или новые подключённые приложения — и сообщите о взломе платформе. Если вы использовали этот пароль где-то ещё, немедленно смените и его.'
-  ], quiz:null},
+  ], quiz:{q:'Ваш аккаунт взломали. Что нужно сделать в первую очередь?',options:['Сменить пароль с другого, надёжного устройства','Подождать несколько дней и посмотреть, что сделает взломщик','Удалить аккаунт, не связываясь с платформой','Написать взломщику и попросить остановиться'],correct:0,explain:'Действуйте быстро с чистого устройства, завершите все сеансы и проверьте почту и телефон для восстановления.'}},
  {id:'data-breaches', t:'Утечки данных и что делать после них', r:'6 мин чтения', tag:'Основы', date:'август 2026', paras:[
    'Утечка данных происходит, когда системы компании взломаны, а пользовательские данные — почта, пароли, иногда платёжные данные — украдены и часто впоследствии проданы или опубликованы в сети.',
    'Вы можете проверить, появлялась ли ваша почта в известных утечках, с помощью надёжных сервисов проверки утечек, даже не вводя настоящий пароль.',
    'Если вы пострадали, смените пароль на этом аккаунте и везде, где вы его повторно использовали, и внимательно следите за последующими фишинговыми попытками — утёкшие данные часто используют для создания убедительных мошеннических писем.'
-  ], quiz:null},
+  ], quiz:{q:'Вы нашли свою почту в утечке данных. Какой следующий шаг правильный?',options:['Не обращать внимания, ведь старые утечки безвредны','Сменить только имя почты, оставив пароль','Сменить пароль везде, где он повторялся, и ждать фишинга','Отправить пароль сайту проверки для подтверждения'],correct:2,explain:'Утёкшие данные используют для убедительных мошеннических писем. Настоящим сервисам проверки сам пароль никогда не нужен.'}},
  {id:'mobile-security-basics', t:'Основы мобильной безопасности для смартфонов', r:'5 мин чтения', tag:'Интернет-безопасность', date:'август 2026', paras:[
    'В вашем телефоне больше личных данных, чем в большинстве компьютеров, но обычно ему уделяют меньше внимания в плане безопасности. Начните с надёжной блокировки экрана — PIN-код или биометрия, а не простой узор.',
    'Устанавливайте приложения только из официальных магазинов и проверяйте запрашиваемые разрешения; приложению-фонарику редко нужен доступ к контактам или сообщениям.',
    'Обновляйте операционную систему — обновления часто закрывают уязвимости, которые уже активно эксплуатируются.'
-  ], quiz:null},
+  ], quiz:{q:'Приложение-фонарик просит доступ к вашим контактам и сообщениям. Что делать?',options:['Разрешить, потому что любому приложению нужен полный доступ','Отказать, ведь фонарику эти данные не нужны','Разрешить, только если приложение бесплатное','Разрешить, а через пару недель удалить приложение'],correct:1,explain:'Приложению нужны только те разрешения, которых требует его работа. Лишние разрешения — тревожный признак.'}},
  {id:'usb-safety', t:'Безопасное использование USB-накопителей и внешних устройств', r:'4 мин чтения', tag:'Вредоносное ПО', date:'август 2026', paras:[
    'Незнакомая USB-флешка, найденная на парковке или в аудитории, — классический инструмент атаки: её подключение может незаметно установить вредоносное ПО или запустить заскриптованные нажатия клавиш.',
    'Никогда не подключайте USB-накопитель неизвестного происхождения, даже из любопытства, и будьте осторожны с одолженными накопителями — проверяйте их антивирусом перед открытием файлов.',
    'Для собственных накопителей рассмотрите шифрование конфиденциальных файлов, поскольку потерянная флешка может раскрыть всё её содержимое тому, кто её найдёт.'
-  ], quiz:null},
+  ], quiz:{q:'На парковке вы нашли USB-флешку. Что безопаснее всего?',options:['Подключить к старому компьютеру, которым вы не пользуетесь','Подключить, чтобы найти имя владельца','Подключить после отключения Wi-Fi','Не подключать её, как бы ни было любопытно'],correct:3,explain:'Неизвестная флешка может незаметно установить вредонос или запустить автоматический ввод команд сразу после подключения.'}},
  {id:'fake-job-offers', t:'Как распознать мошенничество с поддельными предложениями работы', r:'5 мин чтения', tag:'Фишинг', date:'август 2026', paras:[
    'Поддельные предложения работы часто приходят неожиданно, обещают необычно высокую оплату за простую работу и быстро переходят к "собеседованию" в чате вместо реального процесса найма.',
    'Главный тревожный признак — просьба оплатить учебные материалы, оборудование или "сбор за оформление" перед началом работы: настоящие работодатели не берут плату с кандидатов за трудоустройство.',
    'Проверяйте компанию независимо: ищите информацию о ней вне присланных вам сообщений, проверяйте, соответствует ли профиль рекрутёра и домен настоящей организации, и никогда не делитесь документами, банковскими данными или сканом паспорта до подтверждения легитимности.'
-  ], quiz:null},
+  ], quiz:{q:'«Рекрутер» предлагает работу, но сначала просит оплатить сбор за оформление в 50 $. О чём это говорит?',options:['Мошенничество: работодатели не берут деньги с кандидатов','Об обычном шаге, который показывает вашу серьёзность','О залоге, который просит почти каждый работодатель','О том, что на этой работе необычно высокая зарплата'],correct:0,explain:'Настоящие работодатели никогда не берут плату за трудоустройство. Проверьте компанию самостоятельно, прежде чем делиться данными.'}},
  {id:'cyberbullying-safety', t:'Кибербуллинг и онлайн-травля: как оставаться в безопасности', r:'5 мин чтения', tag:'Соц. инженерия', date:'август 2026', paras:[
    'Онлайн-травля может включать повторяющиеся нежелательные сообщения, выдачу себя за другого, доксинг (публикацию личной информации) или скоординированные атаки на разных платформах.',
    'Сохраняйте доказательства: делайте скриншоты сообщений с указанием времени перед блокировкой или подачей жалобы — платформам и, при необходимости, властям может понадобиться эта запись.',
    'Усильте настройки конфиденциальности, ограничьте, кто может писать вам или отмечать вас, и поговорите с доверенным взрослым, учителем или поддержкой платформы — вам не обязательно справляться с травлей в одиночку или молча.'
-  ], quiz:null},
+  ], quiz:{q:'Вас травят в интернете. Что сделать до блокировки человека?',options:['Ответить резко, чтобы он сразу остановился','Удалить все сообщения, чтобы их забыть','Сделать скриншоты с датой и временем как доказательства','Опубликовать его личные данные, чтобы пристыдить'],correct:2,explain:'Платформам и органам понадобятся доказательства, поэтому сначала сохраните их, затем блокируйте, жалуйтесь и поговорите с тем, кому доверяете.'}},
  {id:'backing-up-data', t:'Как правильно делать резервные копии данных', r:'4 мин чтения', tag:'Основы', date:'август 2026', paras:[
    'Хорошая стратегия резервного копирования следует правилу 3-2-1: храните не менее трёх копий данных, на двух разных типах носителей, с одной копией в физически отдельном месте.',
    'Облачное хранилище хорошо подходит для удалённой копии, а внешний диск — для второй локальной копии. Автоматизируйте резервное копирование, где возможно — резервная копия, которую забыли запустить, вообще не является резервной копией.',
    'Периодически проверяйте резервные копии, действительно восстанавливая файл — копия, которую невозможно восстановить, это просто впустую потраченное место для хранения.'
-  ], quiz:null}
+  ], quiz:{q:'Что рекомендует правило резервного копирования 3-2-1?',options:['Три копии на одном внешнем диске','Три копии на двух типах носителей, одна — в другом месте','Две копии в облаке и одна на бумаге','Одна копия, проверяемая раз в две недели, в трёх папках'],correct:1,explain:'Распределение копий по разным носителям и местам гарантирует, что один сбой не уничтожит всё.'}}
 ]
 };
 

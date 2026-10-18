@@ -293,7 +293,7 @@ ARTICLES.pt = [
    '8. Deixar dispositivos desbloqueados em espaços compartilhados, como bibliotecas ou alojamentos.',
    '9. Confiar em uma mensagem só porque parece vir de um amigo, já que muitos ataques se espalham sequestrando contas reais.',
    '10. Achar que "isso não vai acontecer comigo". Golpistas geralmente lançam uma rede ampla em vez de escolher vítimas individualmente.'
-  ], quiz:null
+  ], quiz:{q:'Uma das suas contas aparece em um vazamento de dados. Por que usar a mesma senha em todo lugar é tão arriscado?',options:['Os sites excluem qualquer conta com senha repetida','Senhas repetidas deixam cada login mais lento','Uma senha vazada abre todas as contas que a compartilham','Gerenciadores de senhas recusam guardar senhas duplicadas'],correct:2,explain:'Atacantes testam automaticamente senhas vazadas em outros sites, então um vazamento pode abrir muitas contas. Use uma senha única para cada uma.'}
  },
  {id:'social-engineering', t:'Como é a engenharia social na vida real', r:'6 min de leitura', tag:'Engenharia social', date:'agosto de 2026',
   paras:[
@@ -302,7 +302,7 @@ ARTICLES.pt = [
    'Outra versão acontece nas redes sociais: uma mensagem do que parece ser a conta de um amigo, pedindo dinheiro com urgência porque está "preso no exterior". É provável que essa conta já tenha sido sequestrada por meio de outra tentativa de phishing.',
    'Esses ataques funcionam porque exploram instintos normais e saudáveis — a vontade de ajudar, o respeito à autoridade e a confiança em pessoas que conhecemos. A defesa não é a paranoia, é a verificação: desligue e ligue para a empresa no número oficial dela, ou confirme com um amigo por outro canal antes de enviar dinheiro.',
    'Se algo está pressionando você a agir rápido e pular suas verificações normais, essa pressão em si já é um sinal de alerta.'
-  ], quiz:null
+  ], quiz:{q:'Alguém liga dizendo ser do suporte técnico e pede que você instale uma ferramenta de acesso remoto. Qual é a melhor resposta?',options:['Desligar e ligar de volta para o número oficial da empresa','Instalar, pois o pessoal do suporte é de confiança','Instalar, mas compartilhar só a tela e nunca os arquivos','Pedir o número de funcionário e depois instalar'],correct:0,explain:'Ferramentas remotas dão controle total do aparelho. Verificar é encerrar a ligação e contatar a empresa por conta própria por um canal oficial.'}
  },
  {id:'securing-social-media', t:'Uma lista rápida para proteger suas contas de redes sociais', r:'5 min de leitura', tag:'Segurança online', date:'agosto de 2026',
   paras:[
@@ -311,7 +311,7 @@ ARTICLES.pt = [
    'Revise regularmente os apps conectados e os logins de terceiros. Apps antigos que você não usa mais ainda podem ter acesso à sua conta e aos seus dados.',
    'Defina uma senha forte e única para cada plataforma, e verifique se seu e-mail já apareceu em algum vazamento de dados conhecido.',
    'Por fim, tenha consciência do que você compartilha publicamente. Datas de nascimento, nomes de escolas e marcações de localização dão a golpistas material tanto para phishing quanto para adivinhar respostas de segurança.'
-  ], quiz:null
+  ], quiz:{q:'Qual opção de dois fatores costuma ser a mais segura para uma rede social?',options:['Códigos SMS enviados ao seu número de telefone','Uma pergunta de segurança sobre sua primeira escola','Uma segunda senha parecida com a primeira','Um app autenticador que gera códigos no seu aparelho'],correct:3,explain:'Códigos SMS podem ser interceptados com a troca de SIM. O app autenticador mantém os códigos no seu próprio aparelho.'}
  },
  {id:'public-wifi', t:'Por que você deveria pensar duas vezes antes de usar Wi-Fi público', r:'5 min de leitura', tag:'Segurança na Internet', date:'agosto de 2026',
   paras:[
@@ -320,81 +320,81 @@ ARTICLES.pt = [
    'Sites HTTPS criptografam seus dados mesmo em Wi-Fi público, o que ajuda muito, mas nem todo app ou conexão o usa de forma consistente. Evite fazer login no internet banking ou outras contas sensíveis em redes públicas sempre que possível.',
    'Uma VPN criptografa todo o seu tráfego, não importa qual app o envie, fechando a maior parte dessa brecha. É uma das melhorias mais simples que você pode fazer antes de usar redes públicas regularmente.',
    'Na dúvida, use dados móveis para qualquer coisa sensível em vez de uma rede Wi-Fi desconhecida.'
-  ], quiz:null
+  ], quiz:{q:'Você precisa ver o saldo do banco sentado em uma cafeteria. Qual é a escolha mais segura?',options:['Entrar na rede "Free WiFi" com o sinal mais forte','Usar seus dados móveis em vez da rede da cafeteria','Desligar o bloqueio de tela para o celular conectar mais rápido','Entrar rápido e torcer para ninguém estar olhando'],correct:1,explain:'Pontos de acesso falsos e redes sem proteção deixam outras pessoas verem seu tráfego. Os dados móveis evitam totalmente a rede compartilhada.'}
  },
  {id:'2fa-explained', t:'Autenticação de dois fatores, explicada de forma simples', r:'5 min de leitura', tag:'Senhas', date:'agosto de 2026', paras:[
    'A autenticação de dois fatores (2FA) adiciona uma segunda prova de identidade além da sua senha — algo que você tem (um telefone) ou algo que você é (uma impressão digital), não apenas algo que você sabe.',
    'Mesmo que um golpista roube sua senha em um vazamento de dados, ele ainda não consegue entrar sem esse segundo fator, por isso o 2FA bloqueia a grande maioria dos roubos automatizados de contas.',
    'Um app autenticador (como Google Authenticator ou Authy) geralmente é mais seguro que códigos por SMS, já que o SMS pode ser interceptado por meio de ataques de troca de SIM. Ative o 2FA primeiro no seu e-mail, já que ele é a chave de recuperação de quase tudo o mais.'
-  ], quiz:null},
+  ], quiz:{q:'Por que é sensato ativar primeiro a autenticação em dois fatores no seu e-mail?',options:['O e-mail é o único tipo de conta que aceita 2FA','Ela impede que outras pessoas lhe enviem spam','O e-mail redefine as senhas das suas outras contas','Ela dá mais espaço de armazenamento à sua caixa de graça'],correct:2,explain:'O e-mail é a chave de recuperação de quase tudo o mais, então protegê-lo protege também as suas outras contas.'}},
  {id:'ransomware-explained', t:'O que é ransomware e como evitá-lo', r:'6 min de leitura', tag:'Malware', date:'agosto de 2026', paras:[
    'Ransomware é um malware que criptografa seus arquivos e exige pagamento, geralmente em criptomoeda, em troca da chave para desbloqueá-los. Ele se espalha por anexos maliciosos, downloads de software falso e pen drives infectados.',
    'Pagar o resgate é desaconselhado: não há garantia de recuperar os arquivos, e isso financia mais ataques. A verdadeira defesa é a prevenção e os backups.',
    'Mantenha backups regulares em uma unidade que não fique permanentemente conectada ao seu computador, mantenha o software atualizado e nunca abra anexos inesperados, mesmo de pessoas que você conhece, já que a conta delas pode ter sido comprometida.'
-  ], quiz:null},
+  ], quiz:{q:'Qual hábito melhor o protege de ransomware antes de um ataque?',options:['Backups offline regulares e software sempre atualizado','Pagar rápido para que os atacantes continuem simpáticos','Renomear seus arquivos para o malware não os achar','Manter todos os discos de backup sempre conectados'],correct:0,explain:'Backups guardados longe do computador permitem restaurar arquivos sem pagar, e as atualizações fecham as brechas que o ransomware usa.'}},
  {id:'fake-websites', t:'Como reconhecer sites falsos e páginas de login clonadas', r:'6 min de leitura', tag:'Phishing', date:'agosto de 2026', paras:[
    'Uma página de login clonada pode parecer idêntica, copiando completamente o logo, as cores e o layout do site real. A única coisa que ela não consegue copiar de forma convincente é o nome de domínio.',
    'Antes de digitar uma senha em qualquer site, verifique com atenção a barra de endereços: procure por palavras extras, erros de digitação ou um domínio completamente diferente do serviço que você espera.',
    'Salve nos favoritos as páginas de login reais dos serviços que você usa com frequência (banco, e-mail, portal da universidade) e use esses favoritos em vez de clicar em links de mensagens ou anúncios de busca.'
-  ], quiz:null},
+  ], quiz:{q:'Uma página de login é idêntica à do seu banco. O que é mais confiável verificar?',options:['O logotipo e as cores usados na página','Se a página abre rápido no seu celular','O quão profissional parece o texto da página','O nome de domínio mostrado na barra de endereço'],correct:3,explain:'Uma página clonada copia tudo, menos o domínio real. Use favoritos para logins importantes.'}},
  {id:'how-vpn-works', t:'Como uma VPN realmente funciona', r:'5 min de leitura', tag:'Segurança na Internet', date:'agosto de 2026', paras:[
    'Uma VPN cria um túnel criptografado entre seu dispositivo e um servidor operado pelo provedor de VPN, para que seu provedor de internet e qualquer pessoa na mesma rede não consigam ver o que você faz.',
    'Ela oculta seu endereço IP e criptografa seu tráfego, o que é especialmente útil em Wi-Fi público, mas não te torna anônimo nem imune a phishing — você ainda pode ser enganado a entregar informações voluntariamente.',
    'Escolha um provedor confiável com uma política clara de não guardar registros, já que uma VPN simplesmente transfere sua confiança do seu provedor de internet para a empresa de VPN.'
-  ], quiz:null},
+  ], quiz:{q:'Qual afirmação sobre VPNs é verdadeira?',options:['Ela torna você totalmente anônimo em qualquer lugar da internet','Ela criptografa seu tráfego, mas não impede você de cair em phishing','Ela protege seu aparelho de todo tipo de malware','Ela elimina a necessidade de usar senhas fortes'],correct:1,explain:'Uma VPN esconde seu tráfego da rede local, mas você ainda pode ser enganado a entregar informações.'}},
  {id:'encryption-plain-language', t:'Entendendo criptografia em linguagem simples', r:'6 min de leitura', tag:'Fundamentos', date:'agosto de 2026', paras:[
    'A criptografia embaralha dados usando uma fórmula matemática e uma chave, transformando informações legíveis em algo sem sentido que só alguém com a chave certa consegue transformar de volta em legível.',
    'Existem dois tipos comuns: a criptografia simétrica, em que a mesma chave bloqueia e desbloqueia os dados, e a criptografia assimétrica, em que uma chave pública bloqueia dados que só uma chave privada correspondente consegue desbloquear — é assim que o HTTPS mantém sua navegação privada.',
    'Você já depende da criptografia dezenas de vezes por dia: sites HTTPS, apps de mensagens e senhas de Wi-Fi a usam silenciosamente em segundo plano.'
-  ], quiz:null},
+  ], quiz:{q:'Na criptografia assimétrica, como os dados são trancados e destrancados?',options:['Uma chave pública tranca e a privada destranca','A mesma chave única tranca e também destranca','Uma senha tranca os dados e uma digital destranca','Nenhuma chave é necessária depois de embaralhar os dados'],correct:0,explain:'A criptografia assimétrica usa um par de chaves. É assim que o HTTPS mantém sua navegação privada.'}},
  {id:'sim-swap', t:'Ataques de troca de SIM e como preveni-los', r:'5 min de leitura', tag:'Engenharia social', date:'agosto de 2026', paras:[
    'Um ataque de troca de SIM acontece quando alguém engana sua operadora para transferir seu número de telefone para o próprio chip SIM, geralmente usando dados pessoais coletados de redes sociais ou vazamentos anteriores.',
    'Uma vez que controlam seu número, podem interceptar códigos de verificação por SMS e redefinir senhas de contas vinculadas a esse número de telefone, incluindo aplicativos bancários.',
    'Proteja-se adicionando um PIN ou uma pergunta de segurança extra com sua operadora, e prefira apps autenticadores em vez de SMS para autenticação de dois fatores sempre que possível.'
-  ], quiz:null},
+  ], quiz:{q:'O que um atacante pode fazer após trocar com sucesso o SIM do seu número?',options:['Ler todas as fotos guardadas no seu celular','Fazer a bateria do celular acabar muito mais rápido','Receber seus códigos SMS e redefinir suas senhas','Ver todos os sites que você visitou no ano passado'],correct:2,explain:'Se controlam seu número, os códigos de verificação por SMS chegam a eles. Coloque um PIN na operadora e prefira apps autenticadores.'}},
  {id:'safe-online-shopping', t:'Hábitos seguros de compras online', r:'5 min de leitura', tag:'Segurança online', date:'agosto de 2026', paras:[
    'Antes de inserir dados de pagamento em uma loja desconhecida, verifique se ela usa HTTPS, se tem um endereço físico real ou uma página de contato, e procure avaliações de fontes fora do próprio site.',
    'Use um cartão de crédito ou um número de cartão virtual em vez de um cartão de débito quando possível, já que cartões de crédito geralmente oferecem proteção contra fraude e opções de contestação mais fortes.',
    'Desconfie de ofertas boas demais para ser verdade, e verifique com atenção o nome de domínio — muitas lojas fraudulentas usam nomes que imitam de perto marcas conhecidas.'
-  ], quiz:null},
+  ], quiz:{q:'Qual forma de pagamento costuma dar mais proteção contra fraudes online?',options:['Um cartão de débito ligado à sua conta principal','Uma transferência bancária direta ao vendedor','Cartões-presente comprados na página do próprio vendedor','Um cartão de crédito ou um número de cartão virtual'],correct:3,explain:'Cartões de crédito oferecem mais opções de contestação, e números virtuais mantêm os dados reais do cartão longe da loja.'}},
  {id:'gaming-account-security', t:'Protegendo sua identidade em plataformas de jogos', r:'5 min de leitura', tag:'Segurança online', date:'agosto de 2026', paras:[
    'Contas de jogos são um alvo frequente porque contêm itens comprados, moeda do jogo e métodos de pagamento vinculados que podem ser revendidos.',
    'Ative o 2FA na sua plataforma de jogos e no seu e-mail, evite baixar "trapaças" ou "mods" de fontes não oficiais, já que essa é uma forma comum de propagação de malware entre jogadores.',
    'Desconfie de mensagens de outros jogadores oferecendo itens grátis em troca dos seus dados de login ou um link de "troca" — quase sempre levam a páginas de phishing feitas para parecer a plataforma real.'
-  ], quiz:null},
+  ], quiz:{q:'Outro jogador oferece itens grátis se você clicar no link de "troca" dele. O que é mais provável?',options:['Uma recompensa dos desenvolvedores do jogo a jogadores fiéis','Uma página de phishing que copia a plataforma para roubar seu login','Um link inofensivo que só abre a janela de troca','Um teste que a plataforma usa para checar sua conta'],correct:1,explain:'Ofertas de itens grátis quase sempre levam a páginas que imitam a plataforma real e roubam seus dados de acesso.'}},
  {id:'account-hacked', t:'O que fazer se sua conta for hackeada', r:'6 min de leitura', tag:'Fundamentos', date:'agosto de 2026', paras:[
    'Aja rápido: mude sua senha imediatamente em outro dispositivo confiável, e saia de todas as sessões ativas se a plataforma permitir.',
    'Ative a autenticação de dois fatores se ainda não tiver feito isso, e verifique o e-mail e o número de telefone de recuperação da sua conta, já que golpistas costumam mudá-los primeiro para te bloquear permanentemente.',
    'Procure por atividade suspeita — mensagens enviadas, compras feitas ou novos apps conectados — e denuncie o comprometimento à plataforma. Se você reutilizou essa senha em outro lugar, mude-a lá também imediatamente.'
-  ], quiz:null},
+  ], quiz:{q:'Sua conta foi invadida. O que fazer primeiro?',options:['Trocar a senha a partir de outro aparelho de confiança','Esperar alguns dias para ver o que o atacante faz','Excluir a conta sem avisar a plataforma','Mandar mensagem ao atacante pedindo que pare'],correct:0,explain:'Aja rápido a partir de um aparelho limpo, encerre todas as sessões e confira o e-mail e o telefone de recuperação.'}},
  {id:'data-breaches', t:'Entendendo vazamentos de dados e o que fazer depois de um', r:'6 min de leitura', tag:'Fundamentos', date:'agosto de 2026', paras:[
    'Um vazamento de dados acontece quando os sistemas de uma empresa são comprometidos e dados de usuários são roubados — e-mails, senhas, às vezes dados de pagamento — que muitas vezes são vendidos ou vazados depois na internet.',
    'Você pode verificar se seu e-mail apareceu em vazamentos conhecidos usando serviços confiáveis de verificação de vazamentos, sem nunca precisar digitar sua senha real.',
    'Se você for afetado, mude a senha dessa conta e de qualquer outro site onde a reutilizou, e fique atento a tentativas posteriores de phishing, já que dados vazados costumam ser usados para criar e-mails fraudulentos convincentes.'
-  ], quiz:null},
+  ], quiz:{q:'Você encontra seu e-mail em um vazamento de dados. Qual é o próximo passo certo?',options:['Ignorar, porque vazamentos antigos são inofensivos','Mudar só o nome do e-mail e manter a mesma senha','Trocar a senha reutilizada e ficar atento a phishing','Enviar sua senha ao site verificador para confirmar'],correct:2,explain:'Dados vazados são usados para criar e-mails de golpe convincentes. Verificadores legítimos nunca precisam da sua senha.'}},
  {id:'mobile-security-basics', t:'Fundamentos de segurança móvel para smartphones', r:'5 min de leitura', tag:'Segurança na Internet', date:'agosto de 2026', paras:[
    'Seu celular contém mais dados pessoais que a maioria dos computadores, e ainda assim costuma receber menos cuidados de segurança. Comece com um bloqueio de tela forte — um PIN ou biometria, não um padrão simples.',
    'Instale apps apenas de lojas oficiais, e revise as permissões que cada app pede; um app de lanterna raramente precisa de acesso aos seus contatos ou mensagens.',
    'Mantenha seu sistema operacional atualizado, já que atualizações costumam corrigir vulnerabilidades de segurança que estão sendo ativamente exploradas.'
-  ], quiz:null},
+  ], quiz:{q:'Um app de lanterna pede acesso aos seus contatos e mensagens. O que você deve fazer?',options:['Permitir, pois todo app precisa de acesso total','Negar, porque uma lanterna não precisa desses dados','Permitir só se o app for grátis para baixar','Permitir e desinstalar o app algumas semanas depois'],correct:1,explain:'Apps só devem receber as permissões que sua função exige. Permissões em excesso são um sinal de alerta.'}},
  {id:'usb-safety', t:'Uso seguro de pen drives e dispositivos externos', r:'4 min de leitura', tag:'Malware', date:'agosto de 2026', paras:[
    'Um pen drive desconhecido encontrado em um estacionamento ou sala de aula é uma ferramenta de ataque clássica: conectá-lo pode instalar malware silenciosamente ou disparar teclas programadas.',
    'Nunca conecte um pen drive de origem desconhecida, nem mesmo por curiosidade, e tenha cuidado com unidades emprestadas, escaneando-as com um antivírus antes de abrir os arquivos.',
    'Para suas próprias unidades, considere criptografar arquivos sensíveis, já que um pen drive perdido pode expor todo o conteúdo a quem o encontrar.'
-  ], quiz:null},
+  ], quiz:{q:'Você encontra um pen drive USB em um estacionamento. Qual é a ação mais segura?',options:['Conectar em um computador velho que você não usa mais','Conectar para procurar o nome do dono','Conectar depois de desligar o Wi-Fi','Não conectar, por mais curioso que esteja'],correct:3,explain:'Um USB desconhecido pode instalar malware em silêncio ou executar teclas automáticas assim que é conectado.'}},
  {id:'fake-job-offers', t:'Como identificar uma vaga de emprego falsa', r:'5 min de leitura', tag:'Phishing', date:'agosto de 2026', paras:[
    'Vagas de emprego falsas geralmente chegam inesperadamente, prometem um salário incomumente alto por um trabalho simples, e avançam muito rápido para uma "entrevista" por chat em vez de um processo seletivo real.',
    'Um grande sinal de alerta é pedirem para você pagar por materiais de treinamento, equipamentos ou uma "taxa de processamento" antes de começar — empregadores legítimos não cobram candidatos para serem contratados.',
    'Verifique a empresa de forma independente: procure por ela fora das mensagens que te enviaram, veja se o perfil e o domínio do recrutador correspondem a uma organização real, e nunca compartilhe seu CPF, dados bancários ou digitalização do seu documento antes de verificar a legitimidade.'
-  ], quiz:null},
+  ], quiz:{q:'Um "recrutador" oferece um emprego, mas antes pede uma taxa de processamento de R$ 50. O que isso indica?',options:['Um golpe: empregador de verdade não cobra candidatos','Uma etapa normal que mostra que você é muito sério','Uma caução que todo empregador costuma exigir','Um sinal de que o emprego paga muito bem mesmo'],correct:0,explain:'Empregadores legítimos nunca cobram para contratar você. Verifique a empresa por conta própria antes de compartilhar dados.'}},
  {id:'cyberbullying-safety', t:'Cyberbullying e assédio online: mantendo-se seguro', r:'5 min de leitura', tag:'Engenharia social', date:'agosto de 2026', paras:[
    'O assédio online pode incluir mensagens indesejadas repetidas, personificação, doxxing (compartilhar informações privadas publicamente) ou ataques coordenados em várias plataformas.',
    'Guarde evidências: tire prints das mensagens com data e hora antes de bloquear ou denunciar, já que plataformas e, se necessário, autoridades vão querer esse registro.',
    'Reforce suas configurações de privacidade, limite quem pode te mandar mensagem ou te marcar, e converse com um adulto de confiança, um professor ou o suporte da plataforma — você não precisa enfrentar o assédio sozinho ou em silêncio.'
-  ], quiz:null},
+  ], quiz:{q:'Você está sofrendo assédio online. O que deve fazer antes de bloquear a pessoa?',options:['Responder com raiva para que ela pare logo','Apagar todas as mensagens para esquecê-las','Fazer capturas de tela com data e hora como prova','Publicar os dados pessoais dela para constrangê-la'],correct:2,explain:'Plataformas e autoridades vão querer um registro: guarde as provas primeiro, depois bloqueie, denuncie e converse com alguém de confiança.'}},
  {id:'backing-up-data', t:'Como fazer backup dos seus dados corretamente', r:'4 min de leitura', tag:'Fundamentos', date:'agosto de 2026', paras:[
    'Uma boa estratégia de backup segue a regra 3-2-1: mantenha pelo menos três cópias dos seus dados, em dois tipos diferentes de armazenamento, com uma cópia guardada em um local fisicamente separado.',
    'O armazenamento em nuvem cobre bem a cópia externa, enquanto um HD externo cobre a segunda cópia local. Automatize os backups sempre que possível, já que um backup que você esquece de rodar não é backup nenhum.',
    'Teste seus backups de vez em quando restaurando de fato um arquivo — um backup que não consegue ser restaurado é só espaço de armazenamento desperdiçado.'
-  ], quiz:null}
+  ], quiz:{q:'O que a regra de backup 3-2-1 recomenda?',options:['Três backups feitos no mesmo HD externo','Três cópias, em dois tipos de armazenamento, uma fora do local','Duas cópias na nuvem e uma impressa em papel','Uma cópia, testada a cada duas semanas, em três pastas'],correct:1,explain:'Espalhar as cópias por tipos de armazenamento e locais diferentes garante que uma falha não destrua tudo.'}}
 ];

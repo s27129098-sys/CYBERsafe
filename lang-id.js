@@ -293,7 +293,7 @@ ARTICLES.id = [
    '8. Membiarkan perangkat tidak terkunci di ruang bersama seperti perpustakaan atau asrama.',
    '9. Mempercayai pesan hanya karena tampaknya berasal dari teman, karena banyak serangan menyebar dengan membajak akun asli.',
    '10. Berasumsi itu tidak akan terjadi padaku. Penyerang biasanya menebar jaring lebar alih-alih memilih korban satu per satu.'
-  ], quiz:null
+  ], quiz:{q:'Salah satu akunmu muncul dalam kebocoran data. Mengapa memakai kata sandi yang sama di mana-mana sangat berisiko?',options:['Situs menghapus akun yang kata sandinya sama','Kata sandi berulang membuat setiap login lebih lambat','Satu kata sandi bocor dapat membuka semua akun yang memakainya','Pengelola kata sandi menolak menyimpan duplikat'],correct:2,explain:'Penyerang otomatis mencoba kata sandi bocor di situs lain, jadi satu kebocoran bisa membuka banyak akun. Pakai kata sandi unik untuk tiap akun.'}
  },
  {id:'social-engineering', t:'Seperti apa rekayasa sosial dalam kehidupan nyata', r:'6 menit baca', tag:'Rekayasa Sosial', date:'Agustus 2026',
   paras:[
@@ -302,7 +302,7 @@ ARTICLES.id = [
    'Versi lain terjadi lewat media sosial: pesan dari akun yang terlihat seperti teman, meminta uang dengan mendesak karena mereka "terjebak di luar negeri." Akun itu kemungkinan sudah dibajak sebelumnya lewat upaya phishing terpisah.',
    'Serangan ini berhasil karena mengeksploitasi naluri yang normal dan sehat — kesediaan membantu, rasa hormat pada otoritas, dan kepercayaan pada orang yang kita kenal. Pertahanannya bukan paranoia, tetapi verifikasi: tutup telepon dan hubungi balik perusahaan lewat nomor resmi mereka, atau konfirmasi dengan teman lewat saluran berbeda sebelum mengirim uang.',
    'Jika sesuatu menciptakan tekanan untuk bertindak cepat dan melewatkan pemeriksaan normalmu, tekanan itu sendiri sudah menjadi tanda peringatan.'
-  ], quiz:null
+  ], quiz:{q:'Penelepon mengaku dukungan teknis dan memintamu memasang alat bantuan jarak jauh. Apa respons terbaik?',options:['Tutup telepon dan hubungi balik perusahaan di nomor resminya','Pasang saja, karena staf dukungan adalah ahli tepercaya','Pasang, tetapi hanya bagikan layar, bukan file','Minta nomor pegawainya, lalu pasang alatnya'],correct:0,explain:'Alat jarak jauh memberi kendali penuh atas perangkatmu. Verifikasi berarti mengakhiri panggilan dan menghubungi perusahaan sendiri lewat jalur resmi.'}
  },
  {id:'securing-social-media', t:'Daftar periksa cepat untuk mengamankan akun media sosialmu', r:'5 menit baca', tag:'Keamanan Online', date:'Agustus 2026',
   paras:[
@@ -311,7 +311,7 @@ ARTICLES.id = [
    'Tinjau aplikasi yang terhubung dan login pihak ketiga secara berkala. Aplikasi lama yang tidak lagi kamu gunakan mungkin masih memiliki akses ke akun dan datamu.',
    'Tetapkan kata sandi yang kuat dan unik untuk setiap platform, dan periksa apakah emailmu pernah muncul dalam kebocoran data yang diketahui.',
    'Terakhir, bersikaplah hati-hati tentang apa yang kamu bagikan secara publik. Tanggal lahir, nama sekolah, dan tag lokasi semuanya memberi penyerang bahan untuk phishing maupun menebak pertanyaan keamanan.'
-  ], quiz:null
+  ], quiz:{q:'Opsi dua langkah mana yang umumnya paling aman untuk akun media sosial?',options:['Kode SMS yang dikirim ke nomor teleponmu','Pertanyaan keamanan tentang sekolah pertamamu','Kata sandi kedua yang mirip dengan yang pertama','Aplikasi autentikator yang membuat kode di perangkatmu'],correct:3,explain:'Kode SMS bisa dicegat lewat serangan tukar SIM. Aplikasi autentikator menyimpan kode di perangkatmu sendiri.'}
  },
  {id:'public-wifi', t:'Mengapa kamu harus berpikir dua kali sebelum menggunakan Wi-Fi publik', r:'5 menit baca', tag:'Keamanan Internet', date:'Agustus 2026',
   paras:[
@@ -320,81 +320,81 @@ ARTICLES.id = [
    'Situs web HTTPS mengenkripsi datamu bahkan di Wi-Fi publik, yang sangat membantu, tetapi tidak semua aplikasi atau koneksi menggunakannya secara konsisten. Hindari masuk ke akun perbankan atau akun sensitif lainnya di jaringan publik jika bisa.',
    'VPN mengenkripsi semua lalu lintas datamu terlepas dari aplikasi mana yang mengirimkannya, menutup sebagian besar celah ini. Ini salah satu peningkatan paling sederhana yang bisa dilakukan sebelum rutin menggunakan jaringan publik.',
    'Jika ragu, gunakan data seluler untuk hal sensitif apa pun alih-alih jaringan Wi-Fi yang tidak dikenal.'
-  ], quiz:null
+  ], quiz:{q:'Kamu harus mengecek saldo bank sambil duduk di kafe. Pilihan paling aman?',options:['Sambung ke jaringan "Free WiFi" dengan sinyal terkuat','Pakai data seluler, bukan jaringan kafe','Matikan kunci layar agar ponsel tersambung lebih cepat','Login cepat dan berharap tidak ada yang melihat'],correct:1,explain:'Hotspot palsu dan jaringan tak aman membuat orang lain bisa melihat lalu lintasmu. Data seluler menghindari jaringan bersama sepenuhnya.'}
  },
  {id:'2fa-explained', t:'Autentikasi dua faktor, dijelaskan secara sederhana', r:'5 menit baca', tag:'Kata Sandi', date:'Agustus 2026', paras:[
    'Autentikasi dua faktor (2FA) menambahkan bukti identitas kedua selain kata sandimu — sesuatu yang kamu miliki (ponsel) atau sesuatu yang kamu adalah (sidik jari), bukan hanya sesuatu yang kamu ketahui.',
    'Bahkan jika penyerang mencuri kata sandimu dalam kebocoran data, mereka tetap tidak bisa masuk tanpa faktor kedua itu, itulah sebabnya 2FA memblokir sebagian besar pengambilalihan akun otomatis.',
    'Aplikasi autentikator (seperti Google Authenticator atau Authy) umumnya lebih aman daripada kode SMS, karena SMS bisa dicegat lewat serangan SIM-swap. Aktifkan 2FA terlebih dahulu di emailmu, karena itu adalah kunci pemulihan untuk hampir semua yang lain.'
-  ], quiz:null},
+  ], quiz:{q:'Mengapa sebaiknya mengaktifkan autentikasi dua faktor di email terlebih dahulu?',options:['Hanya akun email yang mendukung 2FA','Ini mencegah orang lain mengirimimu pesan spam','Email bisa mereset kata sandi sebagian besar akunmu yang lain','Ini memberi kotak suratmu ruang penyimpanan tambahan gratis'],correct:2,explain:'Email adalah kunci pemulihan hampir semua akun lain, jadi melindunginya juga melindungi akunmu yang lain.'}},
  {id:'ransomware-explained', t:'Apa itu ransomware, dan bagaimana cara menghindarinya', r:'6 menit baca', tag:'Malware', date:'Agustus 2026', paras:[
    'Ransomware adalah malware yang mengenkripsi filemu dan meminta pembayaran, biasanya dalam cryptocurrency, untuk kunci pembukanya. Ia menyebar lewat lampiran email berbahaya, unduhan perangkat lunak palsu, dan flashdisk USB yang terinfeksi.',
    'Membayar tebusan tidak dianjurkan: tidak ada jaminan filemu akan kembali, dan itu mendanai serangan lebih lanjut. Pertahanan sebenarnya adalah pencegahan dan cadangan data.',
    'Simpan cadangan rutin di drive yang tidak selalu terhubung ke komputermu, jaga perangkat lunak tetap diperbarui, dan jangan pernah membuka lampiran tak terduga, bahkan dari orang yang kamu kenal, karena akun mereka mungkin sudah dibobol.'
-  ], quiz:null},
+  ], quiz:{q:'Kebiasaan mana yang paling melindungimu dari ransomware sebelum serangan terjadi?',options:['Cadangan offline rutin dan pembaruan perangkat lunak','Segera membayar agar penyerang tetap bersikap ramah','Mengganti nama file agar malware tidak menemukannya','Membiarkan semua drive cadangan selalu terpasang'],correct:0,explain:'Cadangan yang disimpan jauh dari komputer memungkinkan memulihkan file tanpa membayar, dan pembaruan menutup celah yang dipakai ransomware.'}},
  {id:'fake-websites', t:'Cara mengenali situs web palsu dan halaman login tiruan', r:'6 menit baca', tag:'Phishing', date:'Agustus 2026', paras:[
    'Halaman login tiruan bisa terlihat sangat mirip, menyalin logo, warna, dan tata letak situs asli sepenuhnya. Satu hal yang tidak bisa disalin secara meyakinkan adalah nama domainnya.',
    'Sebelum mengetikkan kata sandi di mana pun, periksa bilah alamat dengan cermat: cari kata tambahan, salah eja, atau domain yang sama sekali berbeda dari layanan yang kamu harapkan.',
    'Bookmark halaman login asli dari layanan yang sering kamu gunakan (bank, email, portal universitas) dan gunakan bookmark tersebut alih-alih mengklik tautan dari pesan atau iklan pencarian.'
-  ], quiz:null},
+  ], quiz:{q:'Halaman login tampak sama persis dengan milik banknya. Apa yang paling andal diperiksa?',options:['Logo dan warna yang dipakai di halaman','Apakah halaman terbuka cepat di ponselmu','Seberapa profesional teks di halaman itu','Nama domain yang tampil di bilah alamat'],correct:3,explain:'Halaman tiruan bisa menyalin semuanya kecuali domain aslinya. Gunakan bookmark untuk login penting.'}},
  {id:'how-vpn-works', t:'Bagaimana VPN sebenarnya bekerja', r:'5 menit baca', tag:'Keamanan Internet', date:'Agustus 2026', paras:[
    'VPN membuat terowongan terenkripsi antara perangkatmu dan server yang dioperasikan oleh penyedia VPN, sehingga penyedia internetmu dan siapa pun di jaringan yang sama tidak bisa melihat apa yang kamu lakukan.',
    'Ia menyembunyikan alamat IP-mu dan mengenkripsi lalu lintas datamu, yang sangat berguna di Wi-Fi publik, tetapi tidak membuatmu anonim atau kebal dari phishing — kamu masih bisa tertipu untuk memberikan informasi secara sukarela.',
    'Pilih penyedia terpercaya dengan kebijakan tanpa-log yang jelas, karena VPN hanya memindahkan kepercayaanmu dari penyedia internetmu ke perusahaan VPN.'
-  ], quiz:null},
+  ], quiz:{q:'Pernyataan mana tentang VPN yang benar?',options:['VPN membuatmu sepenuhnya anonim di mana pun di internet','VPN mengenkripsi lalu lintasmu tetapi tidak mencegah phishing','VPN melindungi perangkatmu dari semua jenis malware','VPN menghilangkan kebutuhan akan kata sandi yang kuat'],correct:1,explain:'VPN menyembunyikan lalu lintasmu dari jaringan lokal, tetapi kamu masih bisa ditipu untuk menyerahkan informasi.'}},
  {id:'encryption-plain-language', t:'Memahami enkripsi dalam bahasa sederhana', r:'6 menit baca', tag:'Dasar-dasar', date:'Agustus 2026', paras:[
    'Enkripsi mengacak data menggunakan rumus matematika dan sebuah kunci, mengubah informasi yang bisa dibaca menjadi omong kosong yang hanya bisa diubah kembali oleh seseorang dengan kunci yang tepat.',
    'Ada dua jenis umum: enkripsi simetris, di mana kunci yang sama mengunci dan membuka data, dan enkripsi asimetris, di mana kunci publik mengunci data yang hanya bisa dibuka oleh kunci privat yang sesuai — begini cara HTTPS menjaga privasi penjelajahanmu.',
    'Kamu sudah mengandalkan enkripsi puluhan kali sehari: situs web HTTPS, aplikasi pesan, dan kata sandi Wi-Fi semuanya menggunakannya secara diam-diam di latar belakang.'
-  ], quiz:null},
+  ], quiz:{q:'Pada enkripsi asimetris, bagaimana data dikunci dan dibuka?',options:['Kunci publik mengunci, kunci privat pasangannya membuka','Satu kunci yang sama mengunci sekaligus membuka','Kata sandi mengunci dan sidik jari yang membuka','Tidak perlu kunci apa pun setelah data diacak'],correct:0,explain:'Enkripsi asimetris memakai sepasang kunci. Begitulah HTTPS menjaga privasi penjelajahanmu.'}},
  {id:'sim-swap', t:'Serangan SIM-swap dan cara mencegahnya', r:'5 menit baca', tag:'Rekayasa Sosial', date:'Agustus 2026', paras:[
    'Serangan SIM-swap terjadi ketika seseorang menipu operator selulermu untuk memindahkan nomor teleponmu ke kartu SIM mereka, sering menggunakan detail pribadi yang dikumpulkan dari media sosial atau kebocoran sebelumnya.',
    'Setelah mereka menguasai nomormu, mereka bisa mencegat kode verifikasi berbasis SMS dan mengatur ulang kata sandi di akun yang terhubung ke nomor telepon itu, termasuk aplikasi perbankan.',
    'Lindungi dirimu dengan menambahkan PIN atau pertanyaan keamanan tambahan dengan operator selulermu, dan lebih pilih aplikasi autentikator daripada SMS untuk autentikasi dua faktor jika memungkinkan.'
-  ], quiz:null},
+  ], quiz:{q:'Apa yang bisa dilakukan penyerang setelah berhasil menukar SIM nomormu?',options:['Membaca semua foto yang tersimpan di ponselmu','Membuat baterai ponselmu jauh lebih cepat habis','Menerima kode SMS-mu dan mereset kata sandi akunmu','Melihat setiap situs yang kamu kunjungi tahun lalu'],correct:2,explain:'Jika mereka menguasai nomormu, kode verifikasi SMS masuk ke mereka. Pasang PIN di operator dan pilih aplikasi autentikator.'}},
  {id:'safe-online-shopping', t:'Kebiasaan belanja online yang aman', r:'5 menit baca', tag:'Keamanan Online', date:'Agustus 2026', paras:[
    'Sebelum memasukkan detail pembayaran di toko yang tidak dikenal, periksa HTTPS, alamat fisik nyata atau halaman kontak, dan ulasan dari sumber di luar situs itu sendiri.',
    'Gunakan kartu kredit atau nomor kartu virtual alih-alih kartu debit jika memungkinkan, karena kartu kredit umumnya menawarkan perlindungan penipuan dan opsi sengketa yang lebih kuat.',
    'Waspadalah terhadap penawaran yang terlihat terlalu bagus untuk menjadi nyata, dan periksa ulang nama domain dengan cermat — banyak toko penipuan menggunakan nama yang meniru merek terkenal dengan sangat mirip.'
-  ], quiz:null},
+  ], quiz:{q:'Metode pembayaran mana yang biasanya memberi perlindungan penipuan lebih kuat secara daring?',options:['Kartu debit yang terhubung ke rekening utamamu','Transfer bank langsung ke penjual','Kartu hadiah yang dibeli lewat halaman penjual sendiri','Kartu kredit atau nomor kartu virtual'],correct:3,explain:'Kartu kredit punya opsi sengketa yang lebih kuat, dan nomor virtual menjauhkan data kartu aslimu dari toko.'}},
  {id:'gaming-account-security', t:'Melindungi identitasmu di platform gaming', r:'5 menit baca', tag:'Keamanan Online', date:'Agustus 2026', paras:[
    'Akun gaming sering menjadi target karena menyimpan item yang dibeli, mata uang dalam game, dan metode pembayaran terhubung yang bisa dijual kembali.',
    'Aktifkan 2FA di platform gaming dan emailmu, hindari mengunduh "cheat" atau "mod" dari sumber tidak resmi, karena ini cara umum penyebaran malware di kalangan gamer.',
    'Waspadalah terhadap pesan dari pemain lain yang menawarkan item gratis dengan imbalan detail loginmu atau tautan "trade" — hampir selalu mengarah ke halaman phishing yang dirancang menyerupai platform asli.'
-  ], quiz:null},
+  ], quiz:{q:'Pemain lain menawarkan item gratis jika kamu mengeklik tautan "trade"-nya. Kemungkinan terbesar apa?',options:['Hadiah dari pengembang game untuk pemain setia','Halaman phishing yang meniru platform untuk mencuri login-mu','Tautan tak berbahaya yang hanya membuka jendela trade','Tes yang dipakai platform untuk memeriksa akunmu'],correct:1,explain:'Tawaran item gratis hampir selalu mengarah ke halaman yang meniru platform asli dan mencuri data loginmu.'}},
  {id:'account-hacked', t:'Apa yang harus dilakukan jika akunmu diretas', r:'6 menit baca', tag:'Dasar-dasar', date:'Agustus 2026', paras:[
    'Bertindaklah dengan cepat: ganti kata sandimu segera dari perangkat terpercaya yang berbeda, dan keluar dari semua sesi aktif jika platform mengizinkannya.',
    'Aktifkan autentikasi dua faktor jika belum, dan periksa email pemulihan dan nomor telepon akunmu, karena penyerang sering mengubahnya terlebih dahulu untuk menguncimu secara permanen.',
    'Periksa aktivitas mencurigakan — pesan yang dikirim, pembelian yang dilakukan, atau aplikasi terhubung baru — dan laporkan pembobolan itu ke platform. Jika kamu menggunakan ulang kata sandi itu di tempat lain, ganti juga di sana segera.'
-  ], quiz:null},
+  ], quiz:{q:'Akunmu diretas. Apa yang harus dilakukan pertama kali?',options:['Ganti kata sandi dari perangkat lain yang tepercaya','Tunggu beberapa hari untuk melihat apa yang dilakukan penyerang','Hapus akun tanpa menghubungi platform','Kirim pesan ke penyerang agar berhenti'],correct:0,explain:'Bertindak cepat dari perangkat yang bersih, keluar dari semua sesi, dan periksa email serta nomor telepon pemulihan.'}},
  {id:'data-breaches', t:'Memahami kebocoran data dan apa yang harus dilakukan setelahnya', r:'6 menit baca', tag:'Dasar-dasar', date:'Agustus 2026', paras:[
    'Kebocoran data terjadi ketika sistem sebuah perusahaan dibobol dan data pengguna — email, kata sandi, terkadang detail pembayaran — dicuri, sering kemudian dijual atau bocor secara online.',
    'Kamu bisa memeriksa apakah emailmu pernah muncul dalam kebocoran yang diketahui menggunakan layanan pengecekan kebocoran terpercaya, tanpa perlu memasukkan kata sandi aslimu.',
    'Jika kamu terdampak, ganti kata sandi akun itu dan di mana pun kamu menggunakannya ulang, dan waspadai upaya phishing lanjutan, karena data yang bocor sering digunakan untuk membuat email penipuan yang meyakinkan.'
-  ], quiz:null},
+  ], quiz:{q:'Emailmu ditemukan dalam kebocoran data. Langkah berikutnya yang tepat?',options:['Abaikan saja, karena kebocoran lama tidak berbahaya','Ganti hanya nama emailmu dan pertahankan kata sandinya','Ganti kata sandi yang dipakai ulang dan waspadai phishing','Kirim kata sandimu ke situs pemeriksa untuk memastikannya'],correct:2,explain:'Data yang bocor dipakai untuk membuat email penipuan yang meyakinkan. Pemeriksa kebocoran asli tidak pernah butuh kata sandimu.'}},
  {id:'mobile-security-basics', t:'Dasar-dasar keamanan mobile untuk smartphone', r:'5 menit baca', tag:'Keamanan Internet', date:'Agustus 2026', paras:[
    'Ponselmu menyimpan lebih banyak data pribadi daripada kebanyakan komputer, namun sering mendapat lebih sedikit tindakan pencegahan keamanan. Mulailah dengan kunci layar yang kuat — PIN atau biometrik, bukan pola sederhana.',
    'Instal aplikasi hanya dari toko aplikasi resmi, dan tinjau izin yang diminta sebuah aplikasi; aplikasi senter jarang membutuhkan akses ke kontak atau pesanmu.',
    'Jaga sistem operasimu tetap diperbarui, karena pembaruan sering menambal kerentanan keamanan yang sedang aktif dieksploitasi.'
-  ], quiz:null},
+  ], quiz:{q:'Aplikasi senter meminta akses ke kontak dan pesanmu. Apa yang sebaiknya dilakukan?',options:['Izinkan, karena setiap aplikasi butuh akses penuh','Tolak, karena senter tidak membutuhkan data itu','Izinkan hanya jika aplikasinya gratis diunduh','Izinkan lalu hapus aplikasi beberapa minggu kemudian'],correct:1,explain:'Aplikasi hanya boleh mendapat izin yang dibutuhkan fungsinya. Izin berlebihan adalah tanda bahaya.'}},
  {id:'usb-safety', t:'Penggunaan aman flashdisk USB dan perangkat eksternal', r:'4 menit baca', tag:'Malware', date:'Agustus 2026', paras:[
    'Flashdisk USB yang tidak dikenal yang ditemukan di tempat parkir atau ruang kelas adalah alat serangan klasik: mencolokkannya bisa diam-diam menginstal malware atau memicu ketukan tombol yang sudah diprogram.',
    'Jangan pernah mencolokkan flashdisk USB dari sumber yang tidak diketahui, bahkan karena penasaran, dan berhati-hatilah dengan drive pinjaman, pindai dengan antivirus sebelum membuka file.',
    'Untuk drive milikmu sendiri, pertimbangkan mengenkripsi file sensitif, karena flashdisk USB yang hilang bisa mengekspos semua isinya kepada siapa pun yang menemukannya.'
-  ], quiz:null},
+  ], quiz:{q:'Kamu menemukan flash drive USB di tempat parkir. Tindakan paling aman?',options:['Colokkan ke komputer lama yang tak kamu pakai lagi','Colokkan untuk mencari nama pemiliknya','Colokkan setelah mematikan Wi-Fi','Jangan colokkan, seberapa pun penasarannya kamu'],correct:3,explain:'USB tak dikenal bisa diam-diam memasang malware atau menjalankan ketikan otomatis begitu terhubung.'}},
  {id:'fake-job-offers', t:'Cara mengenali penipuan tawaran kerja palsu', r:'5 menit baca', tag:'Phishing', date:'Agustus 2026', paras:[
    'Tawaran kerja palsu sering datang tak terduga, menjanjikan gaji yang tidak biasa tingginya untuk pekerjaan sederhana, dan bergerak sangat cepat menuju "wawancara" lewat chat alih-alih proses perekrutan yang sebenarnya.',
    'Tanda peringatan utama adalah diminta membayar untuk materi pelatihan, peralatan, atau "biaya pemrosesan" sebelum mulai — perusahaan yang sah tidak membebankan biaya kepada kandidat untuk dipekerjakan.',
    'Verifikasi perusahaan itu secara mandiri: cari di luar pesan yang mereka kirim kepadamu, periksa apakah profil dan domain perekrut cocok dengan organisasi asli, dan jangan pernah membagikan KTP, detail bank, atau scan paspormu sebelum memverifikasi keabsahannya.'
-  ], quiz:null},
+  ], quiz:{q:'Seorang "perekrut" menawarkan pekerjaan tetapi meminta biaya administrasi $50 lebih dulu. Apa artinya?',options:['Penipuan, karena pemberi kerja asli tak memungut biaya','Langkah normal yang menunjukkan bahwa kamu serius','Uang jaminan yang diminta oleh setiap pemberi kerja','Tanda bahwa gaji pekerjaan itu memang sangat tinggi'],correct:0,explain:'Pemberi kerja yang sah tidak pernah menarik biaya agar kamu diterima. Verifikasi perusahaan secara mandiri sebelum membagikan data.'}},
  {id:'cyberbullying-safety', t:'Cyberbullying dan pelecehan online: tetap aman', r:'5 menit baca', tag:'Rekayasa Sosial', date:'Agustus 2026', paras:[
    'Pelecehan online bisa mencakup pesan yang tidak diinginkan berulang, penyamaran identitas, doxxing (membagikan informasi pribadi secara publik), atau serangan terkoordinasi di berbagai platform.',
    'Simpan bukti: tangkap layar pesan dengan stempel waktu sebelum memblokir atau melaporkan, karena platform dan, jika perlu, pihak berwenang akan membutuhkan catatan itu.',
    'Perketat pengaturan privasimu, batasi siapa yang bisa mengirim pesan atau menandaimu, dan bicaralah dengan orang dewasa terpercaya, guru, atau dukungan platform — kamu tidak harus menghadapi pelecehan sendirian atau diam-diam.'
-  ], quiz:null},
+  ], quiz:{q:'Kamu dilecehkan secara daring. Apa yang sebaiknya dilakukan sebelum memblokir orangnya?',options:['Balas dengan marah agar mereka langsung berhenti','Hapus semua pesan agar kamu melupakannya','Ambil tangkapan layar bertanggal sebagai bukti','Unggah data pribadinya untuk mempermalukannya'],correct:2,explain:'Platform dan pihak berwenang akan butuh catatan, jadi simpan bukti dahulu, lalu blokir, laporkan, dan bicara dengan orang tepercaya.'}},
  {id:'backing-up-data', t:'Membuat cadangan datamu dengan cara yang benar', r:'4 menit baca', tag:'Dasar-dasar', date:'Agustus 2026', paras:[
    'Strategi cadangan yang baik mengikuti aturan 3-2-1: simpan setidaknya tiga salinan datamu, di dua jenis penyimpanan yang berbeda, dengan satu salinan disimpan di tempat yang secara fisik terpisah.',
    'Penyimpanan cloud menangani salinan lepas lokasi dengan baik, sementara drive eksternal mencakup salinan lokal kedua. Otomatiskan cadangan jika memungkinkan, karena cadangan yang lupa kamu jalankan sama sekali bukan cadangan.',
    'Uji cadanganmu sesekali dengan benar-benar memulihkan sebuah file — cadangan yang tidak bisa dipulihkan hanyalah ruang penyimpanan yang terbuang.'
-  ], quiz:null}
+  ], quiz:{q:'Apa yang direkomendasikan aturan cadangan 3-2-1?',options:['Tiga cadangan yang dibuat di satu drive eksternal yang sama','Tiga salinan, di dua jenis penyimpanan, satu di lokasi terpisah','Dua salinan di cloud dan satu dicetak di kertas','Satu salinan, diuji tiap dua minggu, disimpan di tiga folder'],correct:1,explain:'Menyebar salinan ke berbagai jenis penyimpanan dan lokasi memastikan satu kegagalan tidak menghancurkan semuanya.'}}
 ];
