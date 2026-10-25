@@ -40,6 +40,7 @@ function applyLanguage(){
   renderLearn();
   renderPresentations();
   renderCountries();
+  renderTeam();
   renderStats();
   renderTimeline();
   renderRoadmap();
@@ -586,11 +587,25 @@ function renderCountries(){
       + '<div class="cc-langs">'+langs+'</div>'+team+'</div>';
   }).join('');
 }
+function renderTeam(){
+  var grid=document.getElementById('teamGrid');
+  if(!grid || typeof COUNTRIES==='undefined' || !COUNTRIES) return;
+  var html='';
+  COUNTRIES.forEach(function(c){
+    (c.reps||[]).forEach(function(name){
+      var w=name.trim().split(/\s+/);
+      var ini=(w[0].charAt(0)+(w.length>1? w[w.length-1].charAt(0) : '')).toUpperCase();
+      html+='<div class="team-card"><div class="avatar">'+ini+'</div><div><h4>'+name+'</h4><p>'+t('where_rep')+'</p><p class="tc-country">'+c.name+' · '+c.code+'</p></div></div>';
+    });
+  });
+  grid.innerHTML=html;
+}
 (function syncEntryStat(){
   var seen={}; COUNTRIES.forEach(function(c){ c.langs.forEach(function(l){ seen[l.lang]=1; }); });
   var el=document.querySelector('.entry-stat');
   if(el) el.textContent = COUNTRIES.length+' COUNTRIES \u00b7 '+Object.keys(seen).length+' LANGUAGES';
   renderCountries();
+  renderTeam();
 })();
 
 var entryEl=document.getElementById('entry');
