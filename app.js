@@ -551,20 +551,26 @@ function checkUrl(){
 /* ready:true = the site is already translated into that language.
    ready:false = volunteers are still translating; the option is shown but not selectable yet. */
 var COUNTRIES=[
- {id:'860', code:'UZ', name:'Uzbekistan', native:'Oʻzbekiston', founders:['Ataxanov Shoxjaxon','Ilhomov Mirjahon','Boburjon Khamidjonov'], volunteers:[],
+ {id:'860', code:'UZ', name:'Uzbekistan', native:'Oʻzbekiston', founders:['Ataxanov Shoxjaxon','Ilhomov Mirjahon','Boburjon Khamidjonov'], reps:['Axmadjanova Ziyoda'], volunteers:[],
   langs:[{name:'Oʻzbekcha', tag:'UZ', lang:'uz', ready:true},{name:'Русский', tag:'RU', lang:'ru', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
- {id:'586', code:'PK', name:'Pakistan', native:'پاکستان',
-  langs:[{name:'اردو', tag:'UR', lang:'ur', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
- {id:'360', code:'ID', name:'Indonesia', native:'Indonesia',
+ {id:'036', code:'AU', name:'Australia', native:'Australia', reps:['Neil Magin'],
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'076', code:'BR', name:'Brazil', native:'Brasil', reps:['Silas Carvalho'],
+  langs:[{name:'Português', tag:'PT', lang:'pt', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'180', code:'CD', name:'DR Congo', native:'RD Congo', reps:['Grace Ngoya'],
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'288', code:'GH', name:'Ghana', native:'Ghana', reps:['Derrick Asare'],
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'360', code:'ID', name:'Indonesia', native:'Indonesia', reps:['Makbul Darojat'],
   langs:[{name:'Bahasa Indonesia', tag:'ID', lang:'id', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
- {id:'036', code:'AU', name:'Australia', native:'Australia',
+ {id:'516', code:'NA', name:'Namibia', native:'Namibia', reps:['Ndelitaoudja Heita'],
   langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'566', code:'NG', name:'Nigeria', native:'Nigeria', reps:['Emmanuel Sunday'],
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'586', code:'PK', name:'Pakistan', native:'پاکستان', reps:['Sania Batool Khanzada'],
+  langs:[{name:'اردو', tag:'UR', lang:'ur', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'724', code:'ES', name:'Spain', native:'España',
-  langs:[{name:'Español', tag:'ES', lang:'es', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
- {id:'288', code:'GH', name:'Ghana', native:'Ghana',
-  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]},
- {id:'076', code:'BR', name:'Brazil', native:'Brasil',
-  langs:[{name:'Português', tag:'PT', lang:'pt', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]}
+  langs:[{name:'Español', tag:'ES', lang:'es', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]}
 ];
 var COUNTRY_BY_ID={}; COUNTRIES.forEach(function(c){ COUNTRY_BY_ID[c.id]=c; });
 function renderCountries(){
@@ -574,6 +580,7 @@ function renderCountries(){
     var langs=c.langs.map(function(l){ return '<span class="tag">'+l.name+'</span>'; }).join('');
     var team='';
     if(c.founders && c.founders.length) team+='<p class="cc-team"><b>'+t('where_founders')+':</b> '+c.founders.join(', ')+'</p>';
+    if(c.reps && c.reps.length) team+='<p class="cc-team"><b>'+t('where_rep')+':</b> '+c.reps.join(', ')+'</p>';
     if(c.volunteers && c.volunteers.length) team+='<p class="cc-team"><b>'+t('where_volunteers')+':</b> '+c.volunteers.join(', ')+'</p>';
     return '<div class="country-card"><div class="cc-head"><span class="cc-code">'+c.code+'</span><div><h4>'+c.name+'</h4><span class="cc-native">'+c.native+'</span></div></div>'
       + '<div class="cc-langs">'+langs+'</div>'+team+'</div>';
