@@ -571,7 +571,9 @@ var COUNTRIES=[
  {id:'586', code:'PK', name:'Pakistan', native:'پاکستان', reps:['Sania Batool Khanzada'],
   langs:[{name:'اردو', tag:'UR', lang:'ur', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
  {id:'724', code:'ES', name:'Spain', native:'España',
-  langs:[{name:'Español', tag:'ES', lang:'es', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]}
+  langs:[{name:'Español', tag:'ES', lang:'es', ready:true},{name:'English', tag:'EN', lang:'en', ready:true}]},
+ {id:'840', code:'US', name:'United States', native:'United States', reps:['Leo Lin'],
+  langs:[{name:'English', tag:'EN', lang:'en', ready:true}]}
 ];
 var COUNTRY_BY_ID={}; COUNTRIES.forEach(function(c){ COUNTRY_BY_ID[c.id]=c; });
 function renderCountries(){
