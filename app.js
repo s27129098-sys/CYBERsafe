@@ -127,7 +127,7 @@ function renderArticleGrids(){
     return '<div class="card clickable" onclick="openArticle(\''+a.id+'\')">'
       + '<span class="badge">'+a.tag+'</span>'
       + '<h4 style="margin-top:12px;">'+a.t+'</h4>'
-      + '<p>'+a.r+' · '+t('by_label')+'</p>'
+      + '<p>'+a.r+' · '+t('by_label')+' '+(a.by||'Ataxanov Shoxjaxon')+'</p>'
       + '</div>';
   };
   var home = document.getElementById('articleGrid');
@@ -142,10 +142,26 @@ function renderArticleGrids(){
   if(full) full.innerHTML = list.filter(function(a){ return artFilter<0 || a.cat===artFilter; }).map(cardHtml).join('');
 }
 function articleBody(paras){
+  var pStyle='color:var(--text); font-size:15.5px; line-height:1.8; margin-bottom:16px;';
+  var lStyle='color:var(--text); font-size:15.5px; line-height:1.8; margin:0 0 16px; padding-inline-start:22px;';
   return paras.map(function(p){
     if(p.indexOf('## ')===0) return '<h3 style="font-size:20px; margin:30px 0 12px;">'+p.slice(3)+'</h3>';
-    if(p.indexOf('- ')===0) return '<ul style="color:var(--text); font-size:15.5px; line-height:1.8; margin:0 0 16px 22px;">'+p.split('\n').map(function(li){ return '<li>'+li.replace(/^- /,'')+'</li>'; }).join('')+'</ul>';
-    return '<p style="color:var(--text); font-size:15.5px; line-height:1.8; margin-bottom:16px;">'+p+'</p>';
+    var out='', buf=[], kind='';
+    function flush(){
+      if(!buf.length) return;
+      if(kind==='p') out+='<p style="'+pStyle+'">'+buf.join('<br>')+'</p>';
+      else out+='<'+kind+' style="'+lStyle+'">'+buf.map(function(li){ return '<li>'+li+'</li>'; }).join('')+'</'+kind+'>';
+      buf=[];
+    }
+    p.split('\n').forEach(function(line){
+      var k='p', txt=line;
+      if(/^- /.test(line)){ k='ul'; txt=line.slice(2); }
+      else if(/^\d+\. /.test(line)){ k='ol'; txt=line.replace(/^\d+\. /,''); }
+      if(k!==kind){ flush(); kind=k; }
+      buf.push(txt);
+    });
+    flush();
+    return out;
   }).join('');
 }
 function openArticle(id){
