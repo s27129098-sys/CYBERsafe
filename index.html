@@ -384,6 +384,10 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 .team-card h4{font-size:15px; line-height:1.3;}
 .team-card p{font-size:12.5px; color:var(--text-muted); margin-top:3px; line-height:1.4;}
 .team-card .tc-country{font-family:var(--font-mono); font-size:11px; letter-spacing:.04em; color:var(--text-dim);}
+.filter-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
+.filter-chip{padding:7px 14px; border-radius:100px; border:1px solid var(--border); background:var(--surface-2); color:var(--text-muted); font-size:13px; cursor:pointer; transition:.15s;}
+.filter-chip:hover{border-color:var(--blue); color:var(--text);}
+.filter-chip.active{background:var(--blue-dim); border-color:var(--blue); color:var(--blue);}
 .cc-team b{color:var(--text); font-weight:600;}
 @media(max-width:560px){.country-card{padding:14px 16px;} .cc-head{margin-bottom:10px;} .cc-langs .tag{font-size:12px; padding:5px 10px;}}
 
@@ -653,7 +657,7 @@ body.lang-ur .eyebrow,body.lang-ur .eyebrow-mini{ font-family:'Noto Nastaliq Urd
 
 <section class="page" id="page-articles">
   <div class="page-hero"><span class="eyebrow-mini" data-i18n="s_art_eyebrow">Read</span><h1 data-i18n="articles_title">Articles</h1><p data-i18n="articles_desc">Short, practical reads on staying safe online.</p></div>
-  <div class="section reveal"><div class="grid-3" id="articleListGrid"></div></div>
+  <div class="section reveal"><div class="filter-row" id="articleFilters"></div><div class="grid-3" id="articleListGrid"></div></div>
 </section>
 
 <section class="page" id="page-article-detail">

@@ -119,6 +119,8 @@ document.getElementById('hamburgerBtn').addEventListener('click', function(){ do
 document.getElementById('closeMobile').addEventListener('click', function(){ document.getElementById('mobileMenu').classList.remove('open'); });
 
 /* ---------- ARTICLES ---------- */
+var artFilter=-1;
+function setArtFilter(i){ artFilter=i; renderArticleGrids(); }
 function renderArticleGrids(){
   var list = ARTICLES[currentLang] || ARTICLES.en;
   var cardHtml = function(a){
@@ -130,8 +132,21 @@ function renderArticleGrids(){
   };
   var home = document.getElementById('articleGrid');
   var full = document.getElementById('articleListGrid');
+  var bar = document.getElementById('articleFilters');
   if(home) home.innerHTML = list.slice(0,6).map(cardHtml).join('');
-  if(full) full.innerHTML = list.map(cardHtml).join('');
+  if(bar){
+    var cats = LEARN[currentLang] || LEARN.en;
+    bar.innerHTML = '<button class="filter-chip'+(artFilter<0?' active':'')+'" onclick="setArtFilter(-1)">'+t('art_all')+'</button>'
+      + cats.map(function(c,i){ return '<button class="filter-chip'+(artFilter===i?' active':'')+'" onclick="setArtFilter('+i+')">'+c.name+'</button>'; }).join('');
+  }
+  if(full) full.innerHTML = list.filter(function(a){ return artFilter<0 || a.cat===artFilter; }).map(cardHtml).join('');
+}
+function articleBody(paras){
+  return paras.map(function(p){
+    if(p.indexOf('## ')===0) return '<h3 style="font-size:20px; margin:30px 0 12px;">'+p.slice(3)+'</h3>';
+    if(p.indexOf('- ')===0) return '<ul style="color:var(--text); font-size:15.5px; line-height:1.8; margin:0 0 16px 22px;">'+p.split('\n').map(function(li){ return '<li>'+li.replace(/^- /,'')+'</li>'; }).join('')+'</ul>';
+    return '<p style="color:var(--text); font-size:15.5px; line-height:1.8; margin-bottom:16px;">'+p+'</p>';
+  }).join('');
 }
 function openArticle(id){
   var list = ARTICLES[currentLang] || ARTICLES.en;
@@ -140,7 +155,7 @@ function openArticle(id){
   var quizHtml='';
   if(a.quiz){
     var ord=shuffle(a.quiz.options.map(function(_,k){ return k; }));
-    a={id:a.id,t:a.t,r:a.r,tag:a.tag,date:a.date,paras:a.paras,quiz:{q:a.quiz.q,explain:a.quiz.explain,options:ord.map(function(k){ return a.quiz.options[k]; }),correct:ord.indexOf(a.quiz.correct)}};
+    a={id:a.id,t:a.t,r:a.r,tag:a.tag,date:a.date,by:a.by,paras:a.paras,quiz:{q:a.quiz.q,explain:a.quiz.explain,options:ord.map(function(k){ return a.quiz.options[k]; }),correct:ord.indexOf(a.quiz.correct)}};
     quizHtml='<div class="card" style="margin-top:28px;">'
       + '<span class="eyebrow-mini">'+t('test_yourself_label')+'</span>'
       + '<h4 style="margin:10px 0 14px;">'+a.quiz.q+'</h4>'
@@ -150,8 +165,8 @@ function openArticle(id){
   document.getElementById('articleDetailBody').innerHTML =
     '<span class="badge">'+a.tag+'</span>'
     + '<h1 style="font-size:clamp(24px,4vw,32px); margin:14px 0 10px;">'+a.t+'</h1>'
-    + '<p style="color:var(--text-dim); font-size:13px; margin-bottom:26px;" class="mono">'+a.r+' · '+t('by_label')+' Ataxanov Shoxjaxon · '+a.date+'</p>'
-    + a.paras.map(function(p){ return '<p style="color:var(--text); font-size:15.5px; line-height:1.8; margin-bottom:16px;">'+p+'</p>'; }).join('')
+    + '<p style="color:var(--text-dim); font-size:13px; margin-bottom:26px;" class="mono">'+a.r+' · '+t('by_label')+' '+(a.by||'Ataxanov Shoxjaxon')+' · '+a.date+'</p>'
+    + articleBody(a.paras)
     + quizHtml;
   window.currentArtQuiz=a.quiz;
   navigate('article-detail');

@@ -69,6 +69,7 @@ I18N.id = {
   about_body:"Kami bertiga menciptakan CyberSafe karena edukasi keamanan siber menjadi semakin penting bagi pelajar, sementara banyak anak muda masih belum familiar dengan ancaman online umum seperti phishing, kata sandi lemah, dan rekayasa sosial. Proyek ini adalah upaya bersama kami untuk membuat pengetahuan tersebut gratis, praktis, dan mudah dijangkau.",
   where_eyebrow:"Di mana kami hadir", where_title:"Dimulai di Uzbekistan, kini hadir di {n} negara",
   where_desc:"Pelajaran tersedia dalam bahasa setiap negara, diterjemahkan dan diajarkan oleh relawan pelajar.",
+  art_all:"Semua",
   team_eyebrow:"Tim kami", team_title:"Orang-orang di balik CyberSafe", team_desc:"Perwakilan yang membawa CyberSafe ke negara mereka.",
   where_rep:"Perwakilan negara", where_founders:"Tim pendiri", where_volunteers:"Relawan", hack_sim:"Lab phishing · simulasi",
   tag1:"Pengembangan web", tag2:"Keamanan siber", tag3:"Riset", tag4:"Pembuatan konten",

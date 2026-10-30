@@ -69,6 +69,7 @@ I18N.es = {
   about_body:"Somos tres estudiantes que creamos CyberSafe porque la educación en ciberseguridad es cada vez más importante para los estudiantes, mientras que muchos jóvenes todavía no conocen amenazas comunes en línea como el phishing, las contraseñas débiles y la ingeniería social. Este proyecto es nuestro intento conjunto de hacer ese conocimiento gratuito, práctico y fácil de alcanzar.",
   where_eyebrow:"Dónde estamos", where_title:"Empezamos en Uzbekistán, ahora en {n} países",
   where_desc:"Las lecciones se ofrecen en el idioma de cada país, traducidas e impartidas por estudiantes voluntarios.",
+  art_all:"Todos",
   team_eyebrow:"Nuestro equipo", team_title:"Las personas detrás de CyberSafe", team_desc:"Representantes que llevan CyberSafe a sus países.",
   where_rep:"Representante del país", where_founders:"Equipo fundador", where_volunteers:"Voluntarios", hack_sim:"Laboratorio de phishing · simulación",
   tag1:"Desarrollo web", tag2:"Ciberseguridad", tag3:"Investigación", tag4:"Creación de contenido",
