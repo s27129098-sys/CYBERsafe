@@ -51,16 +51,23 @@ function applyLanguage(){
 
 /* Languages shipped as separate packs, fetched the first time they are picked. */
 var LANG_PACKS={ur:1, es:1, id:1, pt:1};
+/* en/uz/ru keep their UI strings inline; their articles are fetched on demand. */
+var ARTICLE_FILES={en:1, uz:1, ru:1};
 var RTL_LANGS={ur:1};
-function ensureLang(code, cb){
-  if(!LANG_PACKS[code] || I18N[code]) return cb();
+function loadScript(src, cb){
   var s=document.createElement('script');
-  s.src='lang-'+code+'.js';
+  s.src=src;
   s.onload=cb;
   s.onerror=cb;
   document.head.appendChild(s);
 }
+function ensureLang(code, cb){
+  if(LANG_PACKS[code] && !I18N[code]) return loadScript('lang-'+code+'.js', cb);
+  if(ARTICLE_FILES[code] && !ARTICLES[code]) return loadScript('articles-'+code+'.js', cb);
+  cb();
+}
 function setLang(code){
+  if(!LANG_PACKS[code] && !ARTICLE_FILES[code]) code='en';
   ensureLang(code, function(){
     currentLang = I18N[code] ? code : 'en';
     try{ window.localStorage.setItem('csuz_lang', currentLang); }catch(err){}
@@ -122,12 +129,12 @@ document.getElementById('closeMobile').addEventListener('click', function(){ doc
 var artFilter=-1;
 function setArtFilter(i){ artFilter=i; renderArticleGrids(); }
 function renderArticleGrids(){
-  var list = ARTICLES[currentLang] || ARTICLES.en;
+  var list = ARTICLES[currentLang] || ARTICLES.en || [];
   var cardHtml = function(a){
     return '<div class="card clickable" onclick="openArticle(\''+a.id+'\')">'
       + '<span class="badge">'+a.tag+'</span>'
       + '<h4 style="margin-top:12px;">'+a.t+'</h4>'
-      + '<p>'+a.r+' · '+t('by_label')+' '+(a.by||'Ataxanov Shoxjaxon')+'</p>'
+      + '<p>'+a.r+'</p>'
       + '</div>';
   };
   var home = document.getElementById('articleGrid');
@@ -140,6 +147,24 @@ function renderArticleGrids(){
       + cats.map(function(c,i){ return '<button class="filter-chip'+(artFilter===i?' active':'')+'" onclick="setArtFilter('+i+')">'+c.name+'</button>'; }).join('');
   }
   if(full) full.innerHTML = list.filter(function(a){ return artFilter<0 || a.cat===artFilter; }).map(cardHtml).join('');
+}
+var ARTICLE_SOURCES=[
+ [['NCSC (UK): Top tips for staying secure online','https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online'],['NIST: Cybersecurity Framework','https://www.nist.gov/cyberframework'],['NIST SP 800-207: Zero Trust Architecture','https://csrc.nist.gov/pubs/sp/800/207/final']],
+ [['NIST SP 800-63B: Digital Identity Guidelines','https://pages.nist.gov/800-63-3/sp800-63b.html'],['NCSC (UK): Three random words','https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words'],['Google: Turn on 2-Step Verification','https://support.google.com/accounts/answer/185839']],
+ [['NCSC (UK): Phishing and scams','https://www.ncsc.gov.uk/collection/phishing-scams'],['EFF Surveillance Self-Defense: How to avoid phishing attacks','https://ssd.eff.org/module/how-avoid-phishing-attacks'],['NCSC (UK): Phishing guidance','https://www.ncsc.gov.uk/guidance/phishing']],
+ [['NCSC (UK): Ransomware','https://www.ncsc.gov.uk/ransomware/home'],['NCSC (UK): Always back up your most important data','https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/always-back-up-your-most-important-data'],['NIST: Small Business Cybersecurity','https://www.nist.gov/itl/smallbusinesscyber']],
+ [['EFF Surveillance Self-Defense: Choosing the VPN that is right for you','https://ssd.eff.org/module/choosing-vpn-thats-right-you'],['MDN Web Docs: HTTPS','https://developer.mozilla.org/en-US/docs/Glossary/HTTPS'],['EFF Surveillance Self-Defense','https://ssd.eff.org']],
+ [['NCSC (UK): Phishing and scams','https://www.ncsc.gov.uk/collection/phishing-scams'],['EFF Surveillance Self-Defense: How to avoid phishing attacks','https://ssd.eff.org/module/how-avoid-phishing-attacks'],['NCSC (UK): Social media, protect what you publish','https://www.ncsc.gov.uk/guidance/social-media-protect-what-you-publish']],
+ [['Android: Safety','https://www.android.com/safety/'],['Apple Platform Security','https://support.apple.com/guide/security/welcome/web'],['Google: Find, lock or erase a lost Android device','https://support.google.com/android/answer/3265955']],
+ [['EFF: Privacy','https://www.eff.org/issues/privacy'],['GDPR Article 17: Right to erasure','https://gdpr-info.eu/art-17-gdpr/'],['EDPB: Guidelines on the right to be forgotten in search engines','https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-52019-criteria-right-be-forgotten-search-engines_en']]
+];
+function sourcesHtml(cat){
+  var list=ARTICLE_SOURCES[cat]; if(!list) return '';
+  return '<div class="card" style="margin-top:28px;"><span class="eyebrow-mini">'+t('src_title')+'</span>'
+    + '<p style="color:var(--text-muted); font-size:13.5px; margin:10px 0 12px;">'+t('src_note')+'</p>'
+    + '<ul style="margin:0; padding-inline-start:20px; font-size:14px; line-height:1.9;" dir="ltr">'
+    + list.map(function(s){ return '<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">'+s[0]+'</a></li>'; }).join('')
+    + '</ul></div>';
 }
 function articleBody(paras){
   var pStyle='color:var(--text); font-size:15.5px; line-height:1.8; margin-bottom:16px;';
@@ -165,13 +190,13 @@ function articleBody(paras){
   }).join('');
 }
 function openArticle(id){
-  var list = ARTICLES[currentLang] || ARTICLES.en;
+  var list = ARTICLES[currentLang] || ARTICLES.en || [];
   var a=list.find(function(x){ return x.id===id; });
   if(!a) return;
   var quizHtml='';
   if(a.quiz){
     var ord=shuffle(a.quiz.options.map(function(_,k){ return k; }));
-    a={id:a.id,t:a.t,r:a.r,tag:a.tag,date:a.date,by:a.by,paras:a.paras,quiz:{q:a.quiz.q,explain:a.quiz.explain,options:ord.map(function(k){ return a.quiz.options[k]; }),correct:ord.indexOf(a.quiz.correct)}};
+    a={id:a.id,t:a.t,r:a.r,tag:a.tag,date:a.date,cat:a.cat,paras:a.paras,quiz:{q:a.quiz.q,explain:a.quiz.explain,options:ord.map(function(k){ return a.quiz.options[k]; }),correct:ord.indexOf(a.quiz.correct)}};
     quizHtml='<div class="card" style="margin-top:28px;">'
       + '<span class="eyebrow-mini">'+t('test_yourself_label')+'</span>'
       + '<h4 style="margin:10px 0 14px;">'+a.quiz.q+'</h4>'
@@ -181,8 +206,9 @@ function openArticle(id){
   document.getElementById('articleDetailBody').innerHTML =
     '<span class="badge">'+a.tag+'</span>'
     + '<h1 style="font-size:clamp(24px,4vw,32px); margin:14px 0 10px;">'+a.t+'</h1>'
-    + '<p style="color:var(--text-dim); font-size:13px; margin-bottom:26px;" class="mono">'+a.r+' · '+t('by_label')+' '+(a.by||'Ataxanov Shoxjaxon')+' · '+a.date+'</p>'
+    + '<p style="color:var(--text-dim); font-size:13px; margin-bottom:26px;" class="mono">'+a.r+' · '+a.date+'</p>'
     + articleBody(a.paras)
+    + sourcesHtml(a.cat)
     + quizHtml;
   window.currentArtQuiz=a.quiz;
   navigate('article-detail');
